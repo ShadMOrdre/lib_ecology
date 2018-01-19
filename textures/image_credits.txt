@@ -1,0 +1,29 @@
+Original Arrow Arum: texture by demon_boy
+Original Bird of Paradise: texture by demon_boy
+Original Calla Lily: texture by demon_boy
+Original Gerbera: texture by demon_boy
+Original Hibiscus: texture by demon_boy
+Original Orchid: texture by demon_boy
+
+Banana tree: textures by demon_boy
+Birch tree: textures by Gael-de-Sailly
+Cherry Blossom tree: textures by demon_boy
+Fir tree: Fir trees don't exist in the default game. Textures from Forest mod by Gael-de-Sailly
+
+
+High-resolution images were created by Duane from these sources:
+
+sand_with_rocks  https://commons.wikimedia.org/wiki/File:Pebbles_on_beach_at_Broulee_-NSW_-Australia-2Jan2009.jpg
+arrow_arum https://en.wikipedia.org/wiki/File:Peltandra_virginica_MA.jpg
+orchid  https://openclipart.org/detail/174185/orchid
+aster  https://openclipart.org/detail/1779/aster-conspicuus
+hibiscus  https://commons.wikimedia.org/wiki/File:Hibiscus_syriacus_chinensis_RHS.jpeg
+gerbera  https://openclipart.org/detail/23262/flowers-gerbera
+bird_of_paradise  https://commons.wikimedia.org/wiki/File:Hohenheim_-_Strelitzia_reginae.jpg
+cherry_blossom_leaves  https://commons.wikimedia.org/wiki/File:Pink_Cherry_Blossoms.jpg
+birch_leaves  https://commons.wikimedia.org/wiki/File:Birch_leaves_on_sun.jpg
+calla_lilly  https://upload.wikimedia.org/wikipedia/commons/a/ab/Zantedeschia_-_Calla_Lilly2.jpg
+calla_lilly  https://openclipart.org/detail/4847/the-lily
+banana  https://commons.wikimedia.org/wiki/File:Green_bananas_tree.jpg
+banana_leaves  https://commons.wikimedia.org/wiki/File:Banana_Tree_from_Kerala_5001.JPG
+banana_tree  https://en.wikipedia.org/wiki/File:Combat-de-phelsumes-sur-un-bananier.JPG
