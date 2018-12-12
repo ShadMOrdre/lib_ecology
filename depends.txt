@@ -1,12 +1,4 @@
-default
-flowers
-farming
-stairs
-flowers_plus?
-fruit?
+default?
+farming?
 intllib?
 lib_materials?
-drawers?
-bonemeal?
-pkarcs?
-carpathian_mapgen?
