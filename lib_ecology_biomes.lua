@@ -2,551 +2,12 @@
 -- Register biomes
 --
 
-if true then
-	--minetest.clear_registered_biomes()
-
-	-- Permanent ice
-
-	minetest.register_biome({name = "lib_ecology_glacier",
-		node_dust = "default:snowblock",
-		node_top = "default:snowblock",
-		depth_top = 1,
-		node_filler = "default:snowblock",
-		depth_filler = 3,
-		node_stone = "default:ice",
-		node_water_top = "lib_ecology:ice",
-		depth_water_top = 10,
-		--node_water = "",
-		node_river_water = "lib_ecology:ice",
-		y_min = -8,
-		y_max = 31000,
-		heat_point = 0,
-		humidity_point = 50,
-	})
-	minetest.register_biome({name = "lib_ecology_glacier_ocean",
-		node_dust = "default:snowblock",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = -9,
-		heat_point = 0,
-		humidity_point = 50,
-	})
-
-	-- Cold
-	minetest.register_biome({name = "lib_ecology_tundra",
-		--node_dust = "",
-		node_top = "default:dirt_with_snow",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 1,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 2,
-		y_max = 31000,
-		heat_point = 15,
-		humidity_point = 35,
-	})
-	minetest.register_biome({name = "lib_ecology_tundra_beach",
-		--node_dust = "",
-		node_top = "default:gravel",
-		depth_top = 1,
-		node_filler = "default:gravel",
-		depth_filler = 2,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -3,
-		y_max = 1,
-		heat_point = 15,
-		humidity_point = 35,
-	})
-	minetest.register_biome({name = "lib_ecology_tundra_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = -4,
-		heat_point = 15,
-		humidity_point = 35,
-	})
-
-	minetest.register_biome({name = "lib_ecology_taiga",
-		node_dust = "",
-		node_top = "default:dirt_with_snow",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 2,
-		y_max = 31000,
-		heat_point = 15,
-		humidity_point = 65,
-	})
-	minetest.register_biome({name = "lib_ecology_taiga_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = 1,
-		heat_point = 15,
-		humidity_point = 65,
-	})
-	minetest.register_biome({name = "lib_ecology_cold_desert",
-		--node_dust = "",
-		node_top = "default:desert_sand",
-		depth_top = 1,
-		node_filler = "default:desert_sand",
-		depth_filler = 1,
-		node_stone = "default:desert_stone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 5,
-		y_max = 31000,
-		heat_point = 25,
-		humidity_point = 0,
-	})
-	minetest.register_biome({name = "lib_ecology_cold_desert_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		node_stone = "default:desert_stone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = 4,
-		heat_point = 25,
-		humidity_point = 10,
-	})
-
-
-	-- Temperate
-	minetest.register_biome({name = "lib_ecology_stone_grassland",
-		--node_dust = "",
-		node_top = "default:dirt_with_grass",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 1,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 6,
-		y_max = 31000,
-		heat_point = 35,
-		humidity_point = 40,
-	})
-	minetest.register_biome({name = "lib_ecology_stone_grassland_dunes",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 2,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 5,
-		y_max = 5,
-		heat_point = 35,
-		humidity_point = 40,
-	})
-	minetest.register_biome({name = "lib_ecology_stone_grassland_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = 4,
-		heat_point = 35,
-		humidity_point = 40,
-	})
-
-	minetest.register_biome({name = "lib_ecology_coniferous_forest",
-		--node_dust = "",
-		node_top = "default:dirt_with_coniferous_litter",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 6,
-		y_max = 31000,
-		heat_point = 35,
-		humidity_point = 60,
-	})
-	minetest.register_biome({name = "lib_ecology_coniferous_forest_dunes",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 5,
-		y_max = 5,
-		heat_point = 35,
-		humidity_point = 60,
-	})
-	minetest.register_biome({name = "lib_ecology_coniferous_forest_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = 4,
-		heat_point = 35,
-		humidity_point = 60,
-	})
-
-	minetest.register_biome({name = "lib_ecology_sandstone_grassland",
-		--node_dust = "",
-		node_top = "default:dirt_with_dry_grass",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 1,
-		node_stone = "default:sandstone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 6,
-		y_max = 31000,
-		heat_point = 55,
-		humidity_point = 40,
-	})
-	minetest.register_biome({name = "lib_ecology_sandstone_grassland_dunes",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 2,
-		node_stone = "default:sandstone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 5,
-		y_max = 5,
-		heat_point = 55,
-		humidity_point = 40,
-	})
-	minetest.register_biome({name = "lib_ecology_sandstone_grassland_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		node_stone = "default:sandstone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = 4,
-		heat_point = 55,
-		humidity_point = 40,
-	})
-
-	minetest.register_biome({name = "lib_ecology_deciduous_forest",
-		--node_dust = "",
-		node_top = "default:dirt_with_grass",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 1,
-		y_max = 31000,
-		heat_point = 60,
-		humidity_point = 60,
-	})
-	minetest.register_biome({name = "lib_ecology_deciduous_forest_swamp",
-		--node_dust = "",
-		node_top = "default:dirt",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -3,
-		y_max = 0,
-		heat_point = 60,
-		humidity_point = 60,
-	})
-	minetest.register_biome({name = "lib_ecology_deciduous_forest_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = -4,
-		heat_point = 60,
-		humidity_point = 60,
-	})
-
-	-- Hot
-	minetest.register_biome({name = "lib_ecology_desert",
-		--node_dust = "",
-		node_top = "default:desert_sand",
-		depth_top = 1,
-		node_filler = "default:desert_sandstone",
-		depth_filler = 1,
-		node_stone = "default:desert_stone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 5,
-		y_max = 31000,
-		heat_point = 80,
-		humidity_point = 10,
-	})
-	minetest.register_biome({name = "lib_ecology_desert_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		node_stone = "default:desert_stone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = 4,
-		heat_point = 80,
-		humidity_point = 10,
-	})
-
-
-	minetest.register_biome({name = "lib_ecology_savanna",
-		--node_dust = "",
-		node_top = "default:dirt_with_dry_grass",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 1,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 1,
-		y_max = 31000,
-		heat_point = 80,
-		humidity_point = 25,
-	})
-	minetest.register_biome({name = "lib_ecology_savanna_swamp",
-		--node_dust = "",
-		node_top = "default:dirt_with_rainforest_litter",
-		depth_top = 1,
-		node_filler = "default:clay",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -3,
-		y_max = 0,
-		heat_point = 80,
-		humidity_point = 25,
-	})
-	minetest.register_biome({name = "lib_ecology_savanna_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = -4,
-		heat_point = 80,
-		humidity_point = 25,
-	})
-
-	minetest.register_biome({name = "lib_ecology_desertstone_grassland",
-		--node_dust = "",
-		node_top = "default:dirt_with_dry_grass",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 1,
-		node_stone = "default:desert_stone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 6,
-		y_max = 31000,
-		heat_point = 80,
-		humidity_point = 55,
-	})
-	minetest.register_biome({name = "lib_ecology_rainforest",
-		--node_dust = "",
-		node_top = "default:dirt_with_rainforest_litter",
-		depth_top = 1,
-		node_filler = "default:dirt",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = 1,
-		y_max = 31000,
-		heat_point = 85,
-		humidity_point = 70,
-	})
-	minetest.register_biome({name = "lib_ecology_rainforest_swamp",
-		--node_dust = "",
-		node_top = "default:dirt_with_rainforest_litter",
-		depth_top = 1,
-		node_filler = "default:clay",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -3,
-		y_max = 0,
-		heat_point = 85,
-		humidity_point = 70,
-	})
-	minetest.register_biome({name = "lib_ecology_rainforest_ocean",
-		--node_dust = "",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -112,
-		y_max = -4,
-		heat_point = 85,
-		humidity_point = 70,
-	})
-
-	-- Underground
-	minetest.register_biome({name = "lib_ecology_underground",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -31000,
-		y_max = -113,
-		heat_point = 50,
-		humidity_point = 50,
-	})
-end
-
 -- clear default mapgen biomes, decorations and ores
---minetest.clear_registered_biomes()
---minetest.clear_registered_decorations()
---minetest.clear_registered_ores()
+	minetest.clear_registered_biomes()
+	--minetest.clear_registered_decorations()
+	--minetest.clear_registered_ores()
 
---local path = minetest.get_modpath("ethereal")
-
---dofile(path .. "/ores.lua")
-
---spath = lib_ecology.path .. "/schematics"
-
-local dpath = minetest.get_modpath("default") .. "/schematics/"
-
--- tree schematics
-dofile(lib_ecology.path .. "/schematics/orange_tree.lua")
-dofile(lib_ecology.path .. "/schematics/banana_tree.lua")
-dofile(lib_ecology.path .. "/schematics/bamboo_tree.lua")
-dofile(lib_ecology.path .. "/schematics/birch_tree.lua")
-dofile(lib_ecology.path .. "/schematics/bush.lua")
-dofile(lib_ecology.path .. "/schematics/waterlily.lua")
-
---= Biomes (Minetest 0.4.13 and above)
-
-local add_biome = function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p)
-
-	if p ~= 1 then return end
+local add_biome = function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o)
 
 	minetest.register_biome({
 		name = a,
@@ -565,626 +26,1082 @@ local add_biome = function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p)
 		heat_point = n,
 		humidity_point = o,
 	})
+	
 end
 
-add_biome("underground", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
-	-31000, -192, 50, 50, 1)
 
-add_biome("mountain", nil, "default:snow", 1, "default:snowblock", 2,
-	nil, nil, nil, nil, nil, 140, 31000, 50, 50, 1)
+--TEMP BIOMES
+--[[
+--]]
+--BIOME: hot_
+local add_biomes_hot_humid = function()
+	--BIOME: hot_humid
+	--add_biome("hot_humid", nil, "lib_materials:dirt_clayey_with_rainforest_litter", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	--add_biome("hot_humid_generic", nil, "lib_materials:dirt_clayey_with_rainforest_litter", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	--add_biome("hot_humid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -1lib_ecology.humidity_temperate00, -192, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
 
-add_biome("desert", nil, "default:desert_sand", 1, "default:desert_sand", 3,
-	"default:desert_stone", nil, nil, nil, nil, 3, 23, 35, 20, lib_ecology.desert)
+	add_biome("hot_humid_ocean", nil, "lib_materials:dirt_silt_02", 4, "lib_materials:dirt_silt_02", 6, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -192, -2, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	add_biome("hot_humid_beach", nil, "lib_materials:dirt_silt_02", 2, "lib_materials:dirt_silt_02", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -2, 2, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
 
-add_biome("desert_ocean", nil, "default:sand", 1, "default:sand", 2,
-	"default:desert_stone", nil, nil, nil, nil, -192, 3, 35, 20, lib_ecology.desert)
+	add_biome("hot_humid_coastal", nil, "lib_materials:dirt_silt_02_with_rainforest_litter", 1, "lib_materials:dirt_silt_02", 6, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 2, lib_ecology.maxheight_coastal, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	add_biome("hot_humid_lowland", nil, "lib_materials:dirt_silty_with_rainforest_litter", 1, "lib_materials:dirt_silty", 5, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	add_biome("hot_humid_shelf", nil, "lib_materials:dirt_dark_with_rainforest_litter", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	add_biome("hot_humid_highland", nil, "lib_materials:dirt_with_rainforest_litter", 1, "lib_materials:dirt", 3, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
 
-if lib_ecology.glacier == 1 then
-	minetest.register_biome({
-		name = "glacier",
-		node_dust = "default:snowblock",
-		node_top = "default:snowblock",
+	add_biome("hot_humid_mountain", nil, "lib_materials:stone_brown", 10, "lib_materials:stone_basalt_01", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	add_biome("hot_humid_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+
+	--add_biome("hot_humid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", 20, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+	--add_biome("hot_humid_sky", nil, "lib_clouds:cloud_cirrus", 3, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_humid)
+end
+
+local add_biomes_hot_semihumid = function()
+	--BIOME: hot_semihumid
+	--add_biome("hot_semihumid", nil, "lib_materials:dirt_clayey_with_coniferous_litter", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	--add_biome("hot_semihumid_generic", nil, "lib_materials:dirt_clayey_with_coniferous_litter", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	--add_biome("hot_semihumid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -1lib_ecology.humidity_temperate00, -192, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+
+	add_biome("hot_semihumid_ocean", nil, "lib_materials:dirt_silt_01", 4, "lib_materials:dirt_silt_02", 6, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -192, 0, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	--add_biome("hot_semihumid_beach", nil, "lib_materials:sand_volcanic", 2, "lib_materials:dirt_silt_01", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -3, 3, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+
+	add_biome("hot_semihumid_coastal", nil, "lib_materials:dirt_silty_with_brown_grass5", 1, "lib_materials:dirt_silty", 6, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 0, lib_ecology.maxheight_coastal, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	add_biome("hot_semihumid_lowland", nil, "lib_materials:dirt_dark_with_brown_grass4", 1, "lib_materials:dirt_dark", 5, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	add_biome("hot_semihumid_shelf", nil, "lib_materials:dirt_dark_with_brown_grass3", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	add_biome("hot_semihumid_highland", nil, "lib_materials:dirt_coarse_with_brown_grass2", 1, "lib_materials:dirt_coarse", 3, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+
+	add_biome("hot_semihumid_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	add_biome("hot_semihumid_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+
+	--add_biome("hot_semihumid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", 20, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+	--add_biome("hot_semihumid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_semihumid)
+end
+
+local add_biomes_hot_temperate = function()
+--BIOME: hot_temperate
+--add_biome("hot_temperate", nil, "lib_materials:dirt_clayey_with_grass", 1, "lib_materials:dirt_clayey", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+--add_biome("hot_temperate_generic", nil, "lib_materials:dirt_clayey_with_grass", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+--add_biome("hot_temperate_underground", nil, nil, nil, nil, nil, "lib_materials:stone_brown", nil, nil, nil, nil, -10000, -192, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+
+add_biome("hot_temperate_ocean", nil, "lib_materials:sand", 4, "lib_materials:dirt_silt_01", 6, "lib_materials:stone_brown", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+add_biome("hot_temperate_beach", nil, "lib_materials:sand_volcanic", 2, "lib_materials:dirt_silt_01", 4, "lib_materials:stone_brown", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+
+add_biome("hot_temperate_coastal", nil, "lib_materials:dirt_dark_with_grass2", 1, "lib_materials:dirt_dark", 6, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+add_biome("hot_temperate_lowland", nil, "lib_materials:dirt_dark_with_grass3", 1, "lib_materials:dirt", 5, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+add_biome("hot_temperate_shelf", nil, "lib_materials:dirt_coarse_with_grass4", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+add_biome("hot_temperate_highland", nil, "lib_materials:dirt_clay_red_with_grass5", 1, "lib_materials:dirt_clay_red", 3, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+
+add_biome("hot_temperate_mountain", nil, "lib_materials:stone_desert", 10, "default:stone_sand", 20, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+add_biome("hot_temperate_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+
+--add_biome("hot_temperate_volcanic", nil, "lib_materials:stone_basalt_01_cobble", 1, "lib_materials:stone_basalt_01", 4, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+--add_biome("hot_temperate_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_temperate)
+end
+
+local add_biomes_hot_semiarid = function()
+--BIOME: hot_semiarid
+--add_biome("hot_semiarid", nil, "lib_materials:dirt_clayey_with_dry_grass", 1, "lib_materials:dirt_clayey", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+--add_biome("hot_semiarid_generic", nil, "lib_materials:dirt_clayey_with_dry_grass", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+--add_biome("hot_semiarid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_sand", nil, nil, nil, nil, -6000, -192, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+
+add_biome("hot_semiarid_ocean", nil, "lib_materials:sand", 2, "lib_materials:sand", 4, "lib_materials:stone_sand", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+add_biome("hot_semiarid_beach", nil, "lib_materials:sand", 1, "lib_materials:dirt_clayey", 4, "lib_materials:stone_sand", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+
+add_biome("hot_semiarid_coastal", nil, "lib_materials:dirt_dark_with_dry_grass4", 1, "lib_materials:dirt", 6, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+add_biome("hot_semiarid_lowland", nil, "lib_materials:dirt_coarse_with_dry_grass4", 1, "lib_materials:dirt_coarse", 5, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+add_biome("hot_semiarid_shelf", nil, "lib_materials:dirt_clay_red_with_dry_grass5", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+add_biome("hot_semiarid_highland", nil, "lib_materials:dirt_clayey_with_dry_grass5", 1, "lib_materials:dirt_clayey", 3, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+
+add_biome("hot_semiarid_mountain", nil, "lib_materials:stone_sandstone_desert", 10, "lib_materials:stone_desert", 20, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+add_biome("hot_semiarid_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+
+--add_biome("hot_semiarid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", 1, "lib_materials:stone_basalt_01", 4, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+--add_biome("hot_semiarid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_semiarid)
+end
+
+local add_biomes_hot_arid = function()
+--BIOME: hot_arid
+--add_biome("hot_arid", nil, "default:desert_sand", 1, "lib_materials:stone_brown", 4, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+--add_biome("hot_arid_generic", nil, "default:desert_sand", 1, "lib_materials:stone_brown", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+--add_biome("hot_arid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -1lib_ecology.humidity_temperate00, -192, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+
+add_biome("hot_arid_ocean", nil, "lib_materials:sand", 2, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+add_biome("hot_arid_beach", nil, "lib_materials:sand", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+
+add_biome("hot_arid_coastal", nil, "lib_materials:dirt_coarse", 5, "lib_materials:stone_brown", 10, "lib_materials:stone_basalt_01", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+add_biome("hot_arid_lowland", nil, "lib_materials:dirt_clay_red", 10, "lib_materials:stone_sand", 15, "lib_materials:stone_brown", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+add_biome("hot_arid_shelf", nil, "lib_materials:dirt_clayey", 10, "lib_materials:stone_desert", 20, "lib_materials:stone_sand", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+add_biome("hot_arid_highland", nil, "lib_materials:sand_desert", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_desert", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+
+add_biome("hot_arid_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+add_biome("hot_arid_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+
+--add_biome("hot_arid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", 1, "lib_materials:stone_basalt_01", 4, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+--add_biome("hot_arid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_hot, lib_ecology.humidity_arid)
+end
+
+
+
+--BIOME: warm_
+local add_biomes_warm_humid = function()
+--BIOME: warm_humid
+--add_biome("warm_humid", nil, "lib_materials:dirt_dark_with_rainforest_litter", 1, "lib_materials:dirt_dark", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+--add_biome("warm_humid_generic", nil, "lib_materials:dirt_dark_with_rainforest_litter", 1, "lib_materials:dirt_dark", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+--add_biome("warm_humid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -1lib_ecology.humidity_temperate00, -192, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+
+add_biome("warm_humid_ocean", nil, "lib_materials:dirt_silt_01", 4, "lib_materials:dirt_silt_02", 6, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -192, -3, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+--add_biome("warm_humid_beach", nil, "default:silver_sand", 1, "lib_materials:sand_volcanic", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -3, 3, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+
+add_biome("warm_humid_coastal", nil, "lib_materials:dirt_silt_02_with_brown_grass5", 1, "lib_materials:dirt_silt_02", 6, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -3, lib_ecology.maxheight_coastal, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+add_biome("warm_humid_lowland", nil, "lib_materials:dirt_silty_with_brown_grass4", 1, "lib_materials:dirt_silty", 5, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+add_biome("warm_humid_shelf", nil, "lib_materials:dirt_dark_with_brown_grass3", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+add_biome("warm_humid_highland", nil, "lib_materials:dirt_dark_with_brown_grass2", 1, "lib_materials:dirt", 3, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+
+add_biome("warm_humid_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+add_biome("warm_humid_strato", nil, "lib_materials:stone_sandstone_desert", 15, "lib_materials:stone_sand", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+
+--add_biome("warm_humid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", 1, "lib_materials:stone_basalt_01", 4, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+--add_biome("warm_semihumid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_humid)
+end
+
+local add_biomes_warm_semihumid = function()
+--BIOME: warm_semihumid
+--add_biome("warm_semihumid", nil, "lib_materials:dirt_dark_with_coniferous_litter", 1, "lib_materials:dirt_dark", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+--add_biome("warm_semihumid_generic", nil, "lib_materials:dirt_dark_with_coniferous_litter", 1, "lib_materials:dirt_dark", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+--add_biome("warm_semihumid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_brown", nil, nil, nil, nil, -10000, -192, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+
+add_biome("warm_semihumid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_brown", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+--add_biome("warm_semihumid_beach", nil, "default:sand", 1, "default:sand", 4, "lib_materials:stone_brown", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+
+add_biome("warm_semihumid_coastal", nil, "lib_materials:dirt_silty_with_brown_grass4", 1, "lib_materials:dirt_silty", 6, "lib_materials:stone_brown", nil, nil, nil, nil, -lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+add_biome("warm_semihumid_lowland", nil, "lib_materials:dirt_dark_with_brown_grass3", 1, "lib_materials:dirt", 5, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+add_biome("warm_semihumid_shelf", nil, "lib_materials:dirt_coarse_with_brown_grass2", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+add_biome("warm_semihumid_highland", nil, "lib_materials:dirt_dry_with_brown_grass2", 1, "lib_materials:dirt_dry", 3, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+
+add_biome("warm_semihumid_mountain", nil, "lib_materials:stone_granite_brown", 10, "lib_materials:stone_andesite", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+add_biome("warm_semihumid_strato", nil, "lib_materials:stone_sandstone_desert", 15, "lib_materials:stone_granite_brown", 25, "lib_materials:stone_andesite", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+
+--add_biome("warm_semihumid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", 1, "lib_materials:stone_basalt_01", 4, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+--add_biome("warm_semihumid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+end
+
+local add_biomes_warm_temperate = function()
+--BIOME: warm_temperate
+--add_biome("warm_temperate", nil, "lib_materials:dirt_dark_with_grass", 1, "lib_materials:dirt_dark", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+--add_biome("warm_temperate_generic", nil, "lib_materials:dirt_dark_with_grass", 1, "lib_materials:dirt_dark", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+--add_biome("warm_temperate_underground", nil, nil, nil, nil, nil, "lib_materials:stone_sand", nil, nil, nil, nil, -6000, -192, lib_ecology.temperature_warm, lib_ecology.humidity_semihumid)
+
+add_biome("warm_temperate_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+add_biome("warm_temperate_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+
+add_biome("warm_temperate_coastal", nil, "lib_materials:dirt_dark_with_grass2", 1, "lib_materials:dirt_dark", 6, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+add_biome("warm_temperate_lowland", nil, "lib_materials:dirt_dark_with_grass3", 1, "lib_materials:dirt", 5, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+add_biome("warm_temperate_shelf", nil, "lib_materials:dirt_coarse_with_grass4", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+add_biome("warm_temperate_highland", nil, "lib_materials:dirt_clay_red_with_grass4", 1, "lib_materials:dirt_clay_red", 3, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+
+add_biome("warm_temperate_mountain", nil, "lib_materials:stone_sandstone_desert", 10, "lib_materials:stone_sand", 20, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+add_biome("warm_temperate_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+
+--add_biome("warm_temperate_volcanic", nil, "air", 2, "air", 4, "default:lava_source", nil, nil, nil, nil, 140, 140, 15, 15)
+--add_biome("warm_temperate_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_temperate)
+end
+
+local add_biomes_warm_semiarid = function()
+--BIOME: warm_semiarid
+--add_biome("warm_semiarid", nil, "lib_materials:dirt_dark_with_dry_grass", 1, "lib_materials:dirt_dark", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+--add_biome("warm_semiarid_generic", nil, "lib_materials:dirt_dark_with_dry_grass", 1, "lib_materials:dirt_dark", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+--add_biome("warm_semiarid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_desert", nil, nil, nil, nil, -lib_ecology.humidity_temperate00, -192, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+
+add_biome("warm_semiarid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+add_biome("warm_semiarid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+
+add_biome("warm_semiarid_coastal", nil, "lib_materials:stone_sandstone_white_gravel", 1, "lib_materials:dirt", 4, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+add_biome("warm_semiarid_lowland", nil, "lib_materials:dirt_coarse_with_dry_grass5", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+add_biome("warm_semiarid_shelf", nil, "lib_materials:dirt_clay_red_with_dry_grass6", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+add_biome("warm_semiarid_highland", nil, "lib_materials:dirt_clayey_with_dry_grass6", 1, "lib_materials:dirt_clayey", 4, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+
+add_biome("warm_semiarid_mountain", nil, "lib_materials:stone_sandstone_desert", 10, "lib_materials:stone_sand", 20, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+add_biome("warm_semiarid_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+
+--add_biome("warm_semiarid_volcanic", nil, "lib_materials:dirt_dark_with_grass", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+--add_biome("warm_semiarid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_semiarid)
+end
+
+local add_biomes_warm_arid = function()
+--BIOME: warm_arid
+--add_biome("warm_arid", nil, "default:desert_sand", 1, "lib_materials:stone_sand", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+--add_biome("warm_arid_generic", nil, "default:desert_sand", 1, "lib_materials:stone_sand", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+--add_biome("warm_arid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -1lib_ecology.humidity_temperate00, -192, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+
+add_biome("warm_arid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+add_biome("warm_arid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+
+add_biome("warm_arid_coastal", nil, "lib_materials:sand_desert", 10, "lib_materials:stone_sand", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+add_biome("warm_arid_lowland", nil, "lib_materials:sand_desert", 10, "lib_materials:stone_sand", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+add_biome("warm_arid_shelf", nil, "lib_materials:sand_desert", 10, "lib_materials:stone_sand", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+add_biome("warm_arid_highland", nil, "lib_materials:sand_desert", 10, "lib_materials:stone_sand", lib_ecology.temperature_cold, "lib_materials:stone_sandstone_desert", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+
+add_biome("warm_arid_mountain", nil, "lib_materials:stone_sandstone_desert", 10, "lib_materials:stone_sand", 20, "lib_materials:stone_brown", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+add_biome("warm_arid_strato", nil, "lib_materials:stone_sandstone", 15, "lib_materials:stone_sandstone_desert", 25, "lib_materials:stone_sand", nil, nil, nil, "lib_materials:stone_sandstone_white_gravel", lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+
+--add_biome("warm_arid_volcanic", nil, "lib_materials:stone_sandstone_desert", 10, "lib_materials:stone_sand", 40, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+--add_biome("warm_arid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+end
+
+
+--BIOMES: temperate_
+local add_biomes_temperate_humid = function()
+--BIOME: temperate_humid
+--add_biome("temperate_humid", nil, "default:dirt_with_rainforest_litter", 1, "default:dirt", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+--add_biome("temperate_humid_generic", nil, "lib_materials:dirt_with_rainforest_litter", 1, "default:dirt", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+--add_biome("temperate_humid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_brown", nil, nil, nil, nil, -10000, -192, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+
+add_biome("temperate_humid_ocean", nil, "lib_materials:dirt_silt_01", 4, "lib_materials:sand", 6, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+add_biome("temperate_humid_beach", nil, "default:sand", 2, "default:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+
+add_biome("temperate_humid_coastal", nil, "lib_materials:dirt_silt_02_with_grass2", 1, "lib_materials:dirt_silt_01", 6, "lib_materials:stone_brown", nil, nil, nil, nil, -lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+add_biome("temperate_humid_lowland", nil, "lib_materials:dirt_silty_with_grass2", 1, "lib_materials:dirt_silty", 5, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+add_biome("temperate_humid_shelf", nil, "lib_materials:dirt_dark_with_grass2", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+add_biome("temperate_humid_highland", nil, "lib_materials:dirt_dark_with_grass2", 1, "lib_materials:dirt", 3, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+
+add_biome("temperate_humid_mountain", nil, "lib_materials:stone_gabbro", 10, "lib_materials:stone_bluestone", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+add_biome("temperate_humid_strato", nil, "lib_materials:stone_diorite", 15, "lib_materials:stone_bluestone", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+
+--add_biome("temperate_humid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", 20, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+--add_biome("temperate_humid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_humid)
+end
+
+local add_biomes_temperate_semihumid = function()
+--BIOME: temperate_semihumid
+--add_biome("temperate_semihumid", nil, "default:dirt_with_coniferous_litter", 1, "default:dirt", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+--add_biome("temperate_semihumid_generic", nil, "lib_materials:dirt_with_coniferous_litter", 1, "default:dirt", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+--add_biome("temperate_semihumid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+
+add_biome("temperate_semihumid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+add_biome("temperate_semihumid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+
+add_biome("temperate_semihumid_coastal", nil, "lib_materials:dirt_silty_with_grass2", 1, "lib_materials:dirt_silty", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+add_biome("temperate_semihumid_lowland", nil, "lib_materials:dirt_dark_with_grass3", 1, "lib_materials:dirt_dark", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+add_biome("temperate_semihumid_shelf", nil, "lib_materials:dirt_dark_with_grass3", 1, "lib_materials:dirt", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+add_biome("temperate_semihumid_highland", nil, "lib_materials:dirt_clay_red_with_grass4", 1, "lib_materials:dirt_clay_red", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+
+add_biome("temperate_semihumid_mountain", nil, "lib_materials:stone_bluestone", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+add_biome("temperate_semihumid_strato", nil, "lib_materials:stone_bluestone", 15, "lib_materials:stone_gabbro", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+
+--add_biome("temperate_semihumid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", 20, "default:lava", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+--add_biome("temperate_semihumid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_semihumid)
+end
+
+local add_biomes_temperate_temperate = function()
+--BIOME: temperate_temperate
+--add_biome("temperate_temperate", nil, "default:dirt_with_grass", 1, "default:dirt", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+--add_biome("temperate_temperate_generic", nil, "lib_materials:dirt_with_grass", 1, "default:dirt", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+--add_biome("temperate_temperate_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+
+add_biome("temperate_temperate_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+add_biome("temperate_temperate_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+
+add_biome("temperate_temperate_coastal", nil, "lib_materials:dirt_dark_with_dry_grass2", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+add_biome("temperate_temperate_lowland", nil, "lib_materials:dirt_dark_with_dry_grass3", 1, "lib_materials:dirt", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+add_biome("temperate_temperate_shelf", nil, "lib_materials:dirt_coarse_with_dry_grass3", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+add_biome("temperate_temperate_highland", nil, "lib_materials:dirt_clay_red_with_dry_grass4", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+
+add_biome("temperate_temperate_mountain", nil, "lib_materials:stone_greenstone", 10, "lib_materials:stone_schist", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+add_biome("temperate_temperate_strato", nil, "lib_materials:stone_basalt_02", 15, "lib_materials:stone_greenstone", 25, "lib_materials:stone_schist", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+
+--add_biome("temperate_temperate_volcanic", nil, "air", 2, "air", 4, "default:lava_source", nil, nil, nil, nil, 140, 140, 15, 15)
+--add_biome("temperate_temperate_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+end
+
+local add_biomes_temperate_semiarid = function()
+--BIOME: temperate_semiarid
+--add_biome("temperate_semiarid", nil, "default:dirt_with_dry_grass", 1, "default:dirt", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+--add_biome("temperate_semiarid_generic", nil, "lib_materials:dirt_with_dry_grass", 1, "default:dirt", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+--add_biome("temperate_semiarid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+
+add_biome("temperate_semiarid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+add_biome("temperate_semiarid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+
+add_biome("temperate_semiarid_coastal", nil, "lib_materials:dirt_with_dry_grass3", 1, "lib_materials:dirt", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+add_biome("temperate_semiarid_lowland", nil, "lib_materials:dirt_coarse_with_dry_grass3", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+add_biome("temperate_semiarid_shelf", nil, "lib_materials:dirt_clay_red_with_dry_grass4", 1, "lib_materials:dirt_clay_red", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+add_biome("temperate_semiarid_highland", nil, "lib_materials:dirt_clayey_with_dry_grass4", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+
+add_biome("temperate_semiarid_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+add_biome("temperate_semiarid_strato", nil, "lib_materials:stone_desert", 15, "lib_materials:stone_sand", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+
+--add_biome("temperate_semiarid_volcanic", nil, "air", 2, "air", 4, "default:lava_source", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+--add_biome("temperate_semiarid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_semiarid)
+end
+
+local add_biomes_temperate_arid = function()
+--BIOME: temperate_arid
+--add_biome("temperate_arid", nil, "default:desert_sand", 1, "lib_materials:stone_sandstone_desert", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+--add_biome("temperate_arid_generic", nil, "lib_materials:sand_desert", 1, "lib_materials:stone_sandstone_desert", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+--add_biome("temperate_arid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -192, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+
+add_biome("temperate_arid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+add_biome("temperate_arid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+
+add_biome("temperate_arid_coastal", nil, "lib_materials:dirt_coarse", 5, "lib_materials:stone_brown", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+add_biome("temperate_arid_lowland", nil, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_sand", 6, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+add_biome("temperate_arid_shelf", nil, "lib_materials:dirt_clayey", 3, "lib_materials:stone_desert", 8, "lib_materials:stone_sand", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+add_biome("temperate_arid_highland", nil, "lib_materials:sand_desert", 2, "lib_materials:stone_sandstone_desert", 10, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+
+add_biome("temperate_arid_mountain", nil, "lib_materials:stone_desert", 15, "lib_materials:stone_brown", 25, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+add_biome("temperate_arid_strato", nil, "lib_materials:stone_desert", 15, "lib_materials:stone_sand", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+
+--add_biome("temperate_arid_volcanic", nil, "lib_materials:stone_basalt_01_cobble", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", 20, "default:lava_source", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+--add_biome("temperate_arid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_arid)
+end
+
+
+--BIOMES: cool_
+local add_biomes_cool_humid = function()
+	--BIOME: cool_humid
+	--add_biome("cool_humid", nil, "lib_materials:dirt_sandy_with_coniferous_litter", 1, "lib_materials:dirt_sandy", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	--add_biome("cool_humid_generic", nil, "lib_materials:dirt_sandy_with_coniferous_litter", 1, "lib_materials:dirt_sandy", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	--add_biome("cool_humid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+
+	add_biome("cool_humid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	add_biome("cool_humid_beach", nil, "default:sand", 1, "default:sand", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+
+	add_biome("cool_humid_coastal", nil, "lib_materials:dirt_silt_02_with_coniferous_litter", 1, "lib_materials:dirt_silt_02", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	add_biome("cool_humid_lowland", nil, "lib_materials:dirt_silty_with_coniferous_litter", 1, "lib_materials:dirt_silty", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	add_biome("cool_humid_shelf", nil, "lib_materials:dirt_dark_with_coniferous_litter", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	add_biome("cool_humid_highland", nil, "lib_materials:dirt_with_coniferous_litter", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+
+	add_biome("cool_humid_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	add_biome("cool_humid_strato", nil, "lib_materials:stone_granite_02", 15, "lib_materials:stone_sand", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+
+	--add_biome("cool_humid_volcanic", nil, nil, nil, nil, nil, nil, "default:ice", nil, nil, nil, 140, 140, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+	--add_biome("cool_humid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_humid)
+end
+
+local add_biomes_cool_semihumid = function()
+	--BIOME: cool_semihumid
+	--add_biome("cool_semihumid", nil, "lib_materials:dirt_sandy_with_coniferous_litter", 1, "lib_materials:dirt_sandy", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	--add_biome("cool_semihumid_generic", nil, "lib_materials:dirt_sandy_with_coniferous_litter", 1, "lib_materials:dirt_sandy", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	--add_biome("cool_semihumid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+
+	add_biome("cool_semihumid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	add_biome("cool_semihumid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+
+	add_biome("cool_semihumid_coastal", nil, "lib_materials:dirt_silty_with_coniferous_litter", 1, "lib_materials:dirt_silty", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	add_biome("cool_semihumid_lowland", nil, "lib_materials:dirt_dark_with_grass6", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	add_biome("cool_semihumid_shelf", nil, "lib_materials:dirt_dark_with_grass7", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	add_biome("cool_semihumid_highland", nil, "lib_materials:dirt_clay_red_with_coniferous_litter", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+
+	add_biome("cool_semihumid_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	add_biome("cool_semihumid_strato", nil, "lib_materials:stone_gneiss_02", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+
+	--add_biome("cool_semihumid_volcanic", nil, nil, nil, nil, nil, "default:ice", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+	--add_biome("cool_semihumid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_semihumid)
+end
+
+local add_biomes_cool_temperate = function()
+	--BIOME: cool_temperate
+	--add_biome("cool_temperate", nil, "lib_materials:dirt_sandy_with_grass", 1, "lib_materials:dirt_sandy", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	--add_biome("cool_temperate_generic", nil, "lib_materials:dirt_sandy_with_grass", 1, "lib_materials:dirt_sandy", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	--add_biome("cool_temperate_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+
+	add_biome("cool_temperate_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	add_biome("cool_temperate_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+
+	add_biome("cool_temperate_coastal", nil, "lib_materials:dirt_dark_with_grass6", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	add_biome("cool_temperate_lowland", nil, "lib_materials:dirt_dark_with_grass7", 1, "lib_materials:dirt", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	add_biome("cool_temperate_shelf", nil, "lib_materials:dirt_coarse_with_grass8", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	add_biome("cool_temperate_highland", nil, "lib_materials:dirt_clay_red_with_coniferous_litter", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+
+	add_biome("cool_temperate_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	add_biome("cool_temperate_strato", nil, "lib_materials:stone_gneiss_02", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+
+	--add_biome("cool_temperate_volcanic", nil, nil, nil, nil, nil, "default:ice", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+	--add_biome("cool_temperate_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
+end
+
+local add_biomes_cool_semiarid = function()
+	--BIOME: cool_semiarid
+	--add_biome("cool_semiarid", nil, "lib_materials:dirt_sandy_with_dry_grass", 1, "lib_materials:dirt_sandy", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	--add_biome("cool_semiarid_generic", nil, "lib_materials:dirt_sandy_with_dry_grass", 1, "lib_materials:dirt_sandy", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	--add_biome("cool_semiarid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+
+	add_biome("cool_semiarid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	add_biome("cool_semiarid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+
+	add_biome("cool_semiarid_coastal", nil, "lib_materials:dirt_sandy_with_coniferous_litter", 1, "lib_materials:dirt_sandy", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	add_biome("cool_semiarid_lowland", nil, "lib_materials:dirt_clayey_with_dry_grass5", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	add_biome("cool_semiarid_shelf", nil, "lib_materials:dirt_clayey_with_dry_grass9", 1, "lib_materials:dirt_clay_red", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	add_biome("cool_semiarid_highland", nil, "lib_materials:dirt_clayey_with_coniferous_litter", 1, "lib_materials:dirt_clayey", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+
+	add_biome("cool_semiarid_mountain", nil, "lib_materials:granite_01", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	add_biome("cool_semiarid_strato", nil, "lib_materials:stone_gneiss_02", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+
+	--add_biome("cool_semiarid_volcanic", nil, "air", 1, "air", 1, "default:lava_source", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+	--add_biome("cool_semiarid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_semiarid)
+end
+
+local add_biomes_cool_arid = function()
+	--BIOME: cool_arid
+	--add_biome("cool_arid", nil, "lib_materials:dirt_sandy", 1, "lib_materials:stone_sand", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	--add_biome("cool_arid_generic", nil, "lib_materials:dirt_sandy", 1, "lib_materials:stone_sand", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	--add_biome("cool_arid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -192, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+
+	add_biome("cool_arid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	add_biome("cool_arid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+
+	add_biome("cool_arid_coastal", nil, "lib_materials:dirt_coarse", 5, "lib_materials:stone_granite_01", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	add_biome("cool_arid_lowland", nil, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_gabbro", 6, "lib_materials:stone_granite_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	add_biome("cool_arid_shelf", nil, "lib_materials:dirt_clayey", 3, "lib_materials:stone_granite_brown", 8, "lib_materials:stone_gabbro", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	add_biome("cool_arid_highland", nil, "lib_materials:sand_desert", 2, "lib_materials:stone_andesite", 10, "lib_materials:stone_granite_brown", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+
+	add_biome("cool_arid_mountain", nil, "lib_materials:stone_andesite", 15, "lib_materials:stone_granite_brown", 25, "lib_materials:stone_gabbro", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	add_biome("cool_arid_strato", nil, "lib_materials:stone_gneiss_02", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_andesite", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+
+	--add_biome("cool_arid_volcanic", nil, "air", 1, "air", 4, "default:lava_source", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+	--add_biome("cool_arid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cool, lib_ecology.humidity_arid)
+end
+
+
+--BIOME: cold_
+local add_biomes_cold_humid = function()
+	--BIOME: cold_humid
+	--add_biome("cold_humid", nil, "lib_materials:dirt_coarse_with_rainforest_litter", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	--add_biome("cold_humid_generic", nil, "lib_materials:dirt_coarse_with_rainforest_litter", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	--add_biome("cold_humid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+
+	add_biome("cold_humid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	add_biome("cold_humid_beach", nil, "default:sand", 1, "default:sand", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+
+	add_biome("cold_humid_coastal", nil, "lib_materials:dirt_silt_02_with_snow", 1, "lib_materials:dirt_silt_02", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	add_biome("cold_humid_lowland", nil, "lib_materials:dirt_silty_with_snow", 1, "lib_materials:dirt_silty", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	add_biome("cold_humid_shelf", nil, "lib_materials:dirt_dark_with_snow", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	add_biome("cold_humid_highland", nil, "lib_materials:dirt_with_snow", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+
+	add_biome("cold_humid_mountain", nil, "default:snowblock", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	add_biome("cold_humid_strato", nil, "default:ice", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+
+	--add_biome("cold_humid_volcanic", nil, nil, nil, "default:ice", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+	--add_biome("cold_humid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_humid)
+end
+
+local add_biomes_cold_semihumid = function()
+	--BIOME: cold_semihumid
+	--add_biome("cold_semihumid", nil, "lib_materials:dirt_coarse_with_coniferous_litter", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	--add_biome("cold_semihumid_generic", nil, "lib_materials:dirt_coarse_with_coniferous_litter", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	--add_biome("cold_semihumid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+
+	add_biome("cold_semihumid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	add_biome("cold_semihumid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+
+	add_biome("cold_semihumid_coastal", nil, "lib_materials:dirt_silty_with_snow", 1, "lib_materials:dirt_silty", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	add_biome("cold_semihumid_lowland", nil, "lib_materials:dirt_dark_with_snow", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	add_biome("cold_semihumid_shelf", nil, "lib_materials:dirt_with_snow", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	add_biome("cold_semihumid_highland", nil, "lib_materials:dirt_coarse_with_snow", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+
+	add_biome("cold_semihumid_mountain", nil, "default:snowblock", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	add_biome("cold_semihumid_strato", nil, "default:ice", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+
+	--add_biome("cold_semihumid_volcanic", nil, nil, nil, "default:ice", 15, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+	--add_biome("cold_semihumid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_semihumid)
+end
+
+local add_biomes_cold_temperate = function()
+	--BIOME: cold_temperate
+	--add_biome("cold_temperate", nil, "lib_materials:dirt_coarse_with_grass", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	--add_biome("cold_temperate_generic", nil, "lib_materials:dirt_coarse_with_grass", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	--add_biome("cold_temperate_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+
+	add_biome("cold_temperate_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	add_biome("cold_temperate_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+
+	add_biome("cold_temperate_coastal", nil, "lib_materials:dirt_dark_with_snow", 1, "lib_materials:dirt_dark", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	add_biome("cold_temperate_lowland", nil, "lib_materials:dirt_with_snow", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	add_biome("cold_temperate_shelf", nil, "lib_materials:dirt_coarse_with_snow", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	add_biome("cold_temperate_highland", nil, "lib_materials:dirt_clay_red_with_snow", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+
+	add_biome("cold_temperate_mountain", nil, "lib_materials:stone_sand", 10, "lib_materials:stone_brown", 20, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	add_biome("cold_temperate_strato", nil, "lib_materials:stone_gneiss_02", 15, "lib_materials:stone_granite_02", 25, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+
+	--add_biome("cold_temperate_volcanic", nil, nil, nil, "default:ice", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+	--add_biome("cold_temperate_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_temperate)
+end
+
+local add_biomes_cold_semiarid = function()
+	--BIOME: cold_semiarid
+	--add_biome("cold_semiarid", nil, "lib_materials:dirt_coarse_with_dry_grass", 1, "lib_materials:dirt_coarse", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	--add_biome("cold_semiarid_generic", nil, "lib_materials:dirt_coarse_with_dry_grass", 1, "lib_materials:dirt_coarse", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	--add_biome("cold_semiarid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -lib_ecology.temperature_hot, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+
+	add_biome("cold_semiarid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	add_biome("cold_semiarid_beach", nil, "lib_materials:sand", 1, "lib_materials:sand", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+
+	add_biome("cold_semiarid_coastal", nil, "lib_materials:dirt_dark_with_dry_grass9", 1, "lib_materials:dirt", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	add_biome("cold_semiarid_lowland", nil, "lib_materials:dirt_coarse_with_dry_grass9", 1, "lib_materials:dirt_coarse", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	add_biome("cold_semiarid_shelf", nil, "lib_materials:dirt_clay_red_with_dry_grass9", 1, "lib_materials:dirt_clay_red", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	add_biome("cold_semiarid_highland", nil, "lib_materials:dirt_clayey_with_dry_grass9", 1, "lib_materials:dirt_clayey", lib_ecology.temperature_cold, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+
+	add_biome("cold_semiarid_mountain", nil, "lib_materials:stone_diorite", 10, "lib_materials:stone_gneiss_02", 20, "lib_materials:stone_granite_02", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	add_biome("cold_semiarid_strato", nil, "lib_materials:stone_andesite", 15, "lib_materials:stone_diorite", 25, "lib_materials:stone_gneiss_02", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+
+	--add_biome("cold_semiarid_volcanic", nil, "air", 1, "air", 1, "default:lava_source", nil, nil, nil, nil, 140, 140, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+	--add_biome("cold_temperate_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_semiarid)
+end
+
+local add_biomes_cold_arid = function()
+	--BIOME: cold_arid
+	--add_biome("cold_arid", nil, "lib_materials:dirt_coarse", 1, "lib_materials:savanna_stone", 2, nil, nil, nil, nil, nil, 0, 100, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	--add_biome("cold_arid_generic", nil, "lib_materials:dirt_coarse", 1, "lib_materials:savanna_stone", 4, nil, nil, nil, nil, nil, -192, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	--add_biome("cold_arid_underground", nil, nil, nil, nil, nil, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -31000, -192, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+
+	add_biome("cold_arid_ocean", nil, "lib_materials:dirt_silt_01", 2, "lib_materials:sand", 4, "lib_materials:stone_sandstone", nil, nil, nil, nil, -192, -4, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	add_biome("cold_arid_beach", nil, "lib_materials:sand_silver", 1, "lib_materials:sand_silver", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -4, 4, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+
+	add_biome("cold_arid_coastal", nil, "lib_materials:dirt_coarse", 8, "lib_materials:stone_granite_01", 10, "lib_materials:stone_basalt_01", nil, nil, nil, nil, lib_ecology.maxheight_beach, lib_ecology.maxheight_coastal, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	add_biome("cold_arid_lowland", nil, "lib_materials:dirt_clayey", 8, "lib_materials:stone_gabbro", 10, "lib_materials:stone_granite_01", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	add_biome("cold_arid_shelf", nil, "lib_materials:dirt_sandy", 8, "lib_materials:stone_granite_brown", 10, "lib_materials:stone_gabbro", nil, nil, nil, nil, lib_ecology.maxheight_lowland, lib_ecology.maxheight_shelf, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	add_biome("cold_arid_highland", nil, "lib_materials:dirt_sandy", 8, "lib_materials:stone_granite_02", 15, "lib_materials:stone_granite_brown", nil, nil, nil, nil, lib_ecology.maxheight_shelf, lib_ecology.maxheight_highland, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+
+	add_biome("cold_arid_mountain", nil, "lib_materials:stone_diorite", 15, "lib_materials:stone_gneiss_02", 20, "lib_materials:stone_granite_02", nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+	add_biome("cold_arid_strato", nil, "lib_materials:stone_andesite", 15, "lib_materials:stone_diorite", 25, "lib_materials:stone_gneiss_02", nil, nil, nil, nil, lib_ecology.maxheight_mountain, lib_ecology.maxheight_strato, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+
+	--add_biome("cold_arid_volcanic", nil, "air", 1, "air", 1, "default:lava_source", nil, nil, nil, nil, 140, 140, 15, 15)
+	--add_biome("cold_arid_sky", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 180, 31000, lib_ecology.temperature_cold, lib_ecology.humidity_arid)
+end
+
+
+--BIOME: generic_      filler biomes, to cover certains temp/humid combos that may be missed above, and special biomes
+local add_biomes_generic = function()
+	--add_biome("generic_beach", nil, "default:sand", 1, "lib_materials:stone_sandstone", 4, nil, nil, nil, nil, nil, -4, 4, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	--add_biome("generic_ocean", nil, "lib_materials:dirt_silt_01", 1, "lib_materials:dirt_silt_02", 4, nil, nil, nil, nil, nil, -192, -4, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	--add_biome("generic_underground", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, -31000, -192, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	--add_biome("generic_mountain", nil, "default:snowblock", 1, "default:ice", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_highland, lib_ecology.maxheight_mountain, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	--add_biome("generic_volcanic", nil, "lib_materials:stone_basalt_01_cobble", 1, "lib_materials:stone_basalt_01", 3, "lib_materials:stone_brown", nil, nil, nil, nil, 1lib_ecology.temperature_temperate, 31000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+
+	add_biome("generic_mantle", nil, nil, 1, nil, 4, "default:lava_source", nil, nil, nil, nil, -31000, -20000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("stone_basalt_01_layer", nil, nil, 1, nil, 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -20000, -15000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("stone_brown_layer", nil, nil, 1, nil, 4, "lib_materials:stone_brown", nil, nil, nil, nil, -15000, -10000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("stone_sand_layer", nil, nil, 1, nil, 4, "lib_materials:stone_sand", nil, nil, nil, nil, -10000, -6000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("desert_stone_layer", nil, nil, 1, nil, 4, "lib_materials:stone_desert", nil, nil, nil, nil, -6000, -5000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("desert_sandstone_layer", nil, nil, 1, nil, 4, "lib_materials:stone_sandstone_desert", nil, nil, nil, nil, -5000, -4000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("generic_stone_limestone_01_layer", nil, nil, 1, nil, 4, "lib_materials:stone_limestone_01", nil, nil, nil, nil, -4000, -3000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("generic_granite_layer", nil, nil, 1, nil, 4, "lib_materials:stone_granite_01", nil, nil, nil, nil, -3000, -2000, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+	add_biome("generic_stone_layer", nil, nil, 1, nil, 4, "default:stone", nil, nil, nil, nil, -2000, -192, lib_ecology.temperature_temperate, lib_ecology.humidity_temperate)
+
+	--add_biome("generic_burned", nil, "lib_materials:gray_dirt", 1, "lib_materials:stone_basalt_01_cobble", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 30, 45, 63, 37)
+	--add_biome("generic_mushroom", nil, "lib_materials:dirt_with_fungi_covered_grass", 1, "default:dirt", 3, nil, nil, nil, nil, nil, 30, lib_ecology.temperature_temperate, 45, 55)
+	--add_biome("generic_desert", nil, "default:sand", 1, "default:desert_sand", 3, nil, nil, nil, nil, nil, 4, 31000, 1lib_ecology.temperature_cool, 30)
+	--add_biome("generic_cavern", nil, "lib_materials:stone_limestone_01", 4, "air", 8, "lib_materials:stone_basalt_01", nil, nil, nil, nil, -115, -85, -lib_ecology.temperature_cold, 60)
+end
+
+
+local add_biomes = function()
+
+	add_biomes_generic()
+	
+	add_biomes_hot_humid()
+	add_biomes_hot_semihumid()
+	add_biomes_hot_temperate()
+	add_biomes_hot_semiarid()
+	add_biomes_hot_arid()
+	add_biomes_warm_humid()
+	add_biomes_warm_semihumid()
+	add_biomes_warm_temperate()
+	add_biomes_warm_semiarid()
+	add_biomes_warm_arid()
+	add_biomes_temperate_humid()
+	add_biomes_temperate_semihumid()
+	add_biomes_temperate_temperate()
+	add_biomes_temperate_semiarid()
+	add_biomes_temperate_arid()
+	add_biomes_cool_humid()
+	add_biomes_cool_semihumid()
+	add_biomes_cool_temperate()
+	add_biomes_cool_semiarid()
+	add_biomes_cool_arid()
+	add_biomes_cold_humid()
+	add_biomes_cold_semihumid()
+	add_biomes_cold_temperate()
+	add_biomes_cold_semiarid()
+	add_biomes_cold_arid()
+	
+end
+
+add_biomes()
+
+
+--valleys_c biomes
+
+	add_biome("lib_ecology_deciduous_forest_swamp", nil, "lib_materials:dirt_mud_01", 1, "lib_materials:dirt_silty", 3, nil, nil, nil, nil, nil, -4, 4, 60, 60)
+	add_biome("lib_ecology_desert", nil, "lib_materials:sand_desert", 1, "lib_materials:stone_sandstone_desert", 3, "lib_materials:stone_desert", nil, nil, nil, nil, 30, lib_ecology.temperature_hot, 80, lib_ecology.humidity_arid)
+	add_biome("lib_ecology_desertstone_grassland", nil, "lib_materials:dirt_clayey_with_dry_grass", 1, "lib_materials:dirt_clayey", 2, "lib_materials:stone_desert", nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, 80, 55)
+	add_biome("lib_ecology_rainforest", nil, "lib_materials:dirt_with_rainforest_litter", 1, "lib_materials:dirt", 2, "lib_materials:stone_brown", nil, nil, nil, nil, 30, lib_ecology.temperature_hot, 85, 70)
+	add_biome("lib_ecology_rainforest_swamp", nil, "lib_materials:dirt_silty_with_rainforest_litter", 1, "lib_materials:dirt_mud_01", 2, nil, nil, nil, nil, nil, -1, 2, 85, 60)
+	add_biome("lib_ecology_sandstone_grassland", nil, "lib_materials:dirt_sandy_with_dry_grass4", 1, "lib_materials:dirt_sandy", 2, "lib_materials:stone_sandstone", nil, nil, nil, nil, 5, 24, 55, 40)
+	add_biome("lib_ecology_sandstone_grassland_dunes", nil, "lib_materials:sand", 1, "lib_materials:sand", 2, "lib_materials:stone_sandstone", nil, nil, nil, nil, 1, 5, 55, 40)
+	add_biome("lib_ecology_savanna", nil, "lib_materials:dirt_with_dry_grass", 1, "lib_materials:dirt", 4, nil, nil, nil, nil, nil, lib_ecology.maxheight_coastal, lib_ecology.maxheight_lowland, 80, lib_ecology.humidity_semiarid)
+	add_biome("lib_ecology_savanna_swamp", nil, "lib_materials:dirt_clayey_with_rainforest_litter", 1, "lib_materials:dirt_clay_red", 3, nil, nil, nil, nil, nil, -3, 0, 80, lib_ecology.humidity_semiarid)
+
+--[[
+
+	-- Permanent ice
+
+	-- minetest.register_biome({name = "lib_ecology_glacier",
+		-- node_dust = "default:snowblock",
+		-- node_top = "default:snowblock",
+		-- depth_top = 1,
+		-- node_filler = "default:snowblock",
+		-- depth_filler = 3,
+		-- node_stone = "default:ice",
+		-- node_water_top = "lib_ecology:ice",
+		-- depth_water_top = lib_ecology.temperature_cold,
+		-- --node_water = "",
+		-- node_river_water = "lib_ecology:ice",
+		-- y_min = -8,
+		-- y_max = 31000,
+		-- heat_point = 0,
+		-- humidity_point = lib_ecology.temperature_temperate,
+	-- })
+
+	-- Cold
+	-- minetest.register_biome({name = "lib_ecology_tundra",
+		-- --node_dust = "",
+		-- node_top = "default:dirt_with_snow",
+		-- depth_top = 1,
+		-- node_filler = "default:dirt",
+		-- depth_filler = 1,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 2,
+		-- y_max = 31000,
+		-- heat_point = 15,
+		-- humidity_point = 35,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_tundra_beach",
+		-- --node_dust = "",
+		-- node_top = "default:gravel",
+		-- depth_top = 1,
+		-- node_filler = "default:gravel",
+		-- depth_filler = 2,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -3,
+		-- y_max = 1,
+		-- heat_point = 15,
+		-- humidity_point = 35,
+	-- })
+
+	-- minetest.register_biome({name = "lib_ecology_taiga",
+		-- node_dust = "",
+		-- node_top = "default:dirt_with_snow",
+		-- depth_top = 1,
+		-- node_filler = "default:dirt",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 2,
+		-- y_max = 31000,
+		-- heat_point = 15,
+		-- humidity_point = 65,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_cold_desert",
+		-- --node_dust = "",
+		-- node_top = "default:silver_sand",
+		-- depth_top = 1,
+		-- node_filler = "default:silver_sandstone",
+		-- depth_filler = 1,
+		-- node_stone = "lib_materials:stone_sand",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 5,
+		-- y_max = 31000,
+		-- heat_point = lib_ecology.temperature_cool,
+		-- humidity_point = 0,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_cold_desert_ocean",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:sand",
+		-- depth_filler = 3,
+		-- node_stone = "lib_materials:stone_desert",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -112,
+		-- y_max = 4,
+		-- heat_point = lib_ecology.temperature_cool,
+		-- humidity_point = lib_ecology.temperature_cold,
+	-- })
+
+
+	-- -- Temperate
+	-- minetest.register_biome({name = "lib_ecology_stone_grassland",
+		-- --node_dust = "",
+		-- node_top = "lib_materials:dirt_sandy_with_grass",
+		-- depth_top = 1,
+		-- node_filler = "default:dirt",
+		-- depth_filler = 1,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 6,
+		-- y_max = 31000,
+		-- heat_point = 35,
+		-- humidity_point = 40,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_stone_grassland_dunes",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:sand",
+		-- depth_filler = 2,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 5,
+		-- y_max = 5,
+		-- heat_point = 35,
+		-- humidity_point = 40,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_stone_grassland_ocean",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:sand",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -112,
+		-- y_max = 4,
+		-- heat_point = 35,
+		-- humidity_point = 40,
+	-- })
+
+	-- minetest.register_biome({name = "lib_ecology_coniferous_forest",
+		-- --node_dust = "",
+		-- node_top = "default:dirt_with_coniferous_litter",
+		-- depth_top = 1,
+		-- node_filler = "default:dirt",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 6,
+		-- y_max = 31000,
+		-- heat_point = 35,
+		-- humidity_point = 60,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_coniferous_forest_dunes",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:dirt",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 5,
+		-- y_max = 5,
+		-- heat_point = 35,
+		-- humidity_point = 60,
+	-- })
+	-- minetest.register_biome({name = "lib_ecology_coniferous_forest_ocean",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:sand",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -112,
+		-- y_max = 4,
+		-- heat_point = 35,
+		-- humidity_point = 60,
+	-- })
+--]]
+
+--[[
+	minetest.register_biome({name = "lib_ecology_sandstone_grassland",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_sandy_with_dry_grass4",
 		depth_top = 1,
-		node_filler = "default:snowblock",
-		depth_filler = 3,
-		node_stone = "default:ice",
-		node_water_top = "default:ice",
-		depth_water_top = 10,
+		node_filler = "lib_materials:dirt_sandy",
+		depth_filler = 2,
+		node_stone = "lib_materials:stone_sandstone",
+		--node_water_top = "",
+		--depth_water_top = ,
 		--node_water = "",
-		node_river_water = "default:ice",
-		node_riverbed = "default:gravel",
-		depth_riverbed = 2,
-		y_min = -8,
-		y_max = 31000,
-		heat_point = 0,
-		humidity_point = 50,
+		--node_river_water = "",
+		y_min = 5,
+		y_max = 24,
+		heat_point = 55,
+		humidity_point = 40,
 	})
-
-	minetest.register_biome({
-		name = "glacier_ocean",
-		node_dust = "default:snowblock",
-		node_top = "default:sand",
+	minetest.register_biome({name = "lib_ecology_sandstone_grassland_dunes",
+		--node_dust = "",
+		node_top = "lib_materials:sand",
 		depth_top = 1,
-		node_filler = "default:sand",
+		node_filler = "lib_materials:sand",
+		depth_filler = 2,
+		node_stone = "lib_materials:stone_sandstone",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = 1,
+		y_max = 5,
+		heat_point = 55,
+		humidity_point = 40,
+	})
+--]]
+
+--[[
+	-- minetest.register_biome({name = "lib_ecology_sandstone_grassland_ocean",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:sand",
+		-- depth_filler = 3,
+		-- node_stone = "lib_materials:stone_sandstone",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -112,
+		-- y_max = 4,
+		-- heat_point = 55,
+		-- humidity_point = 40,
+	-- })
+
+	-- minetest.register_biome({name = "lib_ecology_deciduous_forest",
+		-- --node_dust = "",
+		-- node_top = "default:dirt_with_grass",
+		-- depth_top = 1,
+		-- node_filler = "default:dirt",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = 1,
+		-- y_max = 31000,
+		-- heat_point = 60,
+		-- humidity_point = 60,
+	-- })
+--]]
+
+--[[
+	minetest.register_biome({name = "lib_ecology_deciduous_forest_swamp",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_silty_with_coniferous_litter",
+		depth_top = 1,
+		node_filler = "lib_materials:dirt_silty",
 		depth_filler = 3,
 		--node_stone = "",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
-		y_max = -9,
-		heat_point = 0,
-		humidity_point = 50,
-	})
-end
-
-add_biome("clearing", nil, "lib_ecology:green_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 71, 45, 65, 1) -- ADDED
-
-add_biome("bamboo", nil, "lib_ecology:bamboo_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 71, 45, 75, lib_ecology.bamboo)
-
-add_biome("bamboo_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 2, 45, 75, lib_ecology.bamboo)
-
-add_biome("mesa", nil, "bakedclay:orange", 1, "bakedclay:orange", 15,
-	nil, nil, nil, nil, nil, 1, 71, 25, 28, lib_ecology.mesa)
-
-add_biome("mesa_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 25, 28, lib_ecology.mesa)
-
-add_biome("alpine", nil, "default:dirt_with_snow", 1, "default:dirt", 2,
-	nil, nil, nil, nil, nil, 40, 140, 10, 40, lib_ecology.alpine)
-
-add_biome("snowy", nil, "lib_ecology:cold_dirt", 1, "default:dirt", 2,
-	nil, nil, nil, nil, nil, 4, 40, 10, 40, lib_ecology.snowy)
-
-add_biome("frost", nil, "lib_ecology:crystal_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 1, 71, 10, 40, lib_ecology.frost)
-
-add_biome("frost_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 10, 40, lib_ecology.frost)
-
-add_biome("grassy", nil, "lib_ecology:green_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 91, 13, 40, lib_ecology.grassy)
-
-add_biome("grassy_ocean", nil, "default:sand", 2, "default:gravel", 1,
-	nil, nil, nil, nil, nil, -31000, 3, 13, 40, lib_ecology.grassy)
-
-add_biome("caves", nil, "lib_materials:stone_sand", 4, "air", 6,
-	nil, nil, nil, nil, nil, -4, 41, 15, 25, lib_ecology.caves)
-
-
-
-add_biome("grayness", nil, "lib_ecology:gray_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 2, 41, 15, 30, lib_ecology.grayness)
-
-add_biome("grayness_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 15, 30, lib_ecology.grayness)
-
-add_biome("grassytwo", nil, "lib_ecology:green_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 1, 91, 15, 40, lib_ecology.grassytwo)
-
-add_biome("grassytwo_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 15, 40, lib_ecology.grassytwo)
-
-add_biome("prairie", nil, "lib_ecology:prairie_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 26, 20, 40, lib_ecology.prairie)
-
-add_biome("prairie_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 20, 40, lib_ecology.prairie)
-
-add_biome("jumble", nil, "lib_ecology:green_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 1, 71, 25, 50, lib_ecology.jumble)
-
-add_biome("jumble_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 25, 50, lib_ecology.jumble)
-
-add_biome("junglee", nil, "lib_ecology:jungle_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 1, 71, 30, 60, lib_ecology.junglee)
-
-add_biome("junglee_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 30, 60, lib_ecology.junglee)
-
-add_biome("grove", nil, "lib_ecology:grove_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 23, 45, 35, lib_ecology.grove)
-
-add_biome("grove_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 2, 45, 35, lib_ecology.grove)
-
-add_biome("mushroom", nil, "lib_ecology:mushroom_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 50, 45, 55, lib_ecology.mushroom)
-
-add_biome("mushroom_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 2, 45, 55, lib_ecology.mushroom)
-
-add_biome("sandstone", nil, "default:sandstone", 1, "default:sandstone", 1,
-	"default:sandstone", nil, nil, nil, nil, 3, 23, 50, 20, lib_ecology.sandstone)
-
-add_biome("sandstone_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 2, 50, 20, lib_ecology.sandstone)
-
-add_biome("quicksand", nil, "lib_ecology:quicksand2", 3, "default:gravel", 1,
-	nil, nil, nil, nil, nil, 1, 1, 50, 38, lib_ecology.quicksand)
-
-add_biome("plains", nil, "lib_ecology:dry_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 25, 65, 25, lib_ecology.plains)
-
-add_biome("plains_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 2, 55, 25, lib_ecology.plains)
-
-add_biome("savannah", nil, "default:dirt_with_dry_grass", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 3, 50, 55, 25, lib_ecology.savannah)
-
-add_biome("savannah_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 1, 55, 25, lib_ecology.savannah)
-
-add_biome("fiery", nil, "lib_ecology:fiery_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 5, 20, 75, 10, lib_ecology.fiery)
-
-add_biome("fiery_ocean", nil, "default:sand", 1, "default:sand", 2,
-	nil, nil, nil, nil, nil, -192, 4, 75, 10, lib_ecology.fiery)
-
-add_biome("sandclay", nil, "default:sand", 3, "default:clay", 2,
-	nil, nil, nil, nil, nil, 1, 11, 65, 2, lib_ecology.sandclay)
-
-add_biome("swamp", nil, "lib_ecology:green_dirt", 1, "default:dirt", 3,
-	nil, nil, nil, nil, nil, 1, 7, 80, 90, lib_ecology.swamp)
-
-add_biome("swamp_ocean", nil, "default:sand", 2, "default:clay", 2,
-	nil, nil, nil, nil, nil, -192, 1, 80, 90, lib_ecology.swamp)
-
---= schematic decorations
-
-local add_schem = function(a, b, c, d, e, f, g)
-
-	if g ~= 1 then return end
-
-	minetest.register_decoration({
-		deco_type = "schematic",
-		place_on = a,
-		sidelen = 80,
-		fill_ratio = b,
-		biomes = c,
-		y_min = d,
-		y_max = e,
-		schematic = f,
-		flags = "place_center_x, place_center_z",
-	})
-end
-
--- redwood tree
-add_schem({"bakedclay:orange"}, 0.0025, {"mesa"}, 1, 100, lib_ecology.path .. "/schematics/redwood.mts", lib_ecology.mesa)
-
--- banana tree
-add_schem({"lib_ecology:grove_dirt"}, 0.015, {"grove"}, 1, 100, lib_ecology.bananatree, lib_ecology.grove)
-
--- healing tree
-add_schem({"default:dirt_with_snow"}, 0.01, {"alpine"}, 120, 140, lib_ecology.path .. "/schematics/yellowtree.mts", lib_ecology.alpine)
-
--- crystal frost tree
-add_schem({"lib_ecology:crystal_dirt"}, 0.01, {"frost"}, 1, 100, lib_ecology.path .. "/schematics/frosttrees.mts", lib_ecology.frost)
-
--- giant mushroom
-add_schem({"lib_ecology:mushroom_dirt"}, 0.02, {"mushroom"}, 1, 100, lib_ecology.path .. "/schematics/mushroomone.mts", lib_ecology.mushroom)
-
--- -- -- small cinder cone
--- -- add_schem({"lib_ecology:fiery_dirt"}, 0.01, {"fiery"}, 1, 100, lib_ecology.path .. "/schematics/volcanom.mts", lib_ecology.fiery)
-
--- -- -- large lava crater
--- -- add_schem({"lib_ecology:fiery_dirt"}, 0.01, {"fiery"}, 1, 100, lib_ecology.path .. "/schematics/volcanol.mts", lib_ecology.fiery)
-
--- small lava crater
-add_schem({"ethereal:fiery_dirt"}, 0.01, {"fiery"}, 1, 100, lib_ecology.path .. "/schematics/volcanom.mts", lib_ecology.fiery)
-
--- large lava crater
-add_schem({"ethereal:fiery_dirt"}, 0.01, {"fiery"}, 1, 100, lib_ecology.path .. "/schematics/volcanol.mts", lib_ecology.fiery)
-
--- default jungle tree
-add_schem({"lib_ecology:jungle_dirt"}, 0.08, {"junglee"}, 1, 100, lib_ecology.path .. "/schematics/jungle_tree.mts", lib_ecology.junglee)
-
--- willow tree
-add_schem({"lib_ecology:gray_dirt"}, 0.02, {"grayness"}, 1, 100, lib_ecology.path .. "/schematics/willow.mts", lib_ecology.grayness)
-
--- pine tree (default for lower elevation and lib_ecology for higher)
-add_schem({"lib_ecology:cold_dirt"}, 0.025, {"snowy"}, 10, 40, lib_ecology.path .. "/schematics/pine_tree.mts", lib_ecology.snowy)
-add_schem({"default:dirt_with_snow"}, 0.025, {"alpine"}, 40, 140, lib_ecology.path .. "/schematics/pinetree.mts", lib_ecology.alpine)
-
--- default apple tree
-add_schem({"lib_ecology:green_dirt"}, 0.02, {"jumble"}, 1, 100, lib_ecology.path .. "/schematics/apple_tree.mts", lib_ecology.grassy)
-add_schem({"lib_ecology:green_dirt"}, 0.03, {"grassy"}, 1, 100, lib_ecology.path .. "/schematics/apple_tree.mts", lib_ecology.grassy)
-
--- big old tree
-add_schem({"lib_ecology:green_dirt"}, 0.001, {"jumble"}, 1, 100, lib_ecology.path .. "/schematics/bigtree.mts", lib_ecology.jumble)
-
--- aspen tree
-add_schem({"lib_ecology:green_dirt"}, 0.02, {"grassytwo"}, 1, 50, lib_ecology.path .. "/schematics/aspen_tree.mts", lib_ecology.jumble)
-
--- birch tree
-add_schem({"lib_ecology:green_dirt"}, 0.02, {"grassytwo"}, 50, 100, lib_ecology.birchtree, lib_ecology.grassytwo)
-
--- orange tree
-add_schem({"lib_ecology:prairie_dirt"}, 0.01, {"prairie"}, 1, 100, lib_ecology.orangetree, lib_ecology.prairie)
-
--- default acacia tree
-add_schem({"default:dirt_with_dry_grass"}, 0.004, {"savannah"}, 1, 100, lib_ecology.path .. "/schematics/acacia_tree.mts", lib_ecology.savannah)
-
--- large cactus (by Paramat)
-if lib_ecology.desert == 1 then
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = {"default:desert_sand"},
-	sidelen = 80,
-	noise_params = {
-		offset = -0.0005,
-		scale = 0.0015,
-		spread = {x = 200, y = 200, z = 200},
-		seed = 230,
-		octaves = 3,
-		persist = 0.6
-	},
-	biomes = {"desert"},
-	y_min = 5,
-	y_max = 31000,
-	schematic = dpath.."large_cactus.mts",
-	flags = "place_center_x", --, place_center_z",
-	rotation = "random",
-})
-end
-
--- palm tree
-add_schem({"default:sand"}, 0.0025, {"desert_ocean"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.desert)
-add_schem({"default:sand"}, 0.0025, {"plains_ocean"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.plains)
-add_schem({"default:sand"}, 0.0025, {"sandclay"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.sandclay)
-add_schem({"default:sand"}, 0.0025, {"sandstone_ocean"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.sandstone)
-add_schem({"default:sand"}, 0.0025, {"mesa_ocean"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.mesa)
-add_schem({"default:sand"}, 0.0025, {"grove_ocean"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.grove)
-add_schem({"default:sand"}, 0.0025, {"grassy_ocean"}, 1, 1, lib_ecology.path .. "/schematics/palmtree.mts", lib_ecology.grassy)
-
--- bamboo tree
-add_schem({"lib_ecology:bamboo_dirt"}, 0.025, {"bamboo"}, 1, 100, lib_ecology.bambootree, lib_ecology.bamboo)
-
--- bush
-add_schem({"lib_ecology:bamboo_dirt"}, 0.08, {"bamboo"}, 1, 100, lib_ecology.bush, lib_ecology.bamboo)
-
--- vine tree
-add_schem({"lib_ecology:green_dirt"}, 0.02, {"swamp"}, 1, 100, lib_ecology.path .. "/schematics/vinetree.mts", lib_ecology.swamp)
-
---= simple decorations
-
-local add_node = function(a, b, c, d, e, f, g, h, i, j)
-
-	if j ~= 1 then return end
-
-	minetest.register_decoration({
-		deco_type = "simple",
-		place_on = a,
-		sidelen = 80,
-		fill_ratio = b,
-		biomes = c,
-		y_min = d,
-		y_max = e,
-		decoration = f,
-		height_max = g,
-		spawn_by = h,
-		num_spawn_by = i,
-	})
-end
-
--- scorched tree
-add_node({"lib_ecology:dry_dirt"}, 0.006, {"plains"}, 1, 100, {"lib_ecology:scorched_tree"}, 6, nil, nil, lib_ecology.plains)
-
--- dry shrub
-add_node({"lib_ecology:dry_dirt"}, 0.015, {"plains"}, 1, 100, {"default:dry_shrub"}, nil, nil, nil, lib_ecology.plains)
-add_node({"default:sand"}, 0.015, {"grassy_ocean"}, 1, 100, {"default:dry_shrub"}, nil, nil, nil, lib_ecology.grassy)
-add_node({"default:desert_sand"}, 0.015, {"desert"}, 1, 100, {"default:dry_shrub"}, nil, nil, nil, lib_ecology.desert)
-add_node({"default:sandstone"}, 0.015, {"sandstone"}, 1, 100, {"default:dry_shrub"}, nil, nil, nil, lib_ecology.sandstone)
-add_node({"bakedclay:red", "bakedclay:orange"}, 0.015, {"mesa"}, 1, 100, {"default:dry_shrub"}, nil, nil, nil, lib_ecology.mesa)
-
--- dry grass
-add_node({"default:dirt_with_dry_grass"}, 0.25, {"savannah"}, 1, 100, {"default:dry_grass_2",
-	"default:dry_grass_3", "default:dry_grass_4", "default:dry_grass_5"}, nil, nil, nil, lib_ecology.savannah)
-
--- flowers & strawberry
-add_node({"lib_ecology:green_dirt"}, 0.025, {"grassy"}, 1, 100, {"flowers:dandelion_white",
-	"flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip",
-	"flowers:viola", "lib_ecology:strawberry_7"}, nil, nil, nil, lib_ecology.grassy)
-add_node({"lib_ecology:green_dirt"}, 0.025, {"grassytwo"}, 1, 100, {"flowers:dandelion_white",
-	"flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip",
-	"flowers:viola", "lib_ecology:strawberry_7"}, nil, nil, nil, lib_ecology.grassytwo)
-
--- prairie flowers & strawberry
-add_node({"lib_ecology:prairie_dirt"}, 0.035, {"prairie"}, 1, 100, {"flowers:dandelion_white",
-	"flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip",
-	"flowers:viola", "lib_ecology:strawberry_7"}, nil, nil, nil, lib_ecology.prairie)
-
--- crystal spike & crystal grass
-add_node({"lib_ecology:crystal_dirt"}, 0.02, {"frost"}, 1, 100, {"lib_ecology:crystal_spike",
-	"lib_ecology:crystalgrass"}, nil, nil, nil, lib_ecology.frost)
-
--- red shrub
-add_node({"lib_ecology:fiery_dirt"}, 0.10, {"fiery"}, 1, 100, {"lib_ecology:dry_shrub"}, nil, nil, nil, lib_ecology.fiery)
-
--- fire flower
---add_node({"lib_ecology:fiery_dirt"}, 0.02, {"fiery"}, 1, 100, {"lib_ecology:fire_flower"}, nil, nil, nil, lib_ecology.fiery)
-
--- snowy grass
-add_node({"lib_ecology:gray_dirt"}, 0.05, {"grayness"}, 1, 100, {"lib_ecology:snowygrass"}, nil, nil, nil, lib_ecology.grayness)
-add_node({"lib_ecology:cold_dirt"}, 0.05, {"snowy"}, 1, 100, {"lib_ecology:snowygrass"}, nil, nil, nil, lib_ecology.snowy)
-
--- cactus
-add_node({"default:sandstone"}, 0.0025, {"sandstone"}, 1, 100, {"default:cactus"}, 3, nil, nil, lib_ecology.sandstone)
-add_node({"default:desert_sand"}, 0.005, {"desert"}, 1, 100, {"default:cactus"}, 4, nil, nil, lib_ecology.desert)
-
--- wild red mushroom
-add_node({"lib_ecology:mushroom_dirt"}, 0.01, {"mushroom"}, 1, 100, {"flowers:mushroom_fertile_red"}, nil, nil, nil, lib_ecology.mushroom)
-
-local list = {
-	{"junglee", "lib_ecology:jungle_dirt", lib_ecology.junglee},
-	{"grassy", "lib_ecology:green_dirt", lib_ecology.grassy},
-	{"grassytwo", "lib_ecology:green_dirt", lib_ecology.grassytwo},
-	{"prairie", "lib_ecology:prairie_dirt", lib_ecology.prairie},
-	{"mushroom", "lib_ecology:mushroom_dirt", lib_ecology.mushroom},
-	{"swamp", "lib_ecology:green_dirt", lib_ecology.swamp},
-}
-
--- wild red and brown mushrooms
-for _, row in pairs(list) do
-
-if row[3] == 1 then
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {row[2]},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.009,
-		spread = {x = 200, y = 200, z = 200},
-		seed = 2,
-		octaves = 3,
-		persist = 0.66
-	},
-	biomes = {row[1]},
-	y_min = 1,
-	y_max = 120,
-	decoration = {"flowers:mushroom_brown", "flowers:mushroom_red"},
-})
-end
-
-end
-
--- jungle grass
-add_node({"lib_ecology:jungle_dirt"}, 0.10, {"junglee"}, 1, 100, {"default:junglegrass"}, nil, nil, nil, lib_ecology.junglee)
-add_node({"lib_ecology:green_dirt"}, 0.15, {"jumble"}, 1, 100, {"default:junglegrass"}, nil, nil, nil, lib_ecology.jumble)
-add_node({"lib_ecology:green_dirt"}, 0.25, {"swamp"}, 1, 100, {"default:junglegrass"}, nil, nil, nil, lib_ecology.swamp)
-
--- grass
-add_node({"lib_ecology:green_dirt"}, 0.35, {"grassy"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.grassy)
-add_node({"lib_ecology:green_dirt"}, 0.35, {"grassytwo"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.grassytwo)
-add_node({"lib_ecology:green_dirt"}, 0.35, {"jumble"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.jumble)
-add_node({"lib_ecology:jungle_dirt"}, 0.35, {"junglee"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.junglee)
-add_node({"lib_ecology:prairie_dirt"}, 0.35, {"prairie"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.prairie)
-add_node({"lib_ecology:grove_dirt"}, 0.35, {"grove"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.grove)
-add_node({"lib_ecology:bamboo_dirt"}, 0.35, {"bamboo"}, 1, 100, {"default:grass_2", "default:grass_3",
-	"default:grass_4", "default:grass_5"}, nil, nil, nil, lib_ecology.bamboo)
-add_node({"lib_ecology:green_dirt"}, 0.35, {"clearing", "swamp"}, 1, 100, {"default:grass_3",
-	"default:grass_4"}, nil, nil, nil, 1)
-
--- grass on sand
-add_node({"default:sand"}, 0.25, {"sandclay"}, 3, 4, {"default:grass_2", "default:grass_3"}, nil, nil, nil, lib_ecology.sandclay)
-
--- ferns
-add_node({"lib_ecology:grove_dirt"}, 0.2, {"grove"}, 1, 100, {"lib_ecology:fern"}, nil, nil, nil, lib_ecology.grove)
-add_node({"lib_ecology:green_dirt"}, 0.1, {"swamp"}, 1, 100, {"lib_ecology:fern"}, nil, nil, nil, lib_ecology.swamp)
-
--- snow
-add_node({"lib_ecology:cold_dirt"}, 0.8, {"snowy"}, 4, 40, {"default:snow"}, nil, nil, nil, lib_ecology.snowy)
-add_node({"default:dirt_with_snow"}, 0.8, {"alpine"}, 40, 140, {"default:snow"}, nil, nil, nil, lib_ecology.alpine)
-
--- wild onion
-add_node({"lib_ecology:green_dirt"}, 0.25, {"grassy"}, 1, 100, {"lib_ecology:onion_4"}, nil, nil, nil, lib_ecology.grassy)
-add_node({"lib_ecology:green_dirt"}, 0.25, {"grassytwo"}, 1, 100, {"lib_ecology:onion_4"}, nil, nil, nil, lib_ecology.grassytwo)
-add_node({"lib_ecology:green_dirt"}, 0.25, {"jumble"}, 1, 100, {"lib_ecology:onion_4"}, nil, nil, nil, lib_ecology.jumble)
-add_node({"lib_ecology:prairie_dirt"}, 0.25, {"prairie"}, 1, 100, {"lib_ecology:onion_4"}, nil, nil, nil, lib_ecology.prairie)
-
--- papyrus
-add_node({"lib_ecology:green_dirt"}, 0.1, {"grassy"}, 1, 1, {"default:papyrus"}, 4, "default:water_source", 1, lib_ecology.grassy)
-add_node({"lib_ecology:jungle_dirt"}, 0.1, {"junglee"}, 1, 1, {"default:papyrus"}, 4, "default:water_source", 1, lib_ecology.junglee)
-add_node({"lib_ecology:green_dirt"}, 0.1, {"swamp"}, 1, 1, {"default:papyrus"}, 4, "default:water_source", 1, lib_ecology.swamp)
-
---= Farming Redo plants
-
-if farming and farming.mod and farming.mod == "redo" then
-
-print ("[MOD] lib_ecology - Farming Redo detected and in use")
-
--- potato
-add_node({"lib_ecology:jungle_dirt"}, 0.035, {"junglee"}, 1, 100, {"farming:potato_3"}, nil, nil, nil, lib_ecology.junglee)
-
--- carrot, cucumber, potato, tomato, corn, coffee, raspberry, rhubarb
-add_node({"lib_ecology:green_dirt"}, 0.05, {"grassytwo"}, 1, 100, {"farming:carrot_7", "farming:cucumber_4",
-	"farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-	"farming:raspberry_4", "farming:rhubarb_3", "farming:blueberry_4"}, nil, nil, nil, lib_ecology.grassytwo)
-add_node({"lib_ecology:green_dirt"}, 0.05, {"grassy"}, 1, 100, {"farming:carrot_7", "farming:cucumber_4",
-	"farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-	"farming:raspberry_4", "farming:rhubarb_3", "farming:blueberry_4"}, nil, nil, nil, lib_ecology.grassy)
-add_node({"lib_ecology:green_dirt"}, 0.05, {"jumble"}, 1, 100, {"farming:carrot_7", "farming:cucumber_4",
-	"farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-	"farming:raspberry_4", "farming:rhubarb_3", "farming:blueberry_4"}, nil, nil, nil, lib_ecology.jumble)
-add_node({"lib_ecology:prairie_dirt"}, 0.05, {"prairie"}, 1, 100, {"farming:carrot_7", "farming:cucumber_4",
-	"farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-	"farming:raspberry_4", "farming:rhubarb_3", "farming:blueberry_4"}, nil, nil, nil, lib_ecology.prairie)
-
--- melon and pumpkin
-add_node({"lib_ecology:jungle_dirt"}, 0.015, {"junglee"}, 1, 1, {"farming:melon_8", "farming:pumpkin_8"}, nil, "default:water_source", 1, lib_ecology.junglee)
-add_node({"lib_ecology:green_dirt"}, 0.015, {"grassy"}, 1, 1, {"farming:melon_8", "farming:pumpkin_8"}, nil, "default:water_source", 1, lib_ecology.grassy)
-add_node({"lib_ecology:green_dirt"}, 0.015, {"grassytwo"}, 1, 1, {"farming:melon_8", "farming:pumpkin_8"}, nil, "default:water_source", 1, lib_ecology.grassytwo)
-add_node({"lib_ecology:green_dirt"}, 0.015, {"jumble"}, 1, 1, {"farming:melon_8", "farming:pumpkin_8"}, nil, "default:water_source", 1, lib_ecology.jumble)
-
--- green beans
-add_node({"lib_ecology:green_dirt"}, 0.035, {"grassytwo"}, 1, 100, {"farming:beanbush"}, nil, nil, nil, lib_ecology.grassytwo)
-
--- grape bushel
-add_node({"lib_ecology:green_dirt"}, 0.025, {"grassytwo"}, 1, 100, {"farming:grapebush"}, nil, nil, nil, lib_ecology.grassytwo)
-add_node({"lib_ecology:green_dirt"}, 0.025, {"grassy"}, 1, 100, {"farming:grapebush"}, nil, nil, nil, lib_ecology.grassy)
-add_node({"lib_ecology:prairie_dirt"}, 0.025, {"prairie"}, 1, 100, {"farming:grapebush"}, nil, nil, nil, lib_ecology.prairie)
-
-end
-
--- place waterlily in beach areas
-local list = {
-	{"desert_ocean", lib_ecology.desert},
-	{"plains_ocean", lib_ecology.plains},
-	{"sandclay", lib_ecology.sandclay},
-	{"sandstone_ocean", lib_ecology.sandstone},
-	{"mesa_ocean", lib_ecology.mesa},
-	{"grove_ocean", lib_ecology.grove},
-	{"grassy_ocean", lib_ecology.grassy},
-	{"swamp_ocean", lib_ecology.swamp},
-}
-
-for _, row in pairs(list) do
-
-	if row[2] == 1 then
-
-	minetest.register_decoration({
-		deco_type = "schematic",
-		place_on = {"default:sand"},
-		sidelen = 16,
-		noise_params = {
-			offset = -0.12,
-			scale = 0.3,
-			spread = {x = 200, y = 200, z = 200},
-			seed = 33,
-			octaves = 3,
-			persist = 0.7
-		},
-		biomes = {row[1]},
-		y_min = 0,
+		y_min = -3,
 		y_max = 0,
-		schematic = lib_ecology.waterlily,
-		rotation = "random",
+		heat_point = 60,
+		humidity_point = 60,
 	})
+--]]	
 
-	end
+--[[
+	-- minetest.register_biome({name = "lib_ecology_deciduous_forest_ocean",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "default:sand",
+		-- depth_filler = 3,
+		-- --node_stone = "",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -112,
+		-- y_max = -4,
+		-- heat_point = 60,
+		-- humidity_point = 60,
+	-- })
+--]]
 
-end
+--[[	
+	-- Hot
+	minetest.register_biome({name = "lib_ecology_desert",
+		--node_dust = "",
+		node_top = "lib_materials:sand_desert",
+		depth_top = 1,
+		node_filler = "lib_materials:stone_sandstone_desert",
+		depth_filler = 3,
+		node_stone = "lib_materials:stone_desert",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = 30,
+		y_max = lib_ecology.temperature_hot,
+		heat_point = 80,
+		humidity_point = lib_ecology.temperature_cold,
+	})
+--]]
 
--- Generate Illumishroom in caves next to coal
-minetest.register_on_generated(function(minp, maxp)
+--[[
+	-- minetest.register_biome({name = "lib_ecology_desert_ocean",
+		-- --node_dust = "",
+		-- node_top = "default:sand",
+		-- depth_top = 1,
+		-- node_filler = "lib_materials:stone_sandstone",
+		-- depth_filler = 3,
+		-- --node_stone = "lib_materials:stone_desert",
+		-- --node_water_top = "",
+		-- --depth_water_top = ,
+		-- --node_water = "",
+		-- --node_river_water = "",
+		-- y_min = -112,
+		-- y_max = 4,
+		-- heat_point = 80,
+		-- humidity_point = lib_ecology.temperature_cold,
+	-- })
+--]]
 
-	if minp.y > -30 or maxp.y < -3000 then
-		return
-	end
+--[[
+	minetest.register_biome({name = "lib_ecology_savanna",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_with_dry_grass",
+		depth_top = 1,
+		node_filler = "lib_materials:dirt",
+		depth_filler = 4,
+		--node_stone = "",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = 30,
+		y_max = 60,
+		heat_point = 80,
+		humidity_point = lib_ecology.temperature_cool,
+	})
+	minetest.register_biome({name = "lib_ecology_savanna_swamp",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_clayey_with_rainforest_litter",
+		depth_top = 1,
+		node_filler = "lib_materials:dirt_clay_red",
+		depth_filler = 3,
+		--node_stone = "",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -3,
+		y_max = 0,
+		heat_point = 80,
+		humidity_point = lib_ecology.temperature_cool,
+	})
+	
+	minetest.register_biome({name = "lib_ecology_desertstone_grassland",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_clayey_with_dry_grass",
+		depth_top = 1,
+		node_filler = "lib_materials:dirt_clayey",
+		depth_filler = 2,
+		node_stone = "lib_materials:stone_desert",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = 30,
+		y_max = 60,
+		heat_point = 80,
+		humidity_point = 55,
+	})
+	minetest.register_biome({name = "lib_ecology_rainforest",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_with_rainforest_litter",
+		depth_top = 1,
+		node_filler = "lib_materials:dirt",
+		depth_filler = 3,
+		node_stone = "lib_materials:stone_brown",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = 30,
+		y_max = lib_ecology.temperature_hot,
+		heat_point = 85,
+		humidity_point = 70,
+	})
+	minetest.register_biome({name = "lib_ecology_rainforest_swamp",
+		--node_dust = "",
+		node_top = "lib_materials:dirt_silty_with_rainforest_litter",
+		depth_top = 1,
+		node_filler = "default:clay",
+		depth_filler = 3,
+		node_stone = "lib_materials:stone_brown",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -3,
+		y_max = 0,
+		heat_point = 85,
+		humidity_point = 70,
+	})
+--]]
 
-	local bpos
-	local coal = minetest.find_nodes_in_area_under_air(minp, maxp, "default:stone_with_coal")
 
-	for n = 1, #coal do
 
-		bpos = {x = coal[n].x, y = coal[n].y + 1, z = coal[n].z }
+--Ethereal Biomes
 
-		if math.random(1, 2) == 1 then
+	add_biome("alpine", nil, "lib_materials:dirt_with_snow", 1, "lib_materials:dirt", 2, nil, nil, nil, nil, nil, 85, 95, lib_ecology.temperature_cold, 37)
+	add_biome("desert", nil, "lib_materials:sand_desert", 1, "lib_materials:sand_desert", 3, nil, nil, nil, nil, nil, 3, 23, 35, 20)
+	add_biome("fiery", nil, "lib_materials:dirt_with_grass_fiery", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 5, 20, lib_ecology.temperature_warm, lib_ecology.humidity_arid)
+	add_biome("frost", nil, "lib_materials:dirt_with_grass_crystal", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 118, 122, lib_ecology.temperature_cold, 37)
+	add_biome("junglee", nil, "lib_materials:dirt_with_grass_jungle_01", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 1, 11, 82, 62)
+	add_biome("plains", nil, "lib_materials:dirt_dried", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 3, 25, 65, lib_ecology.humidity_semiarid)
+	add_biome("prairie", nil, "lib_materials:dirt_with_grass_prairie", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 20, 40, 20, 40)
+	add_biome("sandclay", nil, "lib_materials:sand", 3, "default:clay", 2, nil, nil, nil, nil, nil, 1, 11, 65, 2)
+	add_biome("sandstone", nil, "lib_materials:stone_sandstone", 1, "lib_materials:stone_sandstone", 1, nil, nil, nil, nil, nil, 3, 23, lib_ecology.temperature_temperate, 20)
+	add_biome("savannah", nil, "lib_materials:dirt_with_dry_grass", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 3, 50, 55, lib_ecology.humidity_semiarid)
+	add_biome("snowy", nil, "lib_materials:dirt_with_grass_cold", 1, "lib_materials:dirt", 2, nil, nil, nil, nil, nil, 10, 35, lib_ecology.temperature_cold, 37)
+	add_biome("swamp", nil, "lib_materials:dirt_with_grass_swamp", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 1, 7, 80, lib_ecology.humidity_humid)
+	
+	--add_biome("bamboo", nil, "lib_materials:dirt_with_bamboo_grass", 1, "default:dirt", 3, nil, nil, nil, nil, nil, 41, 71, 45, lib_ecology.humidity_semihumid)
+	--add_biome("caves", nil, "lib_materials:stone_limestone_01", 8, "air", 6, nil, nil, nil, nil, nil, -4, 15, 15, lib_ecology.humidity_semiarid)
+	--add_biome("clearing", nil, "lib_materials:green_dirt", 1, "default:dirt", 3, nil, nil, nil, nil, nil, 3, 71, 45, 65, 1) -- ADDED
+	--add_biome("grassy", nil, "lib_materials:green_dirt", 1, "default:dirt", 3, nil, nil, nil, nil, nil, 3, 91, 13, 40)
+	--add_biome("grayness", nil, "lib_materials:gray_dirt", 3, "lib_materials:stone_basalt_01_cobble", 4, "lib_materials:stone_basalt_01", nil, nil, nil, nil, 1lib_ecology.temperature_cool, 1lib_ecology.temperature_temperate, 15, 30)
+	--add_biome("grayness2", nil, "lib_materials:gray_dirt", 1, "lib_materials:dirt_sandy", 3, "lib_materials:stone_brown", nil, nil, nil, nil, lib_ecology.temperature_warm, 95, lib_ecology.temperature_cool, 74)
+	--add_biome("grassytwo", nil, "lib_materials:green_dirt", 1, "default:dirt", 3, nil, nil, nil, nil, nil, 1, 91, 15, 40)
+	--add_biome("grove", nil, "lib_materials:grove_dirt", 1, "default:dirt", 3, nil, nil, nil, nil, nil, 3, 23, 45, 35)
+	--add_biome("jumble", nil, "lib_materials:green_dirt", 1, "lib_materials:dirt", 3, nil, nil, nil, nil, nil, 1, 71, lib_ecology.temperature_cool, lib_ecology.humidity_temperate)
 
-			if bpos.y > -3000 and bpos.y < -2000 then
-				minetest.swap_node(bpos, {name = "lib_ecology:illumishroom3"})
-
-			elseif bpos.y > -2000 and bpos.y < -1000 then
-				minetest.swap_node(bpos, {name = "lib_ecology:illumishroom2"})
-
-			elseif bpos.y > -1000 and bpos.y < -30 then
-				minetest.swap_node(bpos, {name = "lib_ecology:illumishroom"})
-			end
-		end
-	end
-end)
-
--- is baked clay mod active? add new flowers if so
-if minetest.get_modpath("bakedclay") then
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {
-		"lib_ecology:prairie_grass", "lib_ecology:green_dirt",
-		"lib_ecology:grove_dirt"
-	},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.004,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7133,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 10,
-	y_max = 90,
-	decoration = "bakedclay:delphinium",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {
-		"lib_ecology:prairie_grass", "lib_ecology:green_dirt",
-		"lib_ecology:grove_dirt", "lib_ecology:bamboo_dirt"
-	},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.004,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7134,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 15,
-	y_max = 90,
-	decoration = "bakedclay:thistle",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"lib_ecology:jungle_dirt"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.01,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7135,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 1,
-	y_max = 90,
-	decoration = "bakedclay:lazarus",
-	spawn_by = "default:jungletree",
-	num_spawn_by = 1,
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"lib_ecology:green_dirt", "default:sand"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.009,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7136,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 1,
-	y_max = 15,
-	decoration = "bakedclay:mannagrass",
-	spawn_by = "group:water",
-	num_spawn_by = 1,
-})
-
-end
