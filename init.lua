@@ -1,48 +1,52 @@
-----------------------------------------
--- The Valleys Mapgen C++ Helper Code --
-----------------------------------------
-
--- This code handles standard decorations for the Valleys Mapgen C++
---  mapgen. Most of this code is based on Gael-de-Sailly's amazing
---  work. The C++ mapgen is available at...
---    https://github.com/duane-r/minetest
-
-
--- Check for necessary mod functions and abort if they aren't available.
---[[
-if not minetest.get_biome_id then
-	minetest.log()
-	minetest.log("* Not loading Valleys Mapgen *")
-	minetest.log("Valleys Mapgen requires mod functions which are")
-	minetest.log(" not exposed by your Minetest build.")
-	minetest.log()
-	return
-end
---]]
-
---[[
-minetest.register_on_mapgen_init(function(mgparams)
-	minetest.set_mapgen_params({mgname="valleys"})
-	minetest.setting_set("mg_valleys_lava_features", 0)
-	minetest.setting_set("mg_valleys_water_features", 0)
-end)
---]]
-
-minetest.set_gen_notify("alternative_cave")
+-------------------------------------------------------------
+-- lib_ecology  ©2019 Shad MOrdre (shadmordre@minetest.net)--
+-------------------------------------------------------------
 
 
 -- the mod object
 lib_ecology = {}
-lib_ecology.version = "1.0"
+lib_ecology.version = "5.0"
+lib_ecology.path = minetest.get_modpath(minetest.get_current_modname())
+
 lib_ecology.time_factor = 10
 
--- path to all lib_ecology code
-lib_ecology.path = minetest.get_modpath("lib_ecology")
-lib_ecology.noise_set_id = minetest.settings:get("noise_set_id") or 2
+--DEFAULTS
+--0, 4, 30, 60, 90, 120, 150, 1800
+lib_ecology.ocean_depth = -192
+lib_ecology.beach_depth = -4
+lib_ecology.sea_level = 0
+lib_ecology.maxheight_beach = 4
+lib_ecology.maxheight_coastal = 40
+lib_ecology.maxheight_lowland = 80
+lib_ecology.maxheight_shelf = 120
+lib_ecology.maxheight_highland = 160
+lib_ecology.maxheight_mountain = 200
+lib_ecology.minheight_snow = 380
+lib_ecology.maxheight_snow = 780
+lib_ecology.maxheight_strato = 1800
 
+lib_ecology.temperature_hot = 90
+lib_ecology.temperature_warm = 75
+lib_ecology.temperature_temperate = 50
+lib_ecology.temperature_cool = 25
+lib_ecology.temperature_cold = 10
+lib_ecology.humidity_humid = 90
+lib_ecology.humidity_semihumid = 75
+lib_ecology.humidity_temperate = 50
+lib_ecology.humidity_semiarid = 25
+lib_ecology.humidity_arid = 10
+
+lib_ecology.biome_vertical_blend = 4
+
+minetest.set_gen_notify("alternative_cave")
+
+-- clear default mapgen biomes, decorations and ores
+--minetest.clear_registered_biomes()
+--minetest.clear_registered_decorations()
+--minetest.clear_registered_ores()
 
 -- Intllib
-local MP
+--local MP
 local S
 local NS
 if minetest.get_modpath("intllib") then
@@ -50,165 +54,36 @@ if minetest.get_modpath("intllib") then
 else
 	--S = function(s) return s end
 	-- internationalization boilerplate
-	MP = minetest.get_modpath(minetest.get_current_modname())
-	S, NS = dofile(MP.."/intllib.lua")
+	--MP = minetest.get_modpath(minetest.get_current_modname())
+	S, NS = dofile(lib_ecology.path.."/intllib.lua")
 end
 lib_ecology.intllib = S
 
-print (S("[MOD] lib_ecology loading..."))
+minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 
-minetest.register_node("lib_ecology:papyrus_3d", {
-	description = S("Papyrus 3D"),
-	drawtype = "nodebox",
-	tiles = {
-		"default_papyrus.png^(default_papyrus.png^[transformFX)",
-		"default_papyrus.png^(default_papyrus.png^[transformFX)",
-		"default_papyrus.png",
-		"default_papyrus.png^[transformFX",
-		"default_papyrus.png^[transformFX",
-		"default_papyrus.png",
-	},
-	--wield_image = "bamboo.png",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	is_ground_content = false,
-	sunlight_propagates = true,
-	walkable = true,
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.4375, -0.5, -0.1875, -0.3125, 0.5, -0.0625}, -- NodeBox1
-			{-0.1875, -0.5, 0.3125, -0.0625, 0.5, 0.4375}, -- NodeBox2
-			{0.0625, -0.5, -0.4375, 0.1875, 0.5, -0.3125}, -- NodeBox3
-			{0.3125, -0.5, 0.0625, 0.4375, 0.5, 0.1875}, -- NodeBox4
-			{-0.5, 0.1875, -0.1875, -0.4375, 0.3125, -0.0625}, -- NodeBox5
-			{-0.0625, -0.3125, 0.3125, 0, -0.1875, 0.4375}, -- NodeBox6
-			{0, -0.0625, -0.4375, 0.0625, 0.0625, -0.3125}, -- NodeBox7
-			{0.4375, 0.25, 0.0625, 0.5, 0.4375, 0.1875}, -- NodeBox8
-			{0.0625, 0.1875, -0.5, 0.1875, 0.375, -0.4375}, -- NodeBox9
-			{-0.4375, -0.3125, -0.0625, -0.3125, -0.1875, 0}, -- NodeBox10
-			{0.3125, -0.0625, 0, 0.4375, 0.0625, 0.0625}, -- NodeBox11
-			{-0.1875, 0.25, 0.4375, -0.0625, 0.4375, 0.5}, -- NodeBox12
-		}
-	},
-	groups = {snappy = 3, flammable = 2, tree = 1},
-	sounds = default.node_sound_leaves_defaults(),
-})
+dofile(lib_ecology.path.."/lib_ecology_sound_defaults.lua")
 
---minetest.register_alias("default:papyrus", "lib_ecology:papyrus_3d")
-minetest.override_item("default:papyrus", {
-	drawtype = "nodebox",
-	tiles = {
-		"default_papyrus.png^[transformR90^default_papyrus.png",
-		"default_papyrus.png^[transformR90^default_papyrus.png",
-		"default_papyrus.png",
-		"default_papyrus.png^[transformFX",
-		"default_papyrus.png^[transformFX",
-		"default_papyrus.png",
-	},
-	inventory_image = nil,
-	wield_image = nil,
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.4375, -0.5, -0.1875, -0.3125, 0.5, -0.0625}, -- NodeBox1
-			{-0.1875, -0.5, 0.3125, -0.0625, 0.5, 0.4375}, -- NodeBox2
-			{0.0625, -0.5, -0.4375, 0.1875, 0.5, -0.3125}, -- NodeBox3
-			{0.3125, -0.5, 0.0625, 0.4375, 0.5, 0.1875}, -- NodeBox4
-			{-0.5, 0.1875, -0.1875, -0.4375, 0.3125, -0.0625}, -- NodeBox5
-			{-0.0625, -0.3125, 0.3125, 0, -0.1875, 0.4375}, -- NodeBox6
-			{0, -0.0625, -0.4375, 0.0625, 0.0625, -0.3125}, -- NodeBox7
-			{0.4375, 0.25, 0.0625, 0.5, 0.4375, 0.1875}, -- NodeBox8
-			{0.0625, 0.1875, -0.5, 0.1875, 0.375, -0.4375}, -- NodeBox9
-			{-0.4375, -0.3125, -0.0625, -0.3125, -0.1875, 0}, -- NodeBox10
-			{0.3125, -0.0625, 0, 0.4375, 0.0625, 0.0625}, -- NodeBox11
-			{-0.1875, 0.25, 0.4375, -0.0625, 0.4375, 0.5}, -- NodeBox12
-		}
-	},
-})
-
---[[
-
-	Minetest Ethereal Mod (6th December 2016)
-
-	Created by ChinChow
-
-	Updated by TenPlus1
-
-]]
-
-lib_ecology.leaftype = 0 -- 0 for 2D plantlike, 1 for 3D allfaces
-lib_ecology.leafwalk = false -- true for walkable leaves, false to fall through
-lib_ecology.cavedirt = true -- caves chop through dirt when true
-lib_ecology.torchdrop = true -- torches drop when touching water
-lib_ecology.papyruswalk = true -- papyrus can be walked on
-lib_ecology.lilywalk = true -- waterlilies can be walked on
-lib_ecology.xcraft = true -- allow cheat crafts for cobble->gravel->dirt->sand, ice->snow, dry dirt->desert sand
-
--- Set following to 1 to enable biome or 0 to disable
-lib_ecology.glacier   = 1 -- Ice glaciers with snow
-lib_ecology.bamboo    = 1 -- Bamboo with sprouts
-lib_ecology.mesa      = 1 -- Mesa red and orange clay with giant redwood
-lib_ecology.alpine    = 1 -- Snowy grass
-lib_ecology.healing   = 1 -- Snowy peaks with healing trees
-lib_ecology.snowy     = 1 -- Cold grass with pine trees and snow spots
-lib_ecology.frost     = 1 -- Blue dirt with blue/pink frost trees
-lib_ecology.grassy    = 1 -- Green grass with flowers and trees
-lib_ecology.caves     = 1 -- Desert stone ares with huge caverns underneath
-lib_ecology.grayness  = 1 -- Grey grass with willow trees
-lib_ecology.grassytwo = 1 -- Sparse trees with old trees and flowers
-lib_ecology.prairie   = 1 -- Flowery grass with many plants and flowers
-lib_ecology.jumble    = 1 -- Green grass with trees and jungle grass
-lib_ecology.junglee   = 1 -- Jungle grass with tall jungle trees
-lib_ecology.desert    = 1 -- Desert sand with cactus
-lib_ecology.grove     = 1 -- Banana groves and ferns
-lib_ecology.mushroom  = 1 -- Purple grass with giant mushrooms
-lib_ecology.sandstone = 1 -- Sandstone with smaller cactus
-lib_ecology.quicksand = 1 -- Quicksand banks
-lib_ecology.plains    = 1 -- Dry dirt with scorched trees
-lib_ecology.savannah  = 1 -- Dry yellow grass with acacia tree's
-lib_ecology.fiery     = 1 -- Red grass with lava craters
-lib_ecology.sandclay  = 1 -- Sand areas with clay underneath
-lib_ecology.swamp     = 1 -- Swamp areas with vines on tree's, mushrooms, lilly's and clay sand
-
---local path = minetest.get_modpath("lib_ecology")
-
-dofile(lib_ecology.path .. "/ethereal/plantlife.lua")
-dofile(lib_ecology.path .. "/ethereal/mushroom.lua")
-dofile(lib_ecology.path .. "/ethereal/onion.lua")
-dofile(lib_ecology.path .. "/ethereal/crystal.lua")
-dofile(lib_ecology.path .. "/ethereal/water.lua")
-dofile(lib_ecology.path .. "/ethereal/dirt.lua")
-dofile(lib_ecology.path .. "/ethereal/leaves.lua")
-dofile(lib_ecology.path .. "/ethereal/wood.lua")
-dofile(lib_ecology.path .. "/ethereal/sapling.lua")
-dofile(lib_ecology.path .. "/ethereal/strawberry.lua")
-dofile(lib_ecology.path .. "/ethereal/fishing.lua")
-dofile(lib_ecology.path .. "/ethereal/extra.lua")
-dofile(lib_ecology.path .. "/ethereal/sealife.lua")
---dofile(lib_ecology.path .. "/fences.lua")
---dofile(lib_ecology.path .. "/gates.lua")
---dofile(lib_ecology.path .. "/ethereal/mapgen.lua")
-dofile(lib_ecology.path .. "/ethereal/food.lua")
-dofile(lib_ecology.path .. "/ethereal/bonemeal.lua")
---dofile(lib_ecology.path .. "/compatibility.lua")
---dofile(lib_ecology.path .. "/stairs.lua")
---dofile(lib_ecology.path .. "/lucky_block.lua")
-
-if minetest.get_modpath("xanadu") then
-	dofile(path .. "/plantpack.lua")
+--[[This section, from deco.lua, runs BEFORE valleys_c trees are generated.
+--]]
+-- Copy all the decorations except the ones I don't like.
+--  This is currently used to remove the default trees.
+local bad_deco = {"apple_tree", "pine_tree", "jungle_tree", "junglegrass", }
+local decos = {}
+for id, deco_table in pairs(minetest.registered_decorations) do
+	if type(deco_table.schematic) ~= "string" or not table.contains_substring(bad_deco, deco_table.schematic) then
+		table.insert(decos, deco_table)
+	end
 end
 
-minetest.log(S("@)-->-->  STATUS:     lib_ecology Section ethereal loaded."))
+--[[The following two code files and media from Minetest Ethereal Mod (6th December 2016)
+	Created by ChinChow 	Updated by TenPlus1
+	Integrated into lib_ecology by ShadMOrdre 2017-2019
+]]
+dofile(lib_ecology.path .. "/lib_ecology_fishing.lua")
+--dofile(lib_ecology.path .. "/lib_ecology_water_mechanics.lua")
 
-
-
-lib_ecology.noleafdecay = minetest.setting_getbool('lib_ecology_no_leaf_decay')
-lib_ecology.glow = minetest.setting_getbool('lib_ecology_glow')
-lib_ecology.houses = minetest.setting_getbool('lib_ecology_houses')
-lib_ecology.use_gennotify = minetest.setting_getbool('lib_ecology_use_gennotify')
-
+lib_ecology.noleafdecay = minetest.setting_getbool('lib_ecology_no_leaf_decay') or false
+lib_ecology.use_gennotify = minetest.setting_getbool('lib_ecology_use_gennotify') or true
 
 -- Modify a node to add a group
 function minetest.add_group(node, groups)
@@ -258,50 +133,67 @@ function lib_ecology.clone_node(name)
 	return node2
 end
 
-
 -- Prevent rivers from flowing through (the air in) caves.
 minetest.override_item("default:river_water_source", {is_ground_content = true})
 
+dofile(lib_ecology.path.."/lib_ecology_plant.lua")
+dofile(lib_ecology.path.."/lib_ecology_tree.lua")
+dofile(lib_ecology.path.."/lib_ecology_schem_models_1.lua")
 
--- Execute each section of the code.
---dofile(lib_ecology.path.."/valleys_c/biomes.lua")
-dofile(lib_ecology.path.."/lib_ecology_biomes.lua")
+--dofile(lib_ecology.path.."/lib_ecology_biomes.lua")
 
-dofile(lib_ecology.path.."/valleys_c/deco.lua")
-dofile(lib_ecology.path.."/valleys_c/voxel.lua")
---dofile(lib_ecology.path.."/vulcanism.lua")
 
---[[
-minetest.register_abm({
-	nodenames = {"bones:bones"},
-	interval = 10,
-	chance = 1,
-	action = function(pos)
-		minetest.log(S("*** Bones say: I'm at ("..pos.x..","..pos.y..","..pos.z..")."))
-	end,
+minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading..."))
+-- Valleys_c Schematics
+--Plants
+--dofile(lib_ecology.path.."/valleys_c/deco_coral.lua")
+dofile(lib_ecology.path.."/valleys_c/deco_rocks.lua")
+dofile(lib_ecology.path.."/valleys_c/deco_caves.lua")
+dofile(lib_ecology.path.."/valleys_c/deco_fungal_tree.lua")
+dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
+--Trees
+dofile(lib_ecology.path.."/lib_ecology_tree_utils.lua")
+dofile(lib_ecology.path.."/lib_ecology_tree_banana.lua")
+dofile(lib_ecology.path.."/lib_ecology_tree_deciduous.lua")
+
+--Fern Trees
+dofile(lib_ecology.path.."/lib_ecology_tree_fern.lua")
+
+--[[This section, from deco.lua, runs AFTER valleys_c trees are generated.
+--]]
+-- Re-register the good decorations.
+-- This has to be done after registering the trees or
+--  the trees spawn on top of grass.  /shrug
+for _, i in pairs(decos) do
+	minetest.register_decoration(i)
+end
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
+	sidelen = 80,
+	fill_ratio = 0.1,
+	biomes = {"lib_ecology_rainforest", "lib_ecology_desertstone_grassland"},
+	y_min = 1,
+	y_max = 31000,
+	decoration = "default:junglegrass",
 })
---]]
---[[
-minetest.register_on_dieplayer(function(player)
-	if minetest.setting_getbool("creative_mode") then
-		return
-	end
-	
-	local pos = player:getpos()
-	pos.x = math.floor(pos.x+0.5)
-	pos.y = math.floor(pos.y+0.5)
-	pos.z = math.floor(pos.z+0.5)
-	local player_name = player:get_player_name()
 
-	minetest.log(S("* "..player_name.." died at ("..pos.x..","..pos.y..","..pos.z..")."))
-	minetest.chat_send_player(S(player_name, "You died at ("..pos.x..","..pos.y..","..pos.z..")."))
-end)
---]]
+minetest.register_craft({
+	output = "default:stick 2",
+	recipe = {
+		{"default:cactus"}
+	}
+})
+minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code loaded."))
 
-minetest.log(S("@)-->-->  STATUS:     lib_ecology Section valleys_c loaded."))
+minetest.add_group("default:cactus", {oddly_breakable_by_hand=1})
 
+dofile(lib_ecology.path.."/lib_ecology_extra.lua")
+dofile(lib_ecology.path .. "/lib_ecology_seedling.lua")
 
+dofile(lib_ecology.path.."/lib_ecology_decorations.lua")
+dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
 
-
-minetest.log(S("@)-->-->  STATUS:     lib_ecology Loading Complete....."))
+minetest.log(S("[MOD]: lib_ecology:  Successfully loaded."))
 

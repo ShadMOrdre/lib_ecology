@@ -3,4 +3,4 @@
 #[Noise Set ID (Integer 1 - 10) - Defines which predefined Noise Set to use]
 #Selects which Noise Set to utilize for mapgen.  A Noise Set is a predefined selection of noise values used in generating the map.
 
-noise_set_id (Maximum altitude to generate these clouds) int 2
+noise_set_id (Noise Set ID - Which set of noise params to use for the voxelmanip) int 3
