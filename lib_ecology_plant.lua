@@ -3,107 +3,12 @@
 local S = lib_ecology.intllib
 
 
-
-
-	minetest.register_node("lib_ecology:plant_test_plant_01", {
-		description = S("Plant - Test Juncus Plantlike Object"),
-		drawtype = "mesh",
-		mesh = "plantlike.obj",
-		tiles = {"lib_ecology_plant_juncus_03.png"},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_test_fern_01", {
-		description = S("Plant - Test Old Fern Object"),
-		drawtype = "mesh",
-		mesh = "fern_old.b3d",
-		tiles = {"lib_ecology_fern_04.png",},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand = 1, flora = 1, flammable = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_test_plant_rooted_01", {
-		description = "Plant - Test Rooted Banana",
-		drawtype = "plantlike_rooted",
-		tiles = {
-			"default_dirt.png^lib_ecology_ground_grass.png",
-			"default_dirt.png",
-			"default_dirt.png",
-			"default_dirt.png",
-			"default_dirt.png",
-			"default_dirt.png",
-		},
-		special_tiles = {{name = "lib_ecology_plant_banana_plant.png", tileable_vertical = false}},
-		visual_scale = 2.0,
-		paramtype = "light",
-		buildable_to = false, 
-		is_ground_content = false,
-		sunlight_propagates = true,
-		walkable = true,
-		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_test_plant_rooted_01",
-		node_placement_prediction = "lib_ecology:plant_test_plant_rooted_01",
-		groups = {cracky=3,dig_immediate=3},
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, -0.2, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_test_plant_rooted_02", {
-		description = "Plant - Test Rooted Ladyfern",
-		drawtype = "plantlike_rooted",
-		tiles = {
-			"default_dirt.png^lib_ecology_ground_grass.png",
-			"default_dirt.png",
-			"default_dirt.png",
-			"default_dirt.png",
-			"default_dirt.png",
-			"default_dirt.png",
-		},
-		special_tiles = {{name = "lib_ecology_fern_04.png", tileable_vertical = false}},
-		visual_scale = 1.5,
-		paramtype = "light",
-		buildable_to = false, 
-		is_ground_content = false,
-		sunlight_propagates = true,
-		walkable = true,
-		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_test_plant_rooted_02",
-		node_placement_prediction = "lib_ecology:plant_test_plant_rooted_02",
-		groups = {cracky=3,dig_immediate=3},
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, -0.2, 0.3}
-		},
-	})
-
 	minetest.register_node("lib_ecology:plant_bush_jungle_01", {
 		description = S("Plant - Bush Jungle 01"),
 		drawtype = "nodebox",
 		tiles = {
 			"lib_ecology_ground_grass.png",
-			"lib_ecology_grass_jungle.png",
+			"lib_ecology_shrub_jungle.png",
 		},
 		waving = 1,
 		sunlight_propagates = true,
@@ -131,12 +36,12 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, -0.4875, 0.5},
 		},
 	})
-	minetest.register_node("lib_ecology:plant_grass_jungle_04", {
-		description = S("Plant - Grass Jungle 04"),
+	minetest.register_node("lib_ecology:plant_grass_reed", {
+		description = S("Plant - Grass Reed"),
 		drawtype = "nodebox",
 		tiles = {
 			"lib_ecology_ground_grass.png",
-			"lib_ecology_grass_jungle_4.png",
+			"lib_ecology_shrub_lush_01.png",
 		},
 		waving = 1,
 		sunlight_propagates = true,
@@ -172,133 +77,116 @@ local S = lib_ecology.intllib
 -- lib_ecology_plant_banana_plant.png
 	
 --BUSHES / SHRUBS
-	minetest.register_node("lib_ecology:plant_shrub_lush_01", {
-		description = S("Shrub - Lush 01"),
+	minetest.register_node("lib_ecology:bush_01_1", {
+		description = "Bush - 01 - 1",
 		drawtype = "plantlike",
-		visual_scale = 1.0,
-		tiles = {"lib_ecology_plant_shrub_lush_01.png"},
+		tiles = {"lib_ecology_bush_01_1.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
 		is_ground_content = false,
-		sunlight_propagates = false,
+		buildable_to = false, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
 		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		visual_scale = 1.2,
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.4, -0.4, -0.4, 0.4, 0.4, 0.4}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_shrub_dry", {
-		description = S("Shrub - Dry"),
-		drawtype = "plantlike",
-		visual_scale = 1.0,
-		tiles = {"lib_ecology_plant_shrub_dry.png"},
-		paramtype = "light",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 4 / 16, 5 / 16},
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_shrub_fiery", {
-		description = S("Shrub - Fiery"),
+	minetest.register_node("lib_ecology:bush_01_2", {
+		description = "Bush - 01 - 1",
 		drawtype = "plantlike",
-		visual_scale = 1.0,
-		tiles = {"lib_ecology_plant_shrub_fiery.png"},
-		paramtype = "light",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 4 / 16, 5 / 16},
-		},
-	})
-	minetest.register_node("lib_ecology:plant_shrub_scorched", {
-		description = S("Shrub - Scorched"),
-		drawtype = "plantlike",
-		visual_scale = 1.0,
-		tiles = {"lib_ecology_plant_shrub_scorched.png"},
+		tiles = {"lib_ecology_bush_01_2.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
 		is_ground_content = false,
-		sunlight_propagates = false,
+		buildable_to = false, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
 		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		visual_scale = 1.2,
 		sounds = lib_ecology.node_sound_leaves_defaults(),
-		waving = 1,
-		walkable = false,
-		floodable = true,
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.4, -0.4, -0.4, 0.4, 0.4, 0.4}
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_shrub_hog_peanut", {
-		description = S("Shrub - Hog Peanut"),
-		drawtype = "mesh",
-		mesh = "shrub.obj",
-		tiles = {"lib_ecology_plant_shrub1.png",},
+	minetest.register_node("lib_ecology:bush_02_1", {
+		description = "Bush - 01 - 1",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_bush_02_1.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
-		paramtype2 = "degrotate",
-		visual_scale = 0.5,
-		waving = 1,
+		is_ground_content = false,
+		buildable_to = false, 
+		sunlight_propagates = true,
 		walkable = false,
+		waving = 1,
 		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
-		on_construct = function(pos, node)
-			local node = minetest.get_node(pos)
-			node.param2 = math.random(0,179)
-		end,
 	})
-	minetest.register_node("lib_ecology:plant_shrub_deciduous_forest", {
-		description = S("Shrub - Deciduous Forest"),
-		drawtype = "mesh",
-		mesh = "shrub.obj",
-		tiles = {"lib_ecology_plant_shrub2.png",},
+	minetest.register_node("lib_ecology:bush_02_2", {
+		description = "Bush - 01 - 1",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_bush_02_2.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
-		paramtype2 = "degrotate",
-		visual_scale = 0.5,
-		waving = 1,
+		is_ground_content = false,
+		buildable_to = false, 
+		sunlight_propagates = true,
 		walkable = false,
+		waving = 1,
 		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
-		on_construct = function(pos, node)
-			local node = minetest.get_node(pos)
-			node.param2 = math.random(0,179)
-		end,
 	})
-	minetest.register_node("lib_ecology:plant_bush_stem", {
-		description = S("Plant - Bush Stem"),
+	minetest.register_node("lib_ecology:bush_02_3", {
+		description = "Bush - 01 - 1",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_bush_02_3.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = false, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:bush_trunk", {
+		description = S("Bush - Trunk"),
 		drawtype = "plantlike",
 		visual_scale = 1.41,
-		tiles = {"lib_ecology_plant_bush_stem.png"},
+		tiles = {"lib_ecology_bush_trunk.png"},
 		paramtype = "light",
+		is_ground_content = false,
 		sunlight_propagates = true,
+		walkable = false,
+		floodable = true,
 		groups = {choppy = 2, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
 		sounds = lib_ecology.node_sound_wood_defaults(),
 		selection_box = {
@@ -306,10 +194,122 @@ local S = lib_ecology.intllib
 			fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.5, 7 / 16},
 		},
 	})
-	minetest.register_node("lib_ecology:plant_bush", {
-		description = "Bush",
+	minetest.register_node("lib_ecology:shrub_crystal", {
+		description = S("Shrub - Crystal"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_bush.png"},
+		tiles = {"lib_ecology_shrub_crystal.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		visual_scale = 4,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:shrub_jungle", {
+		description = S("Shrub - Jungle"),
+		drawtype = "plantlike",
+		waving = 1,
+		visual_scale = 1.69,
+		tiles = {"lib_ecology_shrub_jungle.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 1.19, 7 / 16},
+		},
+	})
+	minetest.register_node("lib_ecology:shrub_snowy", {
+		description = S("Shrub - Snowy"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_shrub_snowy.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		visual_scale = 4,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:shrub_dry", {
+		description = S("Shrub - Dry"),
+		drawtype = "plantlike",
+		visual_scale = 1.0,
+		tiles = {"lib_ecology_shrub_dry.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 4 / 16, 5 / 16},
+		},
+	})
+	minetest.register_node("lib_ecology:shrub_fiery", {
+		description = S("Shrub - Fiery"),
+		drawtype = "plantlike",
+		visual_scale = 1.0,
+		tiles = {"lib_ecology_shrub_fiery.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 4 / 16, 5 / 16},
+		},
+	})
+	minetest.register_node("lib_ecology:shrub_lush_01", {
+		description = S("Shrub - Lush 01"),
+		drawtype = "plantlike",
+		visual_scale = 1.0,
+		tiles = {"lib_ecology_shrub_lush_01.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		sunlight_propagates = false,
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		visual_scale = 1.2,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.4, -0.4, -0.4, 0.4, 0.4, 0.4}
+		},
+	})
+	minetest.register_node("lib_ecology:shrub_lush_02", {
+		description = "Shrub - Lush 02",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_shrub_lush_02.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -326,10 +326,29 @@ local S = lib_ecology.intllib
 			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_taigabush", {
-		description = "Taiga bush",
+	minetest.register_node("lib_ecology:shrub_scorched", {
+		description = S("Shrub - Scorched"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_tundrabush.png"},
+		visual_scale = 1.0,
+		tiles = {"lib_ecology_shrub_scorched.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		sunlight_propagates = false,
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		visual_scale = 1.2,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.4, -0.4, -0.4, 0.4, 0.4, 0.4}
+		},
+	})
+	minetest.register_node("lib_ecology:shrub_taiga", {
+		description = "Shrub - Taiga",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_shrub_taiga.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -346,34 +365,155 @@ local S = lib_ecology.intllib
 			fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
 		},
 	})
+	minetest.register_node("lib_ecology:shrub_hog_peanut", {
+		description = S("Shrub - Hog Peanut"),
+		drawtype = "mesh",
+		mesh = "shrub.obj",
+		tiles = {"lib_ecology_shrub_hog_peanut.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		visual_scale = 0.5,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+		on_construct = function(pos, node)
+			local node = minetest.get_node(pos)
+			node.param2 = math.random(0,179)
+		end,
+	})
+	minetest.register_node("lib_ecology:shrub_deciduous", {
+		description = S("Shrub - Deciduous"),
+		drawtype = "mesh",
+		mesh = "shrub.obj",
+		tiles = {"lib_ecology_shrub_deciduous.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		visual_scale = 0.5,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+		on_construct = function(pos, node)
+			local node = minetest.get_node(pos)
+			node.param2 = math.random(0,179)
+		end,
+	})
+
+	minetest.register_node("lib_ecology:bush_hawthorne_leaves", {
+		description = S("Bush - Hawthorne Leaves"),
+		drawtype = "allfaces_optional",
+		tiles = {"lib_ecology_bush_hawthorne_leaves.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		waving = 1,
+		walkable = false,
+		is_ground_content = false,
+		groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		after_place_node = lib_ecology.after_place_leaves,
+	})
+	minetest.register_node("lib_ecology:bush_rhodedendron_leaves_1", {
+		description = S("Bush - Rhodedendron Leaves 1"),
+		drawtype = "allfaces_optional",
+		tiles = {"lib_ecology_bush_rhodedendron_leaves_1.png"},
+		paramtype = "light",
+		visual_scale = 1.5,
+		waving = 1,
+		walkable = false,
+		is_ground_content = false,
+		groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos, elapsed)
+			if minetest.get_node_light(pos) < 11 then
+				minetest.get_node_timer(pos):start(400)
+			else
+				minetest.set_node(pos, {name = "lib_ecology:bush_rhodedendron_leaves_2"})
+			end
+		end,
+
+		after_place_node = lib_ecology.after_place_leaves,
+	})
+	minetest.register_node("lib_ecology:bush_rhodedendron_leaves_2", {
+		description = S("Bush - Rhodedendron Leaves 2"),
+		drawtype = "allfaces_optional",
+		tiles = {"lib_ecology_bush_rhodedendron_leaves_2.png"},
+		paramtype = "light",
+		visual_scale = 1.5,
+		waving = 1,
+		walkable = false,
+		is_ground_content = false,
+		groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos, elapsed)
+			if minetest.get_node_light(pos) < 11 then
+				minetest.get_node_timer(pos):start(200)
+			else
+				minetest.set_node(pos, {name = "lib_ecology:bush_rhodedendron_leaves_3"})
+			end
+		end,
+
+		after_place_node = lib_ecology.after_place_leaves,
+	})
+	minetest.register_node("lib_ecology:bush_rhodedendron_leaves_3", {
+		description = S("Bush - Rhodedendron Leaves 3"),
+		drawtype = "allfaces_optional",
+		tiles = {"lib_ecology_bush_rhodedendron_leaves_3.png"},
+		paramtype = "light",
+		visual_scale = 1.5,
+		waving = 1,
+		walkable = false,
+		is_ground_content = false,
+		groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos, elapsed)
+			if minetest.get_node_light(pos) < 11 then
+				minetest.get_node_timer(pos):start(200)
+			else
+				minetest.set_node(pos, {name = "lib_ecology:bush_rhodedendron_leaves_1"})
+			end
+		end,
+
+		after_place_node = lib_ecology.after_place_leaves,
+	})
 
 --CACTII
-	minetest.register_node("lib_ecology:plant_cactus_01", {
-		description = S("Plant - Cactus Green"),
-		tiles = {"lib_ecology_plant_cactus_01_trunk_top.png", "lib_ecology_plant_cactus_01_trunk_top.png", "lib_ecology_plant_cactus_01_trunk.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		walkable = true,
-		is_ground_content = false,
-		groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-		sounds = lib_ecology.node_sound_wood_defaults(),
-
-		on_place = minetest.rotate_node
-	})
-	minetest.register_node("lib_ecology:plant_cactus_02", {
-		description = S("Plant - Cactus Purple"),
-		tiles = {"lib_ecology_plant_cactus_02_trunk_top.png", "lib_ecology_plant_cactus_02_trunk_top.png", "lib_ecology_plant_cactus_02_trunk.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		walkable = true,
-		is_ground_content = false,
-		groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-		sounds = lib_ecology.node_sound_wood_defaults(),
-
-		on_place = minetest.rotate_node
-	})
-	minetest.register_node("lib_ecology:plant_cactus_03", {
-		description = S("Plant - Cactus Thorny"),
+	minetest.register_node("lib_ecology:cactus_green_column", {
+		description = S("Cactus - Green Column"),
 		drawtype = "mesh",
 		mesh = "cactus.b3d",
 		paramtype = "light",
@@ -392,10 +532,22 @@ local S = lib_ecology.intllib
 		groups = {choppy = 1, oddly_breakable_by_hand = 1},
 		sounds = lib_ecology.node_sound_wood_defaults()
 	})
-	minetest.register_node("lib_ecology:plant_cactus_04", {
-		description = S("Plant - Cactus Purple Small"),
+	minetest.register_node("lib_ecology:cactus_green_trunk", {
+		description = S("Cactus - Green Trunk"),
+		tiles = {"lib_ecology_cactus_green_trunk_top.png", "lib_ecology_cactus_green_trunk_top.png", "lib_ecology_cactus_green_trunk.png"},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		walkable = true,
+		is_ground_content = false,
+		groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+		sounds = lib_ecology.node_sound_wood_defaults(),
+
+		on_place = minetest.rotate_node
+	})
+	minetest.register_node("lib_ecology:cactus_purple_button", {
+		description = S("Cactus - Purple Button"),
 		drawtype = "nodebox",
-		tiles = {"lib_ecology_plant_cactus_02_trunk_top.png", "lib_ecology_plant_cactus_02_trunk_top.png", "lib_ecology_plant_cactus_02_trunk.png"},
+		tiles = {"lib_ecology_cactus_purple_trunk_top.png", "lib_ecology_cactus_purple_trunk_top.png", "lib_ecology_cactus_purple_trunk.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		walkable = true,
@@ -416,10 +568,10 @@ local S = lib_ecology.intllib
 		},
 		on_place = minetest.rotate_node
 	})
-	minetest.register_node("lib_ecology:plant_cactus_purple_medium", {
-		description = S("Plant - Cactus Purple Medium"),
+	minetest.register_node("lib_ecology:cactus_purple_column", {
+		description = S("Cactus - Purple Column"),
 		drawtype = "nodebox",
-		tiles = {"lib_ecology_plant_cactus_02_trunk_top.png", "lib_ecology_plant_cactus_02_trunk_top.png", "lib_ecology_plant_cactus_02_trunk.png"},
+		tiles = {"lib_ecology_cactus_purple_trunk_top.png", "lib_ecology_cactus_purple_trunk_top.png", "lib_ecology_cactus_purple_trunk.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		walkable = true,
@@ -440,10 +592,22 @@ local S = lib_ecology.intllib
 		},
 		on_place = minetest.rotate_node
 	})
-	minetest.register_node("lib_ecology:plant_cactus_small_1", {
-		description = S("Plant - Cactus Small 1"),
+	minetest.register_node("lib_ecology:cactus_purple_trunk", {
+		description = S("Cactus - Purple Trunk"),
+		tiles = {"lib_ecology_cactus_purple_trunk_top.png", "lib_ecology_cactus_purple_trunk_top.png", "lib_ecology_cactus_purple_trunk.png"},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		walkable = true,
+		is_ground_content = false,
+		groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+		sounds = lib_ecology.node_sound_wood_defaults(),
+
+		on_place = minetest.rotate_node
+	})
+	minetest.register_node("lib_ecology:cactus_column_01", {
+		description = S("Cactus - Column 01"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_cactus_small_1.png"},
+		tiles = {"lib_ecology_cactus_column_01.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		buildable_to = true, 
@@ -457,27 +621,10 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_cactus_small_2", {
-		description = S("Plant - Cactus Small 2"),
+	minetest.register_node("lib_ecology:cactus_column_02", {
+		description = S("Cactus - Column 02"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_cactus_small_2.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_cactus_small_3", {
-		description = S("Plant - Cactus Small 3"),
-		drawtype = "plantlike",
-		tiles = {"moreplants_cactus.png"},
+		tiles = {"lib_ecology_cactus_column_02.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -495,10 +642,85 @@ local S = lib_ecology.intllib
 			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_cactus_small_1a", {
-		description = S("Plant - Cactus Small 1a"),
+	minetest.register_node("lib_ecology:cactus_globe", {
+		description = S("Cactus - Globe"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_cactus_globe.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+	})
+	minetest.register_node("lib_ecology:cactus_moonflower", {
+		description = "Cactus - Moon Flower",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_cactus_moonflower.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:cactus_prickly_pear", {
+		description = "Cactus - Prickly Pear",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_cactus_prickly_pear.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		visual_scale = 4.0,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		groups = {choppy=1, oddly_breakable_by_hand=1, flammable=1, falling_node=1},
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 1, 0.5}
+		},
+		damage_per_second = 1,
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:cactus_vine", {
+		description = S("Cactus - Vine"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_cactus_vine.png"},
+		visual_scale = 1.54,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+	})
+	minetest.register_node("lib_ecology:cactus_small_column_01", {
+		description = S("Cactus - Small Column 01"),
 		drawtype = "nodebox",
-		tiles = {"lib_ecology_plant_cactus_small_1.png"},
+		tiles = {"lib_ecology_cactus_column_01.png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		is_ground_content = false,
@@ -524,41 +746,10 @@ local S = lib_ecology.intllib
 		},
 		on_place = minetest.rotate_node
 	})
-	minetest.register_node("lib_ecology:plant_cactus_small_2a", {
-		description = S("Plant - Cactus Small 2a"),
+	minetest.register_node("lib_ecology:cactus_small_column_02", {
+		description = S("Cactus - Small Column 02"),
 		drawtype = "nodebox",
-		tiles = {"lib_ecology_plant_cactus_small_2.png"},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-0.1875, -0.5, -0.0625, 0.1875, 0.125, 0.0625}, -- Trunk
-				{-0.25, -0.3125, -0.0625, 0.25, 0.0625, 0.0625}, -- Trunk
-				{-0.3125, -0.375, -0.0625, 0.3125, 0.0, 0.0625}, -- Trunk
-				{-0.125, 0.125, -0.0625, 0.125, 0.1875, 0.0625}, -- Trunk
-				{-0.0625, 0.1875, -0.0625, 0.0625, 0.25, 0.0625}, -- Trunk
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {
-				{-0.3125, -0.5, -0.0625, 0.3125, 0.25, 0.0625}, -- Trunk
-			}
-		},
-		on_place = minetest.rotate_node
-	})
-	minetest.register_node("lib_ecology:plant_cactus_small_3a", {
-		description = S("Plant - Cactus Small 3a"),
-		drawtype = "nodebox",
-		tiles = {"moreplants_cactus.png"},
+		tiles = {"lib_ecology_cactus_column_02.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -590,7 +781,38 @@ local S = lib_ecology.intllib
 		},
 		on_place = minetest.rotate_node
 	})
-	minetest.register_node("lib_ecology:plant_cactus_01_seedling", {
+	minetest.register_node("lib_ecology:cactus_small_globe", {
+		description = S("Cactus - Small Globe"),
+		drawtype = "nodebox",
+		tiles = {"lib_ecology_cactus_globe.png"},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.1875, -0.5, -0.0625, 0.1875, 0.125, 0.0625}, -- Trunk
+				{-0.25, -0.3125, -0.0625, 0.25, 0.0625, 0.0625}, -- Trunk
+				{-0.3125, -0.375, -0.0625, 0.3125, 0.0, 0.0625}, -- Trunk
+				{-0.125, 0.125, -0.0625, 0.125, 0.1875, 0.0625}, -- Trunk
+				{-0.0625, 0.1875, -0.0625, 0.0625, 0.25, 0.0625}, -- Trunk
+			}
+		},
+		selection_box = {
+			type = "fixed",
+			fixed = {
+				{-0.3125, -0.5, -0.0625, 0.3125, 0.25, 0.0625}, -- Trunk
+			}
+		},
+		on_place = minetest.rotate_node
+	})
+	minetest.register_node("lib_ecology:cactus_01_seedling", {
 		description = S("Cactus - Green Seedling"),
 		drawtype = "plantlike",
 		tiles = {"default_large_cactus_seedling.png"},
@@ -608,8 +830,8 @@ local S = lib_ecology.intllib
 		sounds = lib_ecology.node_sound_wood_defaults(),
 
 		on_place = function(itemstack, placer, pointed_thing)
-			itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-				"lib_ecology:plant_cactus_01_seedling",
+			itemstack = lib_ecology.sapling_on_place(itemstack, placer, pointed_thing,
+				"lib_ecology:cactus_01_seedling",
 				{x = -2, y = -1, z = -2},
 				{x = 2, y = 5, z = 2},
 				4)
@@ -655,14 +877,26 @@ local S = lib_ecology.intllib
 
 			minetest.log("action", "A large cactus seedling grows into a large" ..
 				"cactus at ".. minetest.pos_to_string(pos))
-			default.grow_large_cactus(pos)
+			--default.grow_large_cactus(pos)
+
+			--local rnum = math.random(1,2)
+			--if rnum == 1 then
+				minetest.place_schematic(pos, lib_ecology.schem_cactus_01, "random", nil, true, "place_center_x, place_center_z")
+			--elseif rnum == 2 then
+				--minetest.place_schematic(pos, schematic, "random", nil, true, "place_center_x, place_center_z")
+			--else
+				
+			--end
+
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_aliengrass", {
-		description = S("Plant - Cactus Alien"),
+
+--FERNS
+	minetest.register_node("lib_ecology:fern_big", {
+		description = "Fern - Big",
 		drawtype = "plantlike",
-		tiles = {"moreplants_aliengrass.png"},
-		visual_scale = 1.54,
+		tiles = {"lib_ecology_fern_big.png"},
+		visual_scale = 2.0,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
 		is_ground_content = false,
@@ -671,105 +905,31 @@ local S = lib_ecology.intllib
 		walkable = false,
 		waving = 1,
 		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 	})
-
---FERNS
-	minetest.register_node("lib_ecology:fern_dicksonia", {
-		description = S("Fern - Dicksonia"),
-		drawtype = "mesh",
-		mesh = "dicksonia.b3d",
-		tiles = {"lib_ecology_fern_dicksonia.png",},
-		paramtype = "light",
-		waving = 1,
-		groups = {choppy = 1, oddly_breakable_by_hand = 1},
-		sounds = lib_ecology.node_sound_wood_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
-		},
-		collision_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_ladyfern", {
-		description = S("Fern - Ladyfern"),
-		drawtype = "mesh",
-		mesh = "fern_old.b3d",
-		tiles = {"lib_ecology_fern_04.png",},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_broadleaf_fern", {
-		description = S("Fern - Broad Leaf Fern"),
-		drawtype = "mesh",
-		mesh = "fern_old.b3d",
-		tiles = {"lib_ecology_fern_05.png",},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_ladyfern2", {
-		description = S("Fern - Ladyfern2"),
+	minetest.register_node("lib_ecology:fern_bluespike", {
+		description = "Fern - BlueSpike",
 		drawtype = "plantlike",
-		visual_scale = 1.5,
-		tiles = {"lib_ecology_fern_04.png",},
+		tiles = {"lib_ecology_fern_bluespike.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
-		paramtype2 = "degrotate",
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_broadleaf_fern2", {
-		description = S("Fern - Broad Leaf Fern2"),
-		drawtype = "plantlike",
-		visual_scale = 1.5,
-		tiles = {"lib_ecology_fern_05.png",},
-		paramtype = "light",
-		paramtype2 = "degrotate",
+		is_ground_content = false,
+		buildable_to = true, 
 		sunlight_propagates = true,
-		waving = 1,
 		walkable = false,
+		waving = 1,
 		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
 	})
 	minetest.register_node("lib_ecology:fern_boston", {
@@ -797,11 +957,273 @@ local S = lib_ecology.intllib
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
 		},
 	})
+	minetest.register_node("lib_ecology:fern_broadleaf_fern", {
+		description = S("Fern - Broad Leaf Fern"),
+		drawtype = "mesh",
+		mesh = "fern_old.b3d",
+		tiles = {"lib_ecology_fern_broadleaf.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		sunlight_propagates = true,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = false,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:fern_broadleaf_fern2", {
+		description = S("Fern - Broad Leaf Fern2"),
+		drawtype = "plantlike",
+		visual_scale = 1.5,
+		tiles = {"lib_ecology_fern_broadleaf.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		sunlight_propagates = true,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:fern_dicksonia", {
+		description = S("Fern - Dicksonia"),
+		drawtype = "mesh",
+		mesh = "dicksonia.b3d",
+		tiles = {"lib_ecology_fern_dicksonia.png",},
+		paramtype = "light",
+		waving = 1,
+		groups = {choppy = 1, oddly_breakable_by_hand = 1},
+		sounds = lib_ecology.node_sound_wood_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+		},
+		collision_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:fern_fern", {
+		description = "Fern - Fern",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_fern_fern.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:fern_fiddlehead", {
+		description = S("Fern - Fiddlehead"),
+		drawtype = "plantlike",
+		visual_scale = 0.5,
+		tiles = {"lib_ecology_fern_fiddlehead.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=2, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
+		},
+	})
+	minetest.register_node("lib_ecology:fern_horsetail_1", {
+		description = "Fern - Young Horsetail (Equisetum)",
+		drawtype = "plantlike",
+		paramtype = "light",
+		tiles = { "lib_ecology_fern_horsetail_1.png" },
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy=3,flammable=2,attached_node=1,horsetail=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		},
+		on_use = minetest.item_eat(1), -- young ones edible https://en.wikipedia.org/wiki/Equisetum,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_horsetail_2"})
+		
+		end,
+
+	})
+	minetest.register_node("lib_ecology:fern_horsetail_2", {
+		description = "Fern - Horsetail (Equisetum)",
+		drawtype = "plantlike",
+		paramtype = "light",
+		tiles = { "lib_ecology_fern_horsetail_2.png" },
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy=3,flammable=2,attached_node=1,horsetail=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_horsetail_3"})
+		
+		end,
+
+	})
+	minetest.register_node("lib_ecology:fern_horsetail_3", {
+		description = "Fern - Horsetail (Equisetum)",
+		drawtype = "plantlike",
+		paramtype = "light",
+		tiles = { "lib_ecology_fern_horsetail_3.png" },
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy=3,flammable=2,attached_node=1,horsetail=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_horsetail_4"})
+		
+		end,
+
+	})
+	minetest.register_node("lib_ecology:fern_horsetail_4", {
+		description = "Fern - Horsetail (Equisetum)",
+		drawtype = "plantlike",
+		paramtype = "light",
+		tiles = { "lib_ecology_fern_horsetail_4.png" },
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy=3,flammable=2,attached_node=1,horsetail=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		},
+	})
+	minetest.register_node("lib_ecology:fern_horsetails", {
+		description = S("Fern - Horsetails"),
+		drawtype = "plantlike",
+		visual_scale = 1.0,
+		tiles = {"lib_ecology_fern_horsetails.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=2, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
+		},
+	})
+	minetest.register_node("lib_ecology:fern_horsetail_02", {
+		description = S("Fern - Horsetail 02"),
+		drawtype = "mesh",
+		mesh = "fern_old.b3d",
+		tiles = {"lib_ecology_fern_horsetail_4.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:fern_ladyfern", {
+		description = S("Fern - Ladyfern"),
+		drawtype = "mesh",
+		mesh = "fern_old.b3d",
+		tiles = {"lib_ecology_fern_lady.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = false,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:fern_ladyfern2", {
+		description = S("Fern - Ladyfern2"),
+		drawtype = "plantlike",
+		visual_scale = 1.5,
+		tiles = {"lib_ecology_fern_lady.png",},
+		paramtype = "light",
+		paramtype2 = "degrotate",
+		waving = 1,
+		walkable = false,
+		floodable = true,
+		buildable_to = true,
+		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, plant = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
+		},
+	})
 	minetest.register_node("lib_ecology:fern_large_1", {
 		description = S("Fern - Fern Large 1"),
 		drawtype = "plantlike",
 		visual_scale = 1.0,
-		tiles = {"lib_ecology_fern_2.png"},
+		tiles = {"lib_ecology_fern_large_1.png"},
 		paramtype = "light",
 		paramtype2 = "degrotate",
 		sunlight_propagates = true,
@@ -815,12 +1237,25 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_large_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:fern_large_2", {
 		description = S("Fern - Fern Large 2"),
 		drawtype = "plantlike",
 		visual_scale = 1.2,
-		tiles = {"lib_ecology_fern_4.png"},
+		tiles = {"lib_ecology_fern_large_2.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		waving = 1,
@@ -840,38 +1275,25 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_large_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:fern_large_3", {
 		description = S("Fern - Fern Large 3"),
 		drawtype = "plantlike",
 		visual_scale = 2.0,
-		tiles = {"lib_ecology_fern_large_2.png"},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=2, plant = 1, growing = 1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		drop = {
-			max_items = 1,
-			items = {
-				{items = {"lib_ecology:fruit_fern_tubers"}, rarity = 6},
-				{items = {"lib_ecology:fern_large_4"}}
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_large_4", {
-		description = S("Fern - Fern Large 4"),
-		drawtype = "plantlike",
-		visual_scale = 4.0,
-		tiles = {"lib_ecology_fern_large.png"},
+		tiles = {"lib_ecology_fern_large_3.png"},
 		paramtype = "light",
 		paramtype2 = "degrotate",
 		sunlight_propagates = true,
@@ -897,7 +1319,7 @@ local S = lib_ecology.intllib
 		description = S("Fern - Fern Small 1"),
 		drawtype = "plantlike",
 		visual_scale = 1.0,
-		tiles = {"lib_ecology_fern_1.png"},
+		tiles = {"lib_ecology_fern_small_1.png"},
 		paramtype = "light",
 		paramtype2 = "degrotate",
 		sunlight_propagates = true,
@@ -911,12 +1333,25 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_small_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:fern_small_2", {
 		description = S("Fern - Fern Small 2"),
 		drawtype = "plantlike",
 		visual_scale = 1.0,
-		tiles = {"lib_ecology_fern_3.png"},
+		tiles = {"lib_ecology_fern_small_2.png"},
 		paramtype = "light",
 		paramtype2 = "degrotate",
 		sunlight_propagates = true,
@@ -937,12 +1372,25 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:fern_small_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:fern_small_3", {
 		description = S("Fern - Fern Small 3"),
 		drawtype = "plantlike",
 		visual_scale = 4.0,
-		tiles = {"lib_ecology_fern_small.png"},
+		tiles = {"lib_ecology_fern_small_3.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		waving = 1,
@@ -963,131 +1411,10 @@ local S = lib_ecology.intllib
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
 		},
 	})
-	minetest.register_node("lib_ecology:fern_fiddlehead", {
-		description = S("Fern - Fiddlehead"),
+	minetest.register_node("lib_ecology:fern_spike", {
+		description = "Fern - Spike",
 		drawtype = "plantlike",
-		visual_scale = 1.2,
-		tiles = {"lib_ecology_fern_fiddlehead.png"},
-		paramtype = "light",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=2, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_tree_small", {
-		description = S("Fern - Fern Tree Small"),
-		drawtype = "plantlike",
-		visual_scale = 4.0,
-		tiles = {"lib_ecology_fern_tree_small.png"},
-		paramtype = "light",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=2, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		drop = {
-			max_items = 1,
-			items = {
-				{items = {"lib_ecology:fruit_fern_tubers"}, rarity = 6},
-				{items = {"lib_ecology:fern_tree_small"}}
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0.67, 5 / 16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_horsetail_02", {
-		description = S("Fern - Horsetail 02"),
-		drawtype = "mesh",
-		mesh = "fern_old.b3d",
-		tiles = {"lib_ecology_fern_horsetail_04.png",},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.3, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_bigfern", {
-		description = "Big Fern",
-		drawtype = "plantlike",
-		tiles = {"moreplants_bigfern.png"},
-		visual_scale = 1.5,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_fern", {
-		description = "Fern",
-		drawtype = "plantlike",
-		tiles = {"moreplants_fern.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_spikefern", {
-		description = "Spike Fern",
-		drawtype = "plantlike",
-		tiles = {"moreplants_spikefern.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, oddly_breakable_by_hand=1, flammable=1, leaves=1, attached_node = 1, flora=1, lib_ecology_plant = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:fern_bluespike", {
-		description = "Blue Spikeflower",
-		drawtype = "plantlike",
-		tiles = {"moreplants_bluespike.png"},
+		tiles = {"lib_ecology_fern_spike.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -1107,7 +1434,7 @@ local S = lib_ecology.intllib
 
 --FLOWERS
 	minetest.register_node("lib_ecology:flower_allium_purple", {
-		description = S("allium_purple"),
+		description = S("Flower - Allium Purple"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_allium_purple.png"},
 		sunlight_propagates = true,
@@ -1124,10 +1451,30 @@ local S = lib_ecology.intllib
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
 		}
 	})
-	minetest.register_node("lib_ecology:flower_bird_of_paradise", {
-		description = S("Bird of Paradise"),
+	minetest.register_node("lib_ecology:flower_big", {
+		description = "Flower - Big",
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_bird_of_paradise.png"},
+		tiles = {"lib_ecology_flower_big.png"},
+		visual_scale = 1.2,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+	})
+	minetest.register_node("lib_ecology:flower_bird_of_paradise", {
+		description = S("Flower - Bird of Paradise"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_bird_of_paradise.png"},
 		sunlight_propagates = true,
 		paramtype = "light",
 		waving = 1,
@@ -1140,10 +1487,30 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
 	})
-	minetest.register_node("lib_ecology:flower_calla_lily", {
-		description = S("Calla Lily"),
+	minetest.register_node("lib_ecology:flower_blue", {
+		description = "Flower - Blue",
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_calla_lily.png"},
+		tiles = {"lib_ecology_flower_blue.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:flower_calla_lily", {
+		description = S("Flower - Calla Lily"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_calla_lily.png"},
 		sunlight_propagates = true,
 		paramtype = "light",
 		walkable = false,
@@ -1155,8 +1522,29 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
 	})
+	minetest.register_node("lib_ecology:flower_cave", {
+		description = "Flower - Cave",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_cave.png"},
+		visual_scale = 1,
+		light_source = 5,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
 	minetest.register_node("lib_ecology:flower_chrysanthemum_green", {
-		description = S("Green Chrysanthemum"),
+		description = S("Flower - Chrysanthemum Green"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_chrysanthemum_green.png"},
 		sunlight_propagates = true,
@@ -1173,8 +1561,26 @@ local S = lib_ecology.intllib
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
 		}
 	})
+	minetest.register_node("lib_ecology:flower_daisy_oxeye", {
+		description = S("Flower - Daisy Oxeye"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_daisy_oxeye.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
 	minetest.register_node("lib_ecology:flower_dandelion_white", {
-		description = S("White dandelion"),
+		description = S("Flower - Dandelion White"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_dandelion_white.png"},
 		sunlight_propagates = true,
@@ -1192,9 +1598,28 @@ local S = lib_ecology.intllib
 		}
 	})
 	minetest.register_node("lib_ecology:flower_dandelion_yellow", {
-		description = S("Yellow Dandelion"),
+		description = S("Flower - Dandelion Yellow"),
 		drawtype = "plantlike",
-		tiles = {"flowers_dandelion_yellow.png"},
+		tiles = {"lib_ecology_flower_dandelion_yellow.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		waving = 1,
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_yellow = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 4 / 16, 2 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_dandelions_yellow", {
+		description = S("Flower - Dandelions Yellow"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_dandelions_yellow.png"},
+		visual_scale = 2.0,
 		sunlight_propagates = true,
 		paramtype = "light",
 		waving = 1,
@@ -1210,7 +1635,7 @@ local S = lib_ecology.intllib
 		}
 	})
 	minetest.register_node("lib_ecology:flower_delphinium", {
-		description = S("Delphinium - Blue"),
+		description = S("Flower - Delphinium Blue"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_delphinium.png"},
 		sunlight_propagates = true,
@@ -1227,10 +1652,10 @@ local S = lib_ecology.intllib
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
 		}
 	})
-	minetest.register_node("lib_ecology:flower_fire_plant", {
-		description = S("Fire Flower"),
+	minetest.register_node("lib_ecology:flower_fire", {
+		description = S("Flower - Fire"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_fire_flower.png"},
+		tiles = {"lib_ecology_flower_fire.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		waving = 1,
@@ -1247,8 +1672,28 @@ local S = lib_ecology.intllib
 		},
 		walkable = false,
 	})
+	minetest.register_node("lib_ecology:flower_fire_02", {
+		description = "Flower - Fire 02",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_fire_02.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		},
+	})
 	minetest.register_node("lib_ecology:flower_flame_lily", {
-		description = S("flame_lily"),
+		description = S("Flower - Flame Lily"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_flame_lily.png"},
 		sunlight_propagates = true,
@@ -1266,7 +1711,7 @@ local S = lib_ecology.intllib
 		}
 	})
 	minetest.register_node("lib_ecology:flower_foxglove_pink", {
-		description = S("foxglove_pink"),
+		description = S("Flower - Foxglove Pink"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_foxglove_pink.png"},
 		sunlight_propagates = true,
@@ -1284,7 +1729,7 @@ local S = lib_ecology.intllib
 		}
 	})
 	minetest.register_node("lib_ecology:flower_foxglove_purple", {
-		description = S("foxglove_purple"),
+		description = S("Flower - Foxglove Purple"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_flower_foxglove_purple.png"},
 		sunlight_propagates = true,
@@ -1301,28 +1746,10 @@ local S = lib_ecology.intllib
 			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
 		}
 	})
-	minetest.register_node("lib_ecology:flower_frozen_rose", {
-		description = S("frozen_rose"),
+	minetest.register_node("lib_ecology:flower_geranium_blue", {
+		description = S("Flower - Geranium Blue"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_flower_frozen_rose.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		waving = 1,
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_geranium", {
-		description = S("Blue Geranium"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_flower_geranium.png"},
+		tiles = {"lib_ecology_flower_geranium_blue.png"},
 		sunlight_propagates = true,
 		paramtype = "light",
 		waving = 1,
@@ -1338,9 +1765,9 @@ local S = lib_ecology.intllib
 		}
 	})
 	minetest.register_node("lib_ecology:flower_gerbera", {
-		description = S("Gerbera"),
+		description = S("Flower - Gerbera"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_gerbera.png"},
+		tiles = {"lib_ecology_flower_gerbera.png"},
 		sunlight_propagates = true,
 		paramtype = "light",
 		walkable = false,
@@ -1352,310 +1779,8 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
 	})
-	minetest.register_node("lib_ecology:flower_hibiscus", {
-		description = S("Hibiscus"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_hibiscus.png"},
-		waving = 1,
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		floodable = true,
-		groups = {snappy=3,flammable=2,flora=1,attached_node=1, lib_ecology_plant = 1, flower = 1, color_white = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-		},
-	})
-	minetest.register_node("lib_ecology:flower_lantana", {
-		description = S("lantana"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_lantana.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_lavender", {
-		description = S("lavender"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_lavender.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_lazarus", {
-		description = S("Lazarus Bell"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_flower_lazarus.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		waving = 1,
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_pink = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_lobelia", {
-		description = S("lobelia"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_lobelia.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_orchid", {
-		description = S("Orchid"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_orchid.png"},
-		waving = 1,
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		floodable = true,
-		groups = {snappy=3,flammable=2,flora=1,attached_node=1, lib_ecology_plant = 1, flower = 1, color_white = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-		},
-	})
-	minetest.register_node("lib_ecology:flower_oxeye_daisy", {
-		description = S("oxeye_daisy"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_oxeye_daisy.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_pansy_blue", {
-		description = S("pansy_blue"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_pansy_blue.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_pansy_purple", {
-		description = S("pansy_purple"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_pansy_purple.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_petunia_blue", {
-		description = S("petunia_blue"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_petunia_blue.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_petunia_pink", {
-		description = S("petunia_pink"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_petunia_pink.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_petunia_white", {
-		description = S("petunia_white"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_petunia_white.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_rose", {
-		description = S("Rose"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_rose.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_red = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_thistle", {
-		description = S("Thistle"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_flower_thistle.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		waving = 1,
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_magenta = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_tulip_black", {
-		description = S("Tulip - Black"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_tulip_black.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_black = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_tulip_orange", {
-		description = S("Tulip - Orange"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_tulip_orange.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_orange = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16}
-		}
-	})
-	minetest.register_node("lib_ecology:flower_viola", {
-		description = S("Viola"),
-		drawtype = "plantlike",
-		waving = 1,
-		tiles = {"lib_ecology_flower_viola.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
-		}
-	})
 	minetest.register_node("lib_ecology:flower_ground_blue", {
-		description = S("ground_blue"),
+		description = S("Flower - Ground Blue"),
 		drawtype = "nodebox",
 		waving = 1,
 		tiles = {"lib_ecology_flower_ground_blue.png"},
@@ -1676,7 +1801,7 @@ local S = lib_ecology.intllib
 		},
 	})
 	minetest.register_node("lib_ecology:flower_ground_pink", {
-		description = S("ground_pink"),
+		description = S("Flower - Ground Pink"),
 		drawtype = "nodebox",
 		waving = 1,
 		tiles = {"lib_ecology_flower_ground_pink.png"},
@@ -1697,7 +1822,7 @@ local S = lib_ecology.intllib
 		},
 	})
 	minetest.register_node("lib_ecology:flower_ground_red", {
-		description = S("ground_red"),
+		description = S("Flower - Ground Red"),
 		drawtype = "nodebox",
 		waving = 1,
 		tiles = {"lib_ecology_flower_ground_red.png"},
@@ -1717,91 +1842,26 @@ local S = lib_ecology.intllib
 			}
 		},
 	})
-	minetest.register_node("lib_ecology:flower_bigflower", {
-		description = "Big Flower",
+	minetest.register_node("lib_ecology:flower_hibiscus", {
+		description = S("Flower - Hibiscus"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_bigflower.png"},
-		visual_scale = 1.2,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
+		tiles = {"lib_ecology_flower_hibiscus.png"},
 		waving = 1,
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
 		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		groups = {snappy=3,flammable=2,flora=1,attached_node=1, lib_ecology_plant = 1, flower = 1, color_white = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
 	})
-	minetest.register_node("lib_ecology:flower_blueflower", {
-		description = "blue flower",
+	minetest.register_node("lib_ecology:flower_jungle", {
+		description = "Flower - Jungle",
 		drawtype = "plantlike",
-		tiles = {"moreplants_blueflower.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:flower_caveflower", {
-		description = "Cave flower",
-		drawtype = "plantlike",
-		tiles = {"moreplants_cavefung.png"},
-		visual_scale = 1,
-		light_source = 5,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:flower_fireflower", {
-		description = "Fire flower",
-		drawtype = "plantlike",
-		tiles = {"moreplants_fireflower.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-		},
-	})
-	minetest.register_node("lib_ecology:flower_jungleflower", {
-		description = "Jungle flower",
-		drawtype = "plantlike",
-		tiles = {"moreplants_jungleflower1.png"},
+		tiles = {"lib_ecology_flower_jungle.png"},
 		visual_scale = 1.1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -1818,10 +1878,82 @@ local S = lib_ecology.intllib
 			fixed = {-0.4, -0.5, -0.4, 0.4, 0.4, 0.4}
 		},
 	})
-	minetest.register_node("lib_ecology:flower_medflower", {
-		description = "Medium Flower",
+	minetest.register_node("lib_ecology:flower_lantana", {
+		description = S("Flower - Lantana"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_medflower.png"},
+		waving = 1,
+		tiles = {"lib_ecology_flower_lantana.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_lavender", {
+		description = S("Flower - Lavender"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_lavender.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_lazarus_bell", {
+		description = S("Flower - Lazarus Bell"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_lazarus_bell.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		waving = 1,
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_pink = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_lobelia", {
+		description = S("Flower - Lobelia"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_lobelia.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_medium", {
+		description = "Flower - Medium",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_medium.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -1839,25 +1971,238 @@ local S = lib_ecology.intllib
 		},
 		on_use = minetest.item_eat(1),
 	})
-	minetest.register_node("lib_ecology:flower_moonflower", {
-		description = "Moon Flower",
+	minetest.register_node("lib_ecology:flower_orchid", {
+		description = S("Flower - Orchid"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_moonflower.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
+		tiles = {"lib_ecology_flower_orchid.png"},
 		waving = 1,
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
 		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		groups = {snappy=3,flammable=2,flora=1,attached_node=1, lib_ecology_plant = 1, flower = 1, color_white = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
+	})
+	minetest.register_node("lib_ecology:flower_pansy_blue", {
+		description = S("Flower - Pansy Blue"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_pansy_blue.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_pansy_purple", {
+		description = S("Flower - Pansy Purple"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_pansy_purple.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_petunia_blue", {
+		description = S("Flower - Petunia Blue"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_petunia_blue.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_petunia_pink", {
+		description = S("Flower - Petunia Pink"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_petunia_pink.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_petunia_white", {
+		description = S("Flower - Petunia White"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_petunia_white.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_rose", {
+		description = S("Flower - Rose"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_rose.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_red = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_rose_frozen", {
+		description = S("Flower - Rose Frozen"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_rose_frozen.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		waving = 1,
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_roses", {
+		description = S("Flower - Roses"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_roses.png"},
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_red = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_thistle", {
+		description = S("Flower - Thistle"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_flower_thistle.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		waving = 1,
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_magenta = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_tulip_black", {
+		description = S("Flower - Tulip Black"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_tulip_black.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_black = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_tulip_orange", {
+		description = S("Flower - Tulip Orange"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_tulip_orange.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_orange = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16}
+		}
+	})
+	minetest.register_node("lib_ecology:flower_viola", {
+		description = S("Flower - Viola"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_flower_viola.png"},
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
+		floodable = true,
+		groups = {color_violet = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16}
+		}
 	})
 
 --FRUITS / FOODS
@@ -2097,12 +2442,12 @@ local S = lib_ecology.intllib
 })
 	minetest.register_craftitem("lib_ecology:fruit_curlyfruit", {
 		description = "Curly Fruit",
-		inventory_image = "moreplants_curlyfruit.png",
+		inventory_image = "lib_ecology_fruit_curly.png",
 		on_use = minetest.item_eat(1),
 	})
 	minetest.register_craftitem("lib_ecology:fruit_eye", {
 		description = "Eyeball",
-		inventory_image = "moreplants_eye.png"
+		inventory_image = "lib_ecology_fruit_eye.png"
 	})
 
 --GRASS
@@ -2123,6 +2468,18 @@ local S = lib_ecology.intllib
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
 		},
 
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_2"})
+		
+		end,
+
 		on_place = function(itemstack, placer, pointed_thing)
 			-- place a random grass node
 			local stack = ItemStack("lib_ecology:grass_" .. math.random(1,5))
@@ -2141,12 +2498,24 @@ local S = lib_ecology.intllib
 		floodable = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1},
+		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_3"})
+		
+		end,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			-- place a random grass node
@@ -2166,12 +2535,24 @@ local S = lib_ecology.intllib
 		floodable = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1},
+		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_4"})
+		
+		end,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			-- place a random grass node
@@ -2191,12 +2572,24 @@ local S = lib_ecology.intllib
 		floodable = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1},
+		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_5"})
+		
+		end,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			-- place a random grass node
@@ -2216,7 +2609,7 @@ local S = lib_ecology.intllib
 		floodable = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1},
+		groups = {snappy = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, grass = 1, flammable = 1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -2249,16 +2642,9 @@ local S = lib_ecology.intllib
 		walkable = false,
 	})
 	minetest.register_node("lib_ecology:grass_clover", {
-		description = "Clover",
-		drawtype = "firelike",
-		tiles = {
-			"moreplants_clover.png",
-			"moreplants_trans.png",
-			"moreplants_clover.png",
-			"moreplants_clover.png",
-			"moreplants_clover.png",
-			"moreplants_clover.png"
-		},
+		description = "Grass - Clover",
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_grass_clover.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		buildable_to = true, 
@@ -2272,26 +2658,6 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
 		},
-	})
-	minetest.register_node("lib_ecology:grass_crystal", {
-		description = S("Grass - Crystal"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_grass_crystal.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		visual_scale = 4,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
 	})
 	minetest.register_node("lib_ecology:grass_dead_1", {
 		description = S("Grass - Dead 1"),
@@ -2537,22 +2903,361 @@ local S = lib_ecology.intllib
 		},
 		walkable = false,
 	})
-	minetest.register_node("lib_ecology:grass_jungle", {
-		description = S("Grass - Jungle"),
+	minetest.register_node("lib_ecology:grass_golden_1", {
+		description = S("Grass - Golden 1"),
 		drawtype = "plantlike",
 		waving = 1,
-		visual_scale = 1.69,
-		tiles = {"lib_ecology_grass_jungle.png"},
+		tiles = {"lib_ecology_grass_golden_1.png"},
 		paramtype = "light",
+		visual_scale = 2.0,
 		sunlight_propagates = true,
+		floodable = true,
 		walkable = false,
 		buildable_to = true,
-		groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 1},
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, golden_grass = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 1.19, 7 / 16},
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_golden_2"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random golden grass node
+			local stack = ItemStack("lib_ecology:grass_golden_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_golden_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_golden_2", {
+		description = S("Grass - Golden 2"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_golden_2.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, golden_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_golden_3"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random golden grass node
+			local stack = ItemStack("lib_ecology:grass_golden_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_golden_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_golden_3", {
+		description = S("Grass - Golden 3"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_golden_3.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, golden_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_golden_4"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random golden grass node
+			local stack = ItemStack("lib_ecology:grass_golden_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_golden_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_golden_4", {
+		description = S("Grass - Golden 4"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_golden_4.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, golden_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_golden_5"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random golden grass node
+			local stack = ItemStack("lib_ecology:grass_golden_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_golden_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_golden_5", {
+		description = S("Grass - Golden 5"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_golden_5.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, golden_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random golden grass node
+			local stack = ItemStack("lib_ecology:grass_golden_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_golden_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_green_1", {
+		description = S("Grass - green 1"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_green_1.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, green_grass = 1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_green_2"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random green grass node
+			local stack = ItemStack("lib_ecology:grass_green_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_green_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_green_2", {
+		description = S("Grass - green 2"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_green_2.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, green_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_green_3"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random green grass node
+			local stack = ItemStack("lib_ecology:grass_green_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_green_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_green_3", {
+		description = S("Grass - green 3"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_green_3.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, green_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_green_4"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random green grass node
+			local stack = ItemStack("lib_ecology:grass_green_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_green_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_green_4", {
+		description = S("Grass - green 4"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_green_4.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, green_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_green_5"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random green grass node
+			local stack = ItemStack("lib_ecology:grass_green_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_green_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
+	})
+	minetest.register_node("lib_ecology:grass_green_5", {
+		description = S("Grass - green 5"),
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"lib_ecology_grass_green_5.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		sunlight_propagates = true,
+		floodable = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, flammable = 3, flora = 1, plant = 1, attached_node = 1, growing = 1, green_grass = 1, not_in_creative_inventory=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -3 / 16, 6 / 16},
+		},
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- place a random green grass node
+			local stack = ItemStack("lib_ecology:grass_green_" .. math.random(1, 5))
+			local ret = minetest.item_place(stack, placer, pointed_thing)
+			return ItemStack("lib_ecology:grass_green_1 " ..
+				itemstack:get_count() - (1 - ret:get_count()))
+		end,
 	})
 	minetest.register_node("lib_ecology:grass_jungle_1", {
 		description = S("Grass - Jungle 1"),
@@ -2565,13 +3270,26 @@ local S = lib_ecology.intllib
 		drop = "lib_ecology:grass_jungle_1",
 		waving = 1,
 		floodable = true,
-		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, flora=1, not_in_creative_inventory=1},
+		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, flora=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_jungle_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_jungle_2", {
 		description = S("Grass - Jungle 2"),
@@ -2591,6 +3309,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_jungle_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_jungle_3", {
 		description = S("Grass - Jungle 3"),
@@ -2610,6 +3341,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_jungle_4"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_jungle_4", {
 		description = S("Grass - Jungle 4"),
@@ -2629,6 +3373,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_jungle_5"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_jungle_5", {
 		description = S("Grass - Jungle 5"),
@@ -2641,7 +3398,7 @@ local S = lib_ecology.intllib
 		drop = "lib_ecology:grass_jungle_5",
 		waving = 1,
 		floodable = true,
-		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, flora=1},
+		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, flora=1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -2652,24 +3409,6 @@ local S = lib_ecology.intllib
 			local num = math.random(1,5)
 			minetest.env:set_node(pos, {name="lib_ecology:grass_jungle_"..num})
 		end,
-	})
-	minetest.register_node("lib_ecology:grass_manna_reed", {
-		description = S("Grass - Manna Reed"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_grass_manna_reed.png"},
-		sunlight_propagates = true,
-		paramtype = "light",
-		waving = 1,
-		walkable = false,
-		buildable_to = true,
-		stack_max = 99,
-		floodable = true,
-		groups = {color_dark_green = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
-		}
 	})
 	minetest.register_node("lib_ecology:grass_marram_1", {
 		description = S("Grass - Marram 1"),
@@ -2686,6 +3425,18 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -0.25, 6 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_marram_2"})
+		
+		end,
 
 		on_place = function(itemstack, placer, pointed_thing)
 			-- place a random marram grass node
@@ -2711,6 +3462,19 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -0.25, 6 / 16},
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_marram_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_marram_3", {
 		description = S("Grass - Marram 3"),
@@ -2732,7 +3496,7 @@ local S = lib_ecology.intllib
 	minetest.register_node("lib_ecology:grass_sea_1", {
 		description = S("Grass - Sea 1"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_dirt.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_grass_sea_1.png", tileable_vertical = true}},
 		node_dig_prediction = "lib_ecology:grass_sea_1",
 		node_placement_prediction = "lib_ecology:grass_sea_1",
@@ -2741,23 +3505,79 @@ local S = lib_ecology.intllib
 		buildable_to = true, 
 		sunlight_propagates = true,
 		waving = 1,
-		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, sea=1},
+		groups = {snappy=3, sea=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
-		drop = "lib_ecology:grass_sea_1",
 		walkable = false,
+
 		on_construct = function(pos)
+		
 			local num = math.random(1,3)
 			minetest.env:set_node(pos, {name="lib_ecology:grass_sea_"..num})
+
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_sea_2"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- Call on_rightclick if the pointed node defines it
+			if pointed_thing.type == "node" and placer and
+					not placer:get_player_control().sneak then
+				local node_ptu = minetest.get_node(pointed_thing.under)
+				local def_ptu = minetest.registered_nodes[node_ptu.name]
+				if def_ptu and def_ptu.on_rightclick then
+					return def_ptu.on_rightclick(pointed_thing.under, node_ptu, placer,
+						itemstack, pointed_thing)
+				end
+			end
+
+			local pos = pointed_thing.under
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
+				return itemstack
+			end
+
+			local height = math.random(4, 6)
+			local pos_top = {x = pos.x, y = pos.y + height, z = pos.z}
+			local node_top = minetest.get_node(pos_top)
+			local def_top = minetest.registered_nodes[node_top.name]
+			local player_name = placer:get_player_name()
+
+			if def_top and def_top.liquidtype == "source" and
+					minetest.get_item_group(node_top.name, "water") > 0 then
+				if not minetest.is_protected(pos, player_name) and
+						not minetest.is_protected(pos_top, player_name) then
+					minetest.set_node(pos, {name = "lib_ecology:grass_sea_1",
+						param2 = height * 16})
+					if not (creative and creative.is_enabled_for
+							and creative.is_enabled_for(player_name)) then
+						itemstack:take_item()
+					end
+				else
+					minetest.chat_send_player(player_name, "Node is protected")
+					minetest.record_protection_violation(pos, player_name)
+				end
+			end
+
+			return itemstack
+		end,
+
+		after_destruct  = function(pos, oldnode)
+			minetest.set_node(pos, {name = "lib_materials:sand"})
 		end,
 	})
 	minetest.register_node("lib_ecology:grass_sea_2", {
 		description = S("Grass - Sea 2"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_dirt.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_grass_sea_2.png", tileable_vertical = true}},
 		node_dig_prediction = "lib_ecology:grass_sea_2",
 		node_placement_prediction = "lib_ecology:grass_sea_2",
@@ -2766,19 +3586,76 @@ local S = lib_ecology.intllib
 		buildable_to = true, 
 		sunlight_propagates = true,
 		waving = 1,
-		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, sea=1, not_in_creative_inventory=1},
+		groups = {snappy=3, sea=1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
-		drop = "lib_ecology:grass_sea_1",
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_sea_3"})
+		
+		end,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- Call on_rightclick if the pointed node defines it
+			if pointed_thing.type == "node" and placer and
+					not placer:get_player_control().sneak then
+				local node_ptu = minetest.get_node(pointed_thing.under)
+				local def_ptu = minetest.registered_nodes[node_ptu.name]
+				if def_ptu and def_ptu.on_rightclick then
+					return def_ptu.on_rightclick(pointed_thing.under, node_ptu, placer,
+						itemstack, pointed_thing)
+				end
+			end
+
+			local pos = pointed_thing.under
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
+				return itemstack
+			end
+
+			local height = math.random(4, 6)
+			local pos_top = {x = pos.x, y = pos.y + height, z = pos.z}
+			local node_top = minetest.get_node(pos_top)
+			local def_top = minetest.registered_nodes[node_top.name]
+			local player_name = placer:get_player_name()
+
+			if def_top and def_top.liquidtype == "source" and
+					minetest.get_item_group(node_top.name, "water") > 0 then
+				if not minetest.is_protected(pos, player_name) and
+						not minetest.is_protected(pos_top, player_name) then
+					minetest.set_node(pos, {name = "lib_ecology:grass_sea_2",
+						param2 = height * 16})
+					if not (creative and creative.is_enabled_for
+							and creative.is_enabled_for(player_name)) then
+						itemstack:take_item()
+					end
+				else
+					minetest.chat_send_player(player_name, "Node is protected")
+					minetest.record_protection_violation(pos, player_name)
+				end
+			end
+
+			return itemstack
+		end,
+
+		after_destruct  = function(pos, oldnode)
+			minetest.set_node(pos, {name = "lib_materials:sand"})
+		end,
 	})
 	minetest.register_node("lib_ecology:grass_sea_3", {
 		description = S("Grass - Sea 3"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_dirt.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_grass_sea_3.png", tileable_vertical = true}},
 		node_dig_prediction = "lib_ecology:grass_sea_3",
 		node_placement_prediction = "lib_ecology:grass_sea_3",
@@ -2787,7 +3664,7 @@ local S = lib_ecology.intllib
 		buildable_to = true, 
 		sunlight_propagates = true,
 		waving = 1,
-		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, sea=1, not_in_creative_inventory=1},
+		groups = {snappy=3, sea=1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -2795,6 +3672,52 @@ local S = lib_ecology.intllib
 		},
 		drop = "lib_ecology:grass_sea_1",
 		walkable = false,
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- Call on_rightclick if the pointed node defines it
+			if pointed_thing.type == "node" and placer and
+					not placer:get_player_control().sneak then
+				local node_ptu = minetest.get_node(pointed_thing.under)
+				local def_ptu = minetest.registered_nodes[node_ptu.name]
+				if def_ptu and def_ptu.on_rightclick then
+					return def_ptu.on_rightclick(pointed_thing.under, node_ptu, placer,
+						itemstack, pointed_thing)
+				end
+			end
+
+			local pos = pointed_thing.under
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
+				return itemstack
+			end
+
+			local height = math.random(4, 6)
+			local pos_top = {x = pos.x, y = pos.y + height, z = pos.z}
+			local node_top = minetest.get_node(pos_top)
+			local def_top = minetest.registered_nodes[node_top.name]
+			local player_name = placer:get_player_name()
+
+			if def_top and def_top.liquidtype == "source" and
+					minetest.get_item_group(node_top.name, "water") > 0 then
+				if not minetest.is_protected(pos, player_name) and
+						not minetest.is_protected(pos_top, player_name) then
+					minetest.set_node(pos, {name = "lib_ecology:grass_sea_3",
+						param2 = height * 16})
+					if not (creative and creative.is_enabled_for
+							and creative.is_enabled_for(player_name)) then
+						itemstack:take_item()
+					end
+				else
+					minetest.chat_send_player(player_name, "Node is protected")
+					minetest.record_protection_violation(pos, player_name)
+				end
+			end
+
+			return itemstack
+		end,
+
+		after_destruct  = function(pos, oldnode)
+			minetest.set_node(pos, {name = "lib_materials:sand"})
+		end,
 	})
 	minetest.register_node("lib_ecology:grass_snow_1", {
 		description = S("Grass - Snow 1"),
@@ -2891,26 +3814,6 @@ local S = lib_ecology.intllib
 		},
 		walkable = false,
 	})
-	minetest.register_node("lib_ecology:grass_snowygrass", {
-		description = S("Grass - Snowy"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_grass_snowygrass.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		visual_scale = 4,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
 	minetest.register_node("lib_ecology:grass_swamp_1", {
 		description = S("Grass - Swamp 1"),
 		drawtype = "plantlike",
@@ -2922,13 +3825,26 @@ local S = lib_ecology.intllib
 		drop = "lib_ecology:grass_swamp_1",
 		waving = 1,
 		floodable = true,
-		groups = {snappy=3, flammable=1, plant = 1, grass = 1, attached_node = 1, growing = 1, flora=1, not_in_creative_inventory=1},
+		groups = {snappy=3, flammable=1, plant = 1, grass = 1, attached_node = 1, growing = 1, flora=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_swamp_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_swamp_2", {
 		description = S("Grass - Swamp 2"),
@@ -2948,6 +3864,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_swamp_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_swamp_3", {
 		description = S("Grass - Swamp 3"),
@@ -2967,6 +3896,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_swamp_4"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_swamp_4", {
 		description = S("Grass - Swamp 4"),
@@ -2986,6 +3928,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:grass_swamp_5"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:grass_swamp_5", {
 		description = S("Grass - Swamp 5"),
@@ -2998,7 +3953,7 @@ local S = lib_ecology.intllib
 		drop = "lib_ecology:grass_swamp_5",
 		waving = 1,
 		floodable = true,
-		groups = {snappy=3, flammable=1, plant = 1, grass = 1, attached_node = 1, growing = 1, flora=1},
+		groups = {snappy=3, flammable=1, plant = 1, grass = 1, attached_node = 1, growing = 1, flora=1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -3190,30 +4145,10 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 11/16, 0.5},
 		},
 	})
-	minetest.register_node("lib_ecology:plant_bananaplant", {
-		description = S("Plant - Banana Plant"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_banana_plant.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		visual_scale = 2,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
-		},
-		walkable = false,
-	})
 	minetest.register_node("lib_ecology:plant_banana_1", {
 		description = S("Plant - Banana 1"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_banana_plant_LORES.png"},
+		tiles = {"lib_ecology_plant_banana_1.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		buildable_to = true, 
@@ -3227,11 +4162,24 @@ local S = lib_ecology.intllib
 			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_banana_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_banana_2", {
 		description = S("Plant - Banana 2"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_banana_plant.png"},
+		tiles = {"lib_ecology_plant_banana_2.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		buildable_to = true, 
@@ -3247,16 +4195,25 @@ local S = lib_ecology.intllib
 			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
 		},
 		walkable = false,
+
+		on_rightclick = function(pos, node)
+		
+			minetest.set_node(pos, {name="lib_ecology:plant_banana_1"})
+			minetest.env:add_item(pos, "lib_ecology:fruit_banana_01")
+			--minetest.add_item(pos, {"lib_ecology:fruit_banana_01"})
+			
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_banana_tree_trunk_top", {
-		description = "Plant - Banana Tree Trunk Top",
+		description = S("Plant - Banana Tree Trunk Top"),
 		drawtype = "plantlike_rooted",
 		tiles = {
 			"lib_ecology_tree_banana_01_trunk_top.png",
 			"lib_ecology_tree_banana_01_trunk_top.png",
 			"lib_ecology_tree_banana_01_trunk.png"
 		},
-		special_tiles = {{name = "lib_ecology_plant_banana_plant.png", tileable_vertical = false}},
+		special_tiles = {{name = "lib_ecology_plant_banana_2.png", tileable_vertical = false}},
 		visual_scale = 2.0,
 		paramtype = "light",
 		buildable_to = false, 
@@ -3280,60 +4237,34 @@ local S = lib_ecology.intllib
 		},
 	})
 	minetest.register_node("lib_ecology:plant_banana_tree_trunk", {
-		description = "Plant - Banana Tree Trunk",
-		drawtype = "nodebox",
-		paramtype = "light",
+		description = S("Plant - Banana Tree Trunk"),
 		tiles = {
 			"lib_ecology_tree_banana_01_trunk_top.png",
 			"lib_ecology_tree_banana_01_trunk_top.png",
 			"lib_ecology_tree_banana_01_trunk.png"
 		},
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-1/8, -1/2, -1/8, 1/8, 1/2, 1/8},
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-		},
-		groups = {tree=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		walkable = true,
+		is_ground_content = false,
+		groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3, wood=1},
 		sounds = lib_ecology.node_sound_wood_defaults(),
+
+		on_place = minetest.rotate_node
 	})
 	minetest.register_node("lib_ecology:plant_banana_tree_leaves", {
 		description = S("Plant - Banana Tree Leaves"),
 		drawtype = "mesh",
 		mesh = "fern_old.b3d",
 		visual_scale = 1.2,--1.2, 2.0
-		tiles = {"lib_ecology_plant_banana_plant.png"},
+		tiles = {"lib_ecology_plant_banana_2.png"},
 		paramtype = "light",
 		paramtype2 = "degrotate",
 		sunlight_propagates = true,
 		waving = 1,
 		walkable = false,
 		floodable = true,
-		buildable_to = true,
-		groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 2},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_bananaplant2", {
-		description = S("Plant - Banana Plant2"),
-		drawtype = "mesh",
-		mesh = "fern_old.b3d",
-		visual_scale = 1.2,--1.2, 2.0
-		tiles = {"lib_ecology_plant_banana_plant.png"},
-		paramtype = "light",
-		paramtype2 = "degrotate",
-		sunlight_propagates = true,
-		waving = 1,
-		walkable = false,
-		floodable = true,
-		buildable_to = true,
+		buildable_to = false,
 		groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 2},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
@@ -3342,9 +4273,9 @@ local S = lib_ecology.intllib
 		},
 	})
 	minetest.register_node("lib_ecology:plant_bulrush", {
-		description = "Bulrush",
+		description = S("Plant - Bulrush"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_bullrush.png"},
+		tiles = {"lib_ecology_plant_bullrush.png"},
 		visual_scale = 3.0,--1.3
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -3381,10 +4312,10 @@ local S = lib_ecology.intllib
 		},
 		walkable = false,
 	})
-	minetest.register_node("lib_ecology:plant_creeper", {
-		description = S("Plant - Creeper"),
+	minetest.register_node("lib_ecology:plant_cattail_02", {
+		description = S("Plant - Cattail 02"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_creeper.png"},
+		tiles = {"lib_ecology_plant_cattail_02.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		buildable_to = true, 
@@ -3398,6 +4329,208 @@ local S = lib_ecology.intllib
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_cattails_03", {
+		description = S("Plant - Cattails 03"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_cattails_03.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		visual_scale = 2,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_crabgrass", {
+		description = S("Plant - Crabgrass"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_crabgrass.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_creeper", {
+		description = S("Plant - Creeper"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_creeper.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_curly", {
+		description = S("Plant - Curly flower"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_curly.png"},
+		visual_scale = 1.1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		drop = "lib_ecology:fruit_curlyfruit",
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.4, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:plant_heath_gold", {
+		description = S("Plant - Heath Gold"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_heath_gold.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_heath_green", {
+		description = S("Plant - Heath Green"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_heath_green.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_heath_purple", {
+		description = S("Plant - Heath Purple"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_heath_purple.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_heath_red", {
+		description = S("Plant - Heath Red"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_heath_red.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_heath_sandwort", {
+		description = S("Plant - Heath Sandwort"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_heath_sandwort.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_heath_saxifrage_purple", {
+		description = S("Plant - Heath Saxifrage Purple"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_heath_saxifrage_purple.png"},
+		paramtype = "light",
+		visual_scale = 2.0,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.3, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_juncus", {
+		description = S("Plant - Juncus"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_juncus.png"},
+		visual_scale = 2.0,
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
 	})
@@ -3418,6 +4551,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_juncus_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_juncus_2", {
 		description = S("Plant - Juncus 2"),
@@ -3437,6 +4583,19 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
 		},
 		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_juncus_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_juncus_3", {
 		description = S("Plant - Juncus 3"),
@@ -3450,138 +4609,6 @@ local S = lib_ecology.intllib
 		waving = 1,
 		floodable = true,
 		groups = {snappy=3, flammable=1, plant = 1, attached_node = 1, growing = 1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_01", {
-		description = S("Plant - Juncus 01"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_01.png"},
-		visual_scale = 4.0,
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_02", {
-		description = S("Plant - Juncus 02"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_02.png"},
-		visual_scale = 4.0,
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_03", {
-		description = S("Plant - Juncus 03"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_03.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_04", {
-		description = S("Plant - Juncus 04"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_04.png"},
-		--visual_scale = 2.0,
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_05", {
-		description = S("Plant - Juncus 05"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_05.png"},
-		--visual_scale = 2.0,
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_08", {
-		description = S("Plant - Juncus 08"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_08.png"},
-		visual_scale = 2.0,
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_juncus_09", {
-		description = S("Plant - Juncus 09"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_juncus_09.png"},
-		visual_scale = 2.0,
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -3609,144 +4636,24 @@ local S = lib_ecology.intllib
 		},
 		walkable = false,
 	})
-
-	minetest.register_node("lib_ecology:plant_curly", {
-		description = S("Plant - Curly flower"),
+	minetest.register_node("lib_ecology:plant_manna_reed", {
+		description = S("Plant - Manna Reed"),
 		drawtype = "plantlike",
-		tiles = {"moreplants_curly.png"},
-		visual_scale = 1.1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
+		tiles = {"lib_ecology_plant_manna_reed.png"},
 		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		drop = "lib_ecology:fruit_curlyfruit",
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0.4, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_weed", {
-		description = S("Plant - Weed"),
-		drawtype = "plantlike",
-		tiles = {"moreplants_weed.png"},
-		visual_scale = 1.1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
 		waving = 1,
+		walkable = false,
+		buildable_to = true,
+		stack_max = 99,
 		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		groups = {color_dark_green = 1, flammable = 1, snappy = 3, attached_node = 1, flower = 1, flora = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_deadweed", {
-		description = S("Plant - Dead Weed"),
-		drawtype = "plantlike",
-		tiles = {"moreplants_deadweed.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_eyeweed", {
-		description = S("Plant - Eye Weed"),
-		drawtype = "plantlike",
-		tiles = {"moreplants_eyeweed.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		drop = "lib_ecology:fruit_eye",
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_stoneweed", {
-		description = S("Plant - Stone Weed"),
-		drawtype = "plantlike",
-		tiles = {"moreplants_stoneplant.png"},
-		visual_scale = 1,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
-		},
-	})
-	minetest.register_node("lib_ecology:plant_umbrella", {
-		description = S("Plant - Umbrella Weed"),
-		drawtype = "plantlike",
-		tiles = {"moreplants_umbrella.png"},
-		visual_scale = 2,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 3, 0.3}
-		},
-	})
-	minetest.register_craft({
-		output = "default:cactus 1",
-		recipe = {
-			{"lib_ecology:plant_cactus", "lib_ecology:plant_cactus", "lib_ecology:plant_cactus"},
-			{"lib_ecology:plant_cactus", "lib_ecology:plant_cactus", "lib_ecology:plant_cactus"},
-			{"lib_ecology:plant_cactus", "lib_ecology:plant_cactus",  "lib_ecology:plant_cactus"}
+			fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16}
 		}
 	})
-	minetest.register_craft({
-		output = "default:paper 1",
-		recipe = {
-			{"lib_ecology:plant_weed", "lib_ecology:plant_weed", "lib_ecology:plant_weed"},
-		}
-	})
-
 	minetest.register_node("lib_ecology:plant_nettle_nettle", {
 		description = S("Plant - Nettle"),
 		drawtype = "plantlike",
@@ -3840,37 +4747,6 @@ local S = lib_ecology.intllib
 		groups = {snappy = 2, flora = 1, attached_node = 1, flammable = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 	})
-	minetest.register_craft({
-		type = "fuel",
-		recipe = "lib_ecology:plant_nettle_nettle",
-		burntime = 3,
-	})
-	minetest.register_craft({
-		type = "fuel",
-		recipe = "lib_ecology:plant_nettle_impatiens",
-		burntime = 3,
-	})
-	minetest.register_craft({
-		type = "fuel",
-		recipe = "lib_ecology:plant_nettle_cleavers",
-		burntime = 3,
-	})
-	minetest.register_craft({
-		type = "fuel",
-		recipe = "lib_ecology:plant_nettle_carduus",
-		burntime = 3,
-	})
-	minetest.register_craft({
-		type = "fuel",
-		recipe = "lib_ecology:plant_nettle_scotch_broom",
-		burntime = 6,
-	})
-	minetest.register_craft({
-		type = "fuel",
-		recipe = "lib_ecology:plant_nettle_giant_hogweed",
-		burntime = 3,
-	})
-
 	minetest.register_node("lib_ecology:plant_palmetto_01", {
 		description = S("Plant - Palmetto 01"),
 		drawtype = "plantlike",
@@ -3889,6 +4765,207 @@ local S = lib_ecology.intllib
 			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
 		},
 		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_weed", {
+		description = S("Plant - Weed"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_weed.png"},
+		visual_scale = 1.1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+		},
+	})
+	minetest.register_node("lib_ecology:plant_weed_dead", {
+		description = S("Plant - Dead Weed"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_weed_dead.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		},
+	})
+	minetest.register_node("lib_ecology:plant_weed_eye", {
+		description = S("Plant - Eye Weed"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_weed_eye.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		drop = "lib_ecology:fruit_eye",
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:plant_umbrella", {
+		description = S("Plant - Umbrella Weed"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_umbrella.png"},
+		visual_scale = 2,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 3, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:plant_vine_ebony", {
+		description = S("Vine - Ebony"),
+		drawtype = "signlike",
+		tiles = {"lib_ecology_plant_vine_ebony.png"},
+		inventory_image = "lib_ecology_plant_vine_ebony.png",
+		wield_image = "lib_ecology_plant_vine_ebony.png",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		waving = 1,
+		floodable = true,
+		walkable = false,
+		climbable = true,
+		is_ground_content = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+		groups = {choppy = 3, oddly_breakable_by_hand = 1, lib_ecology_plant = 1},
+		legacy_wallmounted = true,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+	})
+	minetest.register_node("lib_ecology:plant_vine_ebony_leaves", {
+		description = S("Vine - Ebony with Leaves"),
+		drawtype = "signlike",
+		tiles = {"lib_ecology_plant_vine_ebony_leaves.png"},
+		inventory_image = "lib_ecology_plant_vine_ebony_leaves.png",
+		wield_image = "lib_ecology_plant_vine_ebony_leaves.png",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		waving = 1,
+		floodable = true,
+		walkable = false,
+		climbable = true,
+		is_ground_content = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+		groups = {choppy = 3, oddly_breakable_by_hand = 1, lib_ecology_plant = 1},
+		legacy_wallmounted = true,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+	})
+	minetest.register_node("lib_ecology:plant_vine_ebony_liana", {
+		description = S("Vine - Ebony Liana"),
+		drawtype = "signlike",
+		tiles = {"lib_ecology_plant_vine_ebony_liana.png"},
+		inventory_image = "lib_ecology_plant_vine_ebony_liana.png",
+		wield_image = "lib_ecology_plant_vine_ebony_liana.png",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		waving = 1,
+		floodable = true,
+		walkable = false,
+		climbable = true,
+		is_ground_content = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+		groups = {choppy = 3, oddly_breakable_by_hand = 1, lib_ecology_plant = 1},
+		legacy_wallmounted = true,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+	})
+	minetest.register_node("lib_ecology:plant_vine_mahogany", {
+		description = S("Vine - Mahogany"),
+		drawtype = "signlike",
+		tiles = {"lib_ecology_plant_vine_mahogany.png"},
+		inventory_image = "lib_ecology_plant_vine_mahogany.png",
+		wield_image = "lib_ecology_plant_vine_mahogany.png",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		waving = 1,
+		floodable = true,
+		walkable = false,
+		climbable = true,
+		is_ground_content = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+		groups = {choppy = 3, oddly_breakable_by_hand = 1, lib_ecology_plant = 1},
+		legacy_wallmounted = true,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+	})
+	minetest.register_node("lib_ecology:plant_vine_mahogany_flowers", {
+		description = S("Vine - Mahogany Flowers"),
+		drawtype = "signlike",
+		tiles = {"lib_ecology_plant_vine_mahogany_flowers.png"},
+		inventory_image = "lib_ecology_plant_vine_mahogany_flowers.png",
+		wield_image = "lib_ecology_plant_vine_mahogany_flowers.png",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		waving = 1,
+		floodable = true,
+		walkable = false,
+		climbable = true,
+		is_ground_content = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+		groups = {choppy = 3, oddly_breakable_by_hand = 1, lib_ecology_plant = 1},
+		legacy_wallmounted = true,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+	})
+	minetest.register_node("lib_ecology:plant_vine_mahogany_hanging", {
+		description = S("Vine - Mahogany Hanging"),
+		drawtype = "signlike",
+		tiles = {"lib_ecology_plant_vine_mahogany_hanging.png"},
+		inventory_image = "lib_ecology_plant_vine_mahogany_hanging.png",
+		wield_image = "lib_ecology_plant_vine_mahogany_hanging.png",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		waving = 1,
+		floodable = true,
+		walkable = false,
+		climbable = true,
+		is_ground_content = false,
+		selection_box = {
+			type = "wallmounted",
+		},
+		groups = {choppy = 3, oddly_breakable_by_hand = 1, lib_ecology_plant = 1},
+		legacy_wallmounted = true,
+		sounds = lib_ecology.node_sound_leaves_defaults(),
 	})
 	minetest.register_node("lib_ecology:plant_vine_01", {
 		description = S("Vine 01"),
@@ -3950,6 +5027,52 @@ local S = lib_ecology.intllib
 		legacy_wallmounted = true,
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 	})
+
+	minetest.register_craft({
+		output = "default:cactus 1",
+		recipe = {
+			{"lib_ecology:plant_cactus", "lib_ecology:plant_cactus", "lib_ecology:plant_cactus"},
+			{"lib_ecology:plant_cactus", "lib_ecology:plant_cactus", "lib_ecology:plant_cactus"},
+			{"lib_ecology:plant_cactus", "lib_ecology:plant_cactus",  "lib_ecology:plant_cactus"}
+		}
+	})
+	minetest.register_craft({
+		output = "default:paper 1",
+		recipe = {
+			{"lib_ecology:plant_weed", "lib_ecology:plant_weed", "lib_ecology:plant_weed"},
+		}
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "lib_ecology:plant_nettle_nettle",
+		burntime = 3,
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "lib_ecology:plant_nettle_impatiens",
+		burntime = 3,
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "lib_ecology:plant_nettle_cleavers",
+		burntime = 3,
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "lib_ecology:plant_nettle_carduus",
+		burntime = 3,
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "lib_ecology:plant_nettle_scotch_broom",
+		burntime = 6,
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "lib_ecology:plant_nettle_giant_hogweed",
+		burntime = 3,
+	})
+
 	minetest.register_craft({
 		output = "lib_ecology:plant_vine_01 2",
 		recipe = {
@@ -3960,48 +5083,10 @@ local S = lib_ecology.intllib
 	})
 
 --MUSHROOMS
-	minetest.register_node("lib_ecology:plant_mushroom_red", {
-		description = S("Plant - Mushroom Red"),
+	minetest.register_node("lib_ecology:mushroom_blue_cave", {
+		description = S("Mushroom - Blue Cave"),
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_mushroom_sapling.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		visual_scale = 2,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_mushroom_white", {
-		description = S("Plant - Mushroom White"),
-		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_mushroom_white.png"},
-		paramtype = "light",
-		is_ground_content = false,
-		buildable_to = true, 
-		sunlight_propagates = true,
-		visual_scale = 2,
-		wield_scale = {x=0.5, y=0.5, z=0.5},
-		floodable = true,
-		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
-		},
-		walkable = false,
-	})
-	minetest.register_node("lib_ecology:plant_bluemush", {
-		description = "Blue Cave Mushroom",
-		drawtype = "plantlike",
-		tiles = {"moreplants_bluemush.png"},
+		tiles = {"lib_ecology_mushroom_blue_cave.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -4019,10 +5104,26 @@ local S = lib_ecology.intllib
 		},
 		on_use = minetest.item_eat(1),
 	})
-	minetest.register_node("lib_ecology:plant_firefung", {
-		description = "Fire Mushroom",
+	minetest.register_node("lib_ecology:mushroom_brown", {
+		description = S("Mushroom - Brown"),
+		tiles = {"lib_ecology_mushroom_brown.png"},
 		drawtype = "plantlike",
-		tiles = {"moreplants_firemush.png"},
+		paramtype = "light",
+		sunlight_propagates = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1},
+		sounds = default.node_sound_leaves_defaults(),
+		on_use = minetest.item_eat(1),
+		selection_box = {
+			type = "fixed",
+			fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -2 / 16, 3 / 16},
+		}
+	})
+	minetest.register_node("lib_ecology:mushroom_fire", {
+		description = S("Mushroom - Fire"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_mushroom_fire.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -4039,10 +5140,10 @@ local S = lib_ecology.intllib
 			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_glowfung", {
-		description = "glow fungus",
+	minetest.register_node("lib_ecology:mushroom_glow_fungus", {
+		description = S("Mushroom - Glow Fungus"),
 		drawtype = "torchlike",
-		tiles = {"moreplants_glowfung.png"},
+		tiles = {"lib_ecology_mushroom_glow_fungus.png"},
 		visual_scale = 1,
 		wield_scale = {x=0.5, y=0.5, z=0.5},
 		paramtype = "light",
@@ -4064,17 +5165,10 @@ local S = lib_ecology.intllib
 			wall_side = {-0.5, -0.3, -0.1, -0.5+0.3, 0.3, 0.1},
 		},
 	})
-	minetest.register_node("lib_ecology:plant_groundfung", {
-		description = "Ground fungus",
+	minetest.register_node("lib_ecology:mushroom_ground_fungus", {
+		description = S("Mushroom - Ground Fungus"),
 		drawtype = "plantlike",--firelike
-		tiles = {
-			"moreplants_groundfung.png",
-			"moreplants_trans.png",
-			"moreplants_groundfung.png",
-			"moreplants_groundfung.png",
-			"moreplants_groundfung.png",
-			"moreplants_groundfung.png"
-		},
+		tiles = {"lib_ecology_mushroom_ground_fungus.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		buildable_to = true, 
@@ -4089,8 +5183,8 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
 		},
 	})
-	minetest.register_node("lib_ecology:plant_mushroom", {
-		description = "Pink Mushroom",
+	minetest.register_node("lib_ecology:mushroom_pink", {
+		description = S("Mushroom - Pink"),
 		tiles = {
 			"moreplants_mushroom_top.png",
 			"moreplants_mushroom_top.png",
@@ -4119,7 +5213,83 @@ local S = lib_ecology.intllib
 			}
 		},
 	})
+	minetest.register_node("lib_ecology:mushroom_red", {
+		description = S("Mushroom - Red"),
+		tiles = {"lib_ecology_mushroom_red.png"},
+		drawtype = "plantlike",
+		paramtype = "light",
+		sunlight_propagates = true,
+		walkable = false,
+		buildable_to = true,
+		groups = {snappy = 3, attached_node = 1, flammable = 1},
+		sounds = default.node_sound_leaves_defaults(),
+		on_use = minetest.item_eat(-5),
+		selection_box = {
+			type = "fixed",
+			fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, -1 / 16, 4 / 16},
+		}
+	})
+	minetest.register_node("lib_ecology:mushroom_red_large", {
+		description = S("Mushroom - Red Large"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_mushroom_red_large.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		visual_scale = 2,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:mushroom_stone", {
+		description = S("Mushroom - Stone"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_mushroom_stone.png"},
+		visual_scale = 1,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0, 0.3}
+		},
+	})
+	minetest.register_node("lib_ecology:mushroom_white", {
+		description = S("Mushroom - White"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_mushroom_white.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		buildable_to = true, 
+		sunlight_propagates = true,
+		visual_scale = 2,
+		wield_scale = {x=0.5, y=0.5, z=0.5},
+		floodable = true,
+		groups = {snappy=3, flammable=1, attatched_node=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 1, 0.3}
+		},
+		walkable = false,
+	})
 
+
+--MISC.
 	minetest.register_node("lib_ecology:plant_willow_01", {
 		description = S("Plant - Willow 01"),
 		drawtype = "plantlike",
@@ -4163,34 +5333,34 @@ local S = lib_ecology.intllib
 
 
 --FRUIT TREES / PLANTS
-	minetest.register_node("lib_ecology:plant_blueberry_leaves_with_berries", {
-		description = "Plant - Blueberry Leaves with Berries",
+	minetest.register_node("lib_ecology:bush_blueberry_leaves_with_berries", {
+		description = "Bush - Blueberry Leaves with Berries",
 		drawtype = "allfaces_optional",
 		waving = 1,
-		tiles = {"lib_ecology_plant_blueberry_leaves.png^lib_ecology_plant_blueberry_overlay.png"},
+		tiles = {"lib_ecology_bush_blueberry_leaves.png^lib_ecology_bush_blueberry_overlay.png"},
 		paramtype = "light",
 		groups = {snappy = 3, flammable = 2, leaves = 1, dig_immediate = 3},
 		drop = "lib_ecology:fruit_blueberries",
 		sounds = lib_ecology.node_sound_leaves_defaults(),
-		node_dig_prediction = "lib_ecology:plant_blueberry_leaves",
+		node_dig_prediction = "lib_ecology:bush_blueberry_leaves",
 
 		after_dig_node = function(pos, oldnode, oldmetadata, digger)
-			minetest.set_node(pos, {name = "lib_ecology:plant_blueberry_leaves"})
+			minetest.set_node(pos, {name = "lib_ecology:bush_blueberry_leaves"})
 			minetest.get_node_timer(pos):start(math.random(300, 1500))
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_blueberry_leaves", {
-		description = "Plant - Blueberry Leaves",
+	minetest.register_node("lib_ecology:bush_blueberry_leaves", {
+		description = "Bush - Blueberry Leaves",
 		drawtype = "allfaces_optional",
 		waving = 1,
-		tiles = {"lib_ecology_plant_blueberry_leaves.png"},
+		tiles = {"lib_ecology_bush_blueberry_leaves.png"},
 		paramtype = "light",
 		groups = {snappy = 3, flammable = 2, leaves = 1},
 		drop = {
 			max_items = 1,
 			items = {
-				{items = {"lib_ecology:plant_blueberry_sapling"}, rarity = 5},
-				{items = {"lib_ecology:plant_blueberry_leaves"}}
+				{items = {"lib_ecology:bush_blueberry_sapling"}, rarity = 5},
+				{items = {"lib_ecology:bush_blueberry_leaves"}}
 			}
 		},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
@@ -4199,16 +5369,22 @@ local S = lib_ecology.intllib
 			if minetest.get_node_light(pos) < 11 then
 				minetest.get_node_timer(pos):start(200)
 			else
-				minetest.set_node(pos, {name = "lib_ecology:plant_blueberry_leaves_with_berries"})
+				minetest.set_node(pos, {name = "lib_ecology:bush_blueberry_leaves_with_berries"})
 			end
 		end,
 
-		after_place_node = default.after_place_leaves,
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		after_place_node = lib_ecology.after_place_leaves,
 	})
-	minetest.register_node("lib_ecology:plant_blueberry_sapling", {
-		description = "Plant - Blueberry Sapling",
+	minetest.register_node("lib_ecology:bush_blueberry_sapling", {
+		description = "Bush - Blueberry Sapling",
 		drawtype = "plantlike",
-		tiles = {"lib_ecology_plant_blueberry_sapling.png"},
+		tiles = {"lib_ecology_bush_blueberry_sapling.png"},
 		paramtype = "light",
 		sunlight_propagates = true,
 		walkable = false,
@@ -4226,7 +5402,7 @@ local S = lib_ecology.intllib
 
 		on_place = function(itemstack, placer, pointed_thing)
 			itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-				"lib_ecology:plant_blueberry_sapling",
+				"lib_ecology:bush_blueberry_sapling",
 				-- minp, maxp to be checked, relative to sapling pos
 				{x = -1, y = 0, z = -1},
 				{x = 1, y = 1, z = 1},
@@ -4253,15 +5429,28 @@ local S = lib_ecology.intllib
 		floodable = true,
 		groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 1, dig_immediate = 1, flora = 1, not_in_creative_inventory=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_pineapple_plant"})
+		
+		end,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
 	})
-	minetest.register_abm({
-		nodenames = {"lib_ecology:plant_pineapple_plant_growing"},
-		interval = 30,
-		chance = 2,
-		action = function(pos, node)
-			minetest.env:set_node(pos, {name="lib_ecology:plant_pineapple_plant"})
-		end
-	})
+	-- minetest.register_abm({
+		-- nodenames = {"lib_ecology:plant_pineapple_plant_growing"},
+		-- interval = 30,
+		-- chance = 2,
+		-- action = function(pos, node)
+			-- minetest.env:set_node(pos, {name="lib_ecology:plant_pineapple_plant"})
+		-- end
+	-- })
 	minetest.register_node("lib_ecology:plant_pineapple_plant", {
 		description = S("Plant - Pineapple Plant"),
 		drawtype = "plantlike",
@@ -4279,9 +5468,16 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 1, dig_immediate = 1, flora = 1,},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
 		on_rightclick = function(pos, node)
-			minetest.env:set_node(pos, {name="lib_ecology:plant_pineapple_plant_growing"})
+		
+			--minetest.env:set_node(pos, {name="lib_ecology:plant_pineapple_plant_growing"})
+			minetest.set_node(pos, {name="lib_ecology:plant_pineapple_plant_growing"})
+			
 			minetest.env:add_item(pos, "lib_ecology:fruit_pineapple")
+			--minetest.add_item(pos, {"lib_ecology:fruit_pineapple"})
+			
+			
 		end,
 	})
 	minetest.register_node("lib_ecology:plant_wild_oat", {
@@ -4335,8 +5531,21 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 		},
-		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
+		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_2", {
 		description = S("Plant - Strawberry 2"),
@@ -4355,6 +5564,19 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_3", {
 		description = S("Plant - Strawberry 3"),
@@ -4373,6 +5595,19 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_4"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_4", {
 		description = S("Plant - Strawberry 4"),
@@ -4391,6 +5626,19 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_5"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_5", {
 		description = S("Plant - Strawberry 5"),
@@ -4409,6 +5657,19 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_6"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_6", {
 		description = S("Plant - Strawberry 6"),
@@ -4432,6 +5693,19 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_7"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_7", {
 		description = S("Plant - Strawberry 7"),
@@ -4455,6 +5729,19 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_8"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_strawberry_8", {
 		description = S("Plant - Strawberry 8"),
@@ -4478,6 +5765,15 @@ local S = lib_ecology.intllib
 		},
 		groups = {snappy = 3, flammable  =2, plant = 1, attached_node = 1, not_in_creative_inventory = 1, growing = 0},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
+
+		on_rightclick = function(pos, node)
+		
+			minetest.set_node(pos, {name="lib_ecology:plant_strawberry_1"})
+			minetest.env:add_item(pos, "lib_ecology:fruit_strawberry")
+			--minetest.add_item(pos, {"lib_ecology:fruit_strawberry"})
+			
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_wild_onion_1", {
 		description = S("Plant - Wild Onion 1"),
@@ -4489,13 +5785,26 @@ local S = lib_ecology.intllib
 		buildable_to = true,
 		waving = 1,
 		floodable = true,
-		groups = { snappy = 3, flammable = 2, plant = 1, attached_node = 1, growing = 1, not_in_creative_inventory = 1},
+		groups = { snappy = 3, flammable = 2, plant = 1, attached_node = 1, growing = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		drop = "",
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_wild_onion_2"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_wild_onion_2", {
 		description = S("Plant - Wild Onion 2"),
@@ -4514,6 +5823,19 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_wild_onion_3"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_wild_onion_3", {
 		description = S("Plant - Wild Onion 3"),
@@ -4532,6 +5854,19 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_wild_onion_4"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_wild_onion_4", {
 		description = S("Plant - Wild Onion 4"),
@@ -4555,6 +5890,19 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 		},
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_wild_onion_5"})
+		
+		end,
+
 	})
 	minetest.register_node("lib_ecology:plant_wild_onion_5", {
 		description = S("Plant - Wild Onion 5"),
@@ -4578,6 +5926,18 @@ local S = lib_ecology.intllib
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
 		},
+
+		on_rightclick = function(pos, node)
+		
+			--minetest.env:set_node(pos, {name="lib_ecology:plant_wild_onion_1"})
+			minetest.set_node(pos, {name="lib_ecology:plant_wild_onion_1"})
+			
+			minetest.env:add_item(pos, "lib_ecology:fruit_wild_onion")
+			--minetest.add_item(pos, {"lib_ecology:fruit_wild_onion"})
+			
+			
+		end,
+
 	})
 
 
@@ -4692,14 +6052,13 @@ local S = lib_ecology.intllib
 		walkable = false,
 	})
 
-	minetest.register_node("lib_ecology:tree_palm", {
-		description = "Palm tree",
-		tiles = {"moreplants_palmtree_top.png", "moreplants_palmtree_top.png", "moreplants_palmtree.png"},
+	minetest.register_node("lib_ecology:tree_palmetto_trunk", {
+		description = "Palmetto trunk",
+		tiles = {"lib_ecology_tree_palmetto_trunk_top.png", "lib_ecology_tree_palmetto_trunk_top.png", "lib_ecology_tree_palmetto_trunk.png"},
 		paramtype2 = "facedir",
 		is_ground_content = false,
 		groups = {tree = 1, choppy = 2, flammable = 2},
 		sounds = default.node_sound_wood_defaults(),
-		drop = "default:tree",
 		drawtype = "nodebox",
 		paramtype = "light",
 		node_box = {
@@ -4711,15 +6070,13 @@ local S = lib_ecology.intllib
 		},
 		on_place = minetest.rotate_node
 	})
-	minetest.register_node("lib_ecology:tree_palmleaves2", {
-		description = "palm leaves (2)",
+	minetest.register_node("lib_ecology:tree_palmetto_leaves", {
+		description = "palmetto leaves",
 		drawtype = "plantlike",
 		visual_scale = 2.5,
-		tiles = {"moreplants_palmleaves2.png"},
-		inventory_image = "moreplants_palmleaves2.png",
+		tiles = {"lib_ecology_tree_palmetto_leaves.png"},
 		use_texture_alpha = true,
 		paramtype = "light",
-		paramtype2 = "wallmounted",
 		sunlight_propagates = false,
 		walkable = false,
 		is_ground_content = true,
@@ -4729,12 +6086,11 @@ local S = lib_ecology.intllib
 		},
 		groups = {cracky=3,dig_immediate=3},
 	})
-	minetest.register_node("lib_ecology:tree_palmleaves1", {
-		description = "palm leaves (1)",
+	minetest.register_node("lib_ecology:tree_palmetto_leaves2", {
+		description = "palmetto leaves (2)",
 		drawtype = "signlike",
 		visual_scale = 4.0,
-		tiles = {"moreplants_palmleaves.png"},
-		inventory_image = "moreplants_palmleaves.png",
+		tiles = {"lib_ecology_tree_palmetto_leaves2.png"},
 		use_texture_alpha = true,
 		paramtype = "light",
 		paramtype2 = "wallmounted",
@@ -4747,18 +6103,18 @@ local S = lib_ecology.intllib
 		},
 		groups = {cracky=3,dig_immediate=3},
 	})
-	minetest.register_node("lib_ecology:tree_palm_palmetto", {
-		description = "Tree - Palm Palmetto",
+	minetest.register_node("lib_ecology:tree_palmetto", {
+		description = "Tree - Palmetto",
 		drawtype = "plantlike_rooted",
 		tiles = {
-			"moreplants_palmtree_top.png",
-			"moreplants_palmtree_top.png",
-			"moreplants_palmtree.png",
-			"moreplants_palmtree.png",
-			"moreplants_palmtree.png",
-			"moreplants_palmtree.png",
+			"lib_ecology_tree_palmetto_trunk_top.png",
+			"lib_ecology_tree_palmetto_trunk_top.png",
+			"lib_ecology_tree_palmetto_trunk.png",
+			"lib_ecology_tree_palmetto_trunk.png",
+			"lib_ecology_tree_palmetto_trunk.png",
+			"lib_ecology_tree_palmetto_trunk.png",
 		},
-		special_tiles = {{name = "moreplants_palmleaves2.png", tileable_vertical = false}},
+		special_tiles = {{name = "lib_ecology_tree_palmetto_leaves.png", tileable_vertical = false}},
 		visual_scale = 8.0,
 		paramtype = "light",
 		buildable_to = true, 
@@ -4766,8 +6122,8 @@ local S = lib_ecology.intllib
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:tree_palm_palmetto",
-		node_placement_prediction = "lib_ecology:tree_palm_palmetto",
+		node_dig_prediction = "lib_ecology:tree_palmetto",
+		node_placement_prediction = "lib_ecology:tree_palmetto",
 		groups = {cracky=3,dig_immediate=3},
 		selection_box = {
 			type = "fixed",
@@ -4775,367 +6131,8 @@ local S = lib_ecology.intllib
 		},
 	})
 
-	minetest.register_node("lib_ecology:fern_giant_tree_crown", {
-		description = S("Fern Giant Tree Crown (Dicksonia)"),
-		drawtype = "plantlike",
-		visual_scale = 8.0,  --math.sqrt(8),
-		wield_scale = {x=0.175, y=0.175, z=0.175},
-		paramtype = "light",
-		tiles = {"lib_ecology_fern_giant_tree_crown.png"},
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3,flammable=2,attached_node=1, leaves = 1, leafdecay = 1},
-		drop = {
-			max_items = 2,
-			items = {
-				{
-					-- occasionally, drop a second sapling instead of leaves
-					-- (extra saplings can also be obtained by replanting and
-					--  reharvesting leaves)
-					items = {"lib_ecology:fern_giant_tree_sapling"},
-					rarity = 10,
-				},
-				{
-					items = {"lib_ecology:fern_giant_tree_sapling"},
-				},
-				{
-					items = {"lib_ecology:fern_giant_tree_crown"},
-				}
-			}
-		},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-7/16, -1/2, -7/16, 7/16, 0, 7/16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_crown2", {
-		description = S("Fern Giant Tree Crown2 (Dicksonia)"),
-		drawtype = "plantlike",
-		visual_scale = 7.0,  --math.sqrt(8),
-		wield_scale = {x=0.175, y=0.175, z=0.175},
-		paramtype = "light",
-		tiles = {"lib_ecology_fern_giant_tree_crown2.png"},
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3,flammable=2,attached_node=1, leaves = 1, leafdecay = 1},
-		drop = {
-			max_items = 2,
-			items = {
-				{
-					-- occasionally, drop a second sapling instead of leaves
-					-- (extra saplings can also be obtained by replanting and
-					--  reharvesting leaves)
-					items = {"lib_ecology:fern_giant_tree_sapling"},
-					rarity = 10,
-				},
-				{
-					items = {"lib_ecology:fern_giant_tree_sapling"},
-				},
-				{
-					items = {"lib_ecology:fern_giant_tree_crown2"},
-				}
-			}
-		},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-7/16, -1/2, -7/16, 7/16, 0, 7/16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_leaves", {
-		description = "Fern Giant Tree Leaves",
-		drawtype = "raillike",
-		paramtype = "light",
-		tiles = {
-			"lib_ecology_fern_giant_tree_leaves.png",
-		},
-		walkable = false,
-		groups = {snappy=3,flammable=2,attached_node=1,not_in_creative_inventory=1, leaves = 1, leafdecay = 1},
-		drop = "",
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_leaves_2", {
-		description = "Fern Giant Tree Leaves 2",
-		drawtype = "raillike",
-		paramtype = "light",
-		tiles = {
-			"lib_ecology_fern_giant_tree_leaves2.png",
-		},
-		walkable = false,
-		groups = {snappy=3,flammable=2,attached_node=1,not_in_creative_inventory=1, leaves = 1, leafdecay = 1},
-		drop = "",
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_leaves_end", {
-		description = "Fern Giant Tree Leaves End",
-		drawtype = "nodebox",
-		paramtype = "light",
-		paramtype2 = "facedir",
-		tiles = { "lib_ecology_fern_giant_tree_leaves_end.png" },
-		walkable = false,
-		node_box = {
-			type = "fixed",
-	--			    {left, bottom, front, right, top,   back }
-			fixed = {-1/2, -1/2,   1/2, 1/2,   33/64, 1/2},
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/2, -1/2,   1/2, 1/2,   33/64, 1/2},
-		},
-		groups = {snappy=3,flammable=2,attached_node=1,not_in_creative_inventory=1, leaves = 1, leafdecay = 1},
-		drop = "",
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_leaves_end_2", {
-		description = "Fern Giant Tree Leaves End 2",
-		drawtype = "nodebox",
-		paramtype = "light",
-		paramtype2 = "facedir",
-		tiles = { "lib_ecology_fern_giant_tree_leaves_end2.png" },
-		walkable = false,
-		node_box = {
-			type = "fixed",
-	--			    {left, bottom, front, right, top,   back }
-			fixed = {-1/2, -1/2,   1/2, 1/2,   33/64, 1/2},
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/2, -1/2,   1/2, 1/2,   33/64, 1/2},
-		},
-		groups = {snappy=3,flammable=2,attached_node=1,not_in_creative_inventory=1, leaves = 1, leafdecay = 1},
-		drop = "",
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_trunk_top", {
-		description = "Fern Giant Tree Trunk Top",
-		drawtype = "nodebox",
-		paramtype = "light",
-		tiles = {
-			"lib_ecology_fern_giant_tree_trunk_top.png^lib_ecology_fern_giant_tree_leaves_cross.png",
-			"lib_ecology_fern_giant_tree_trunk_top.png",
-			"lib_ecology_fern_giant_tree_trunk.png"
-		},
-		node_box = {
-			type = "fixed",
-	--			{left, bottom, front, right, top,   back }
-			fixed = {
-				{-1/2,  33/64, -1/2, 1/2, 33/64, 1/2},
-				{-1/4, -1/2, -1/4, 1/4, 1/2, 1/4},
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/4, -1/2, -1/4, 1/4, 1/2, 1/4},
-		},
-		groups = {
-			tree=1,
-			choppy=2,
-			oddly_breakable_by_hand=2,
-			flammable=3,
-			wood=1,
-			not_in_creative_inventory=1,
-			leafdecay=3 -- to support vines
-		},
-		drop = "lib_ecology:fern_giant_tree_trunk",
-		sounds = lib_ecology.node_sound_wood_defaults(),
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_trunk_top_2", {
-		description = "Fern Giant Tree Trunk Top 2",
-		drawtype = "nodebox",
-		paramtype = "light",
-		tiles = {
-			"lib_ecology_fern_giant_tree_trunk_top.png^lib_ecology_fern_giant_tree_leaves_cross2.png",
-			"lib_ecology_fern_giant_tree_trunk_top.png",
-			"lib_ecology_fern_giant_tree_trunk.png"
-		},
-		node_box = {
-			type = "fixed",
-	--			{left, bottom, front, right, top,   back }
-			fixed = {
-				{-1/2,  33/64, -1/2, 1/2, 33/64, 1/2},
-				{-1/4, -1/2, -1/4, 1/4, 1/2, 1/4},
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/4, -1/2, -1/4, 1/4, 1/2, 1/4},
-		},
-		groups = {
-			tree=1,
-			choppy=2,
-			oddly_breakable_by_hand=2,
-			flammable=3,
-			wood=1,
-			not_in_creative_inventory=1,
-			leafdecay=3 -- to support vines
-		},
-		drop = "lib_ecology:fern_giant_tree_trunk",
-		sounds = lib_ecology.node_sound_wood_defaults(),
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_trunk", {
-		description = "Fern Giant Tree Trunk",
-		drawtype = "nodebox",
-		paramtype = "light",
-		tiles = {
-			"lib_ecology_fern_giant_tree_trunk_top.png",
-			"lib_ecology_fern_giant_tree_trunk_top.png",
-			"lib_ecology_fern_giant_tree_trunk.png"
-		},
-		node_box = {
-			type = "fixed",
-			fixed = {-1/4, -1/2, -1/4, 1/4, 1/2, 1/4},
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/4, -1/2, -1/4, 1/4, 1/2, 1/4},
-		},
-		groups = {tree=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-		sounds = lib_ecology.node_sound_wood_defaults(),
-		--after_destruct = function(pos,oldnode)
-			--local node = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-			--if node.name == "lib_ecology:fern_giant_tree_trunk" or node.name == "lib_ecology:fern_giant_tree_trunk_top" then 
-				--minetest.set_node({x=pos.x,y=pos.y+1,z=pos.z}, "air") 
-				--minetest.add_item(pos,"lib_ecology:fern_giant_tree_trunk")
-			--end
-		--end,
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_sapling", {
-		description = "Fern Giant Tree Sapling",
-		drawtype = "plantlike",
-		paramtype = "light",
-		tiles = {"lib_ecology_fern_giant_tree_sapling.png"},
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3,flammable=2,flora=1,attached_node=1, sapling = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-7/16, -1/2, -7/16, 7/16, 0, 7/16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_giant_tree_leaves_big", {
-		description = S("Fern Giant Tree Leaves"),
-		drawtype = "allfaces_optional",
-		visual_scale = 1.189,
-		tiles = {
-			"lib_ecology_fern_giant_tree_leaves.png",
-			nil,
-			"lib_ecology_fern_giant_tree_leaves_end.png"
-		},
-		paramtype = "light",
-		paramtype2 = "facedir",
-		groups = {snappy = 3, flammable = 2, leaves = 1, moretrees_leaves = 1, leafdecay = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
 
-	})
-
-	minetest.register_node("lib_ecology:fern_tree_leaves", {
-		description = "Fern Tree Leaves",
-		drawtype = "plantlike",
-		visual_scale = 4.0,
-		paramtype = "light",
-		waving = 1,
-		paramtype2 = "facedir",
-		tiles = {"lib_ecology_fern_tree_leaves.png"},
-		walkable = false,
-		groups = {snappy=3,flammable=2,attached_node=1, leaves = 1, leafdecay = 1},
-		drop = {
-			max_items = 1,
-			items = {
-				{
-					items = {"lib_ecology:fern_tree_sapling"},
-					rarity = 20,
-				},
-				{
-					items = {"lib_ecology:fern_tree_leaves"},
-				}
-			}
-		},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-7/16, -1/2, -7/16, 7/16, 0, 7/16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_tree_leaves_02", {
-		description = "Fern Tree Leaves 02",
-		drawtype = "plantlike",
-		visual_scale = 4.0,
-		paramtype = "light",
-		waving = 1,
-		tiles = {"lib_ecology_fern_tree_leaves_02.png"},
-		walkable = false,
-		groups = {snappy=3,flammable=2,attached_node=1,not_in_creative_inventory=1, leaves = 1, leafdecay = 1},
-		drop = {
-			max_items = 1,
-			items = {
-				{
-					items = {"lib_ecology:fern_tree_sapling"},
-					rarity = 20,
-				},
-				{
-					items = {"lib_ecology:fern_tree_leaves"},
-				}
-			}
-		},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-7/16, -1/2, -7/16, 7/16, 0, 7/16},
-		},
-	})
-	minetest.register_node("lib_ecology:fern_tree_trunk", {
-		description = "Fern Tree Trunk",
-		drawtype = "nodebox",
-		paramtype = "light",
-		tiles = {
-			"lib_ecology_fern_tree_trunk_top.png",
-			"lib_ecology_fern_tree_trunk_top.png",
-			"lib_ecology_fern_tree_trunk.png"
-		},
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-1/2,  33/64, -1/2, 1/2, 33/64, 1/2},
-				{-1/8, -1/2, -1/8, 1/8, 1/2, 1/8},
-			}
-		},
-		selection_box = {
-			type = "fixed",
-			fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-		},
-		groups = {tree=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
-		sounds = lib_ecology.node_sound_wood_defaults(),
-		-- after_destruct = function(pos,oldnode)
-			-- local node = minetest.get_node({x=pos.x,y=pos.y+1,z=pos.z})
-			-- if node.name == "lib_ecology:fern_tree_trunk" then 
-				-- minetest.dig_node({x=pos.x,y=pos.y+1,z=pos.z}) 
-				-- minetest.add_item(pos,"lib_ecology:fern_tree_trunk")
-			-- end
-		-- end,
-	})
-	minetest.register_node("lib_ecology:fern_tree_sapling", {
-		description = "Fern Tree Sapling",
-		drawtype = "plantlike",
-		paramtype = "light",
-		paramtype2 = "facedir",
-		tiles = {"lib_ecology_fern_tree_sapling.png"},
-		walkable = false,
-		waving = 1,
-		floodable = true,
-		groups = {snappy=3,flammable=2,flora=1,attached_node=1, sapling = 1},
-		sounds = lib_ecology.node_sound_leaves_defaults(),
-		selection_box = {
-			type = "fixed",
-			fixed = {-7/16, -1/2, -7/16, 7/16, 0, 7/16},
-		},
-	})
-
---WATER
+--AQUATIC
 	minetest.register_node("lib_ecology:plant_papyrus", {
 		description = S("Papyrus"),
 		drawtype = "nodebox",
@@ -5172,7 +6169,7 @@ local S = lib_ecology.intllib
 		groups = {snappy = 3, flammable = 2, tree = 1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 	})
---minetest.register_alias("default:papyrus", "lib_ecology:papyrus_3d")
+	--minetest.register_alias("default:papyrus", "lib_ecology:papyrus_3d")
 	minetest.override_item("default:papyrus", {
 		drawtype = "nodebox",
 		tiles = {
@@ -5205,6 +6202,83 @@ local S = lib_ecology.intllib
 		},
 	})
 
+	minetest.register_node("lib_ecology:plant_reedmace_1", {
+		description = S("Plant - Reedmace 1"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_reedmace_1.png"},
+		paramtype = "light",
+		visual_scale = 2,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}
+		},
+		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_reedmace_2"})
+		
+		end,
+
+	})
+	minetest.register_node("lib_ecology:plant_reedmace_2", {
+		description = S("Plant - Reedmace 2"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_reedmace_2.png"},
+		paramtype = "light",
+		visual_scale = 2,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}
+		},
+		walkable = false,
+
+		on_construct = function(pos)
+		
+			minetest.get_node_timer(pos):start(math.random(60,120))
+		
+		end,
+
+		on_timer = function(pos)
+
+			minetest.set_node(pos, {name="lib_ecology:plant_reedmace_3"})
+		
+		end,
+
+	})
+	minetest.register_node("lib_ecology:plant_reedmace_3", {
+		description = S("Plant - Reedmace 3"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_reedmace_3.png"},
+		paramtype = "light",
+		visual_scale = 2,
+		is_ground_content = false,
+		sunlight_propagates = true,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}
+		},
+		walkable = false,
+	})
 	minetest.register_node("lib_ecology:plant_reedmace", {
 		description = S("Plant - Reedmace"),
 		drawtype = "plantlike",
@@ -5212,6 +6286,24 @@ local S = lib_ecology.intllib
 		paramtype = "light",
 		is_ground_content = false,
 		sunlight_propagates = true,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_reedmace_bottom", {
+		description = S("Plant - Reedmace Bottom"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_reedmace_bottom.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		sunlight_propagates = true,
+		visual_scale = 1,
+		waving = 1,
 		floodable = true,
 		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
@@ -5243,6 +6335,49 @@ local S = lib_ecology.intllib
 		description = S("Plant - Reedmace Spikes"),
 		drawtype = "plantlike",
 		tiles = {"lib_ecology_plant_reedmace_spikes.png"},
+		paramtype = "light",
+		is_ground_content = false,
+		sunlight_propagates = true,
+		visual_scale = 1,
+		waving = 1,
+		floodable = true,
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}
+		},
+		walkable = false,
+	})
+	minetest.register_node("lib_ecology:plant_reedmace_water", {
+		description = S("Plant - Reedmace Water"),
+		drawtype = "plantlike_rooted",
+		tiles = {"lib_materials_dirt_mud_01.png"},
+		special_tiles = {{name = "lib_ecology_plant_reedmace_water.png", tileable_vertical = true}},
+		paramtype = "light",
+		visual_scale = 1,
+		paramtype2 = "leveled",
+		buildable_to = true, 
+		is_ground_content = false,
+		sunlight_propagates = true,
+		walkable = false,
+		waving = 1,
+		node_dig_prediction = "lib_ecology:plant_reedmace_water",
+		node_placement_prediction = "lib_ecology:plant_reedmace_water",
+		groups = {snappy=1, flammable=1, oddly_breakable_by_hand=1, flora=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}
+		},
+		after_destruct  = function(pos, oldnode)
+			minetest.set_node(pos, {name = "lib_materials:sand"})
+		end
+	})
+	minetest.register_node("lib_ecology:plant_reedmace_water_dnu", {
+		description = S("Plant - Reedmace Water **DNU**"),
+		drawtype = "plantlike",
+		tiles = {"lib_ecology_plant_reedmace_water.png"},
 		paramtype = "light",
 		is_ground_content = false,
 		sunlight_propagates = true,
@@ -5353,8 +6488,8 @@ local S = lib_ecology.intllib
 	minetest.register_node("lib_ecology:plant_anemone", {
 		description = S("Plant - Anemone"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_anemone.png", tileable_vertical = true}},
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_plant_anemone.png", tileable_vertical = false}},
 		inventory_image = "lib_ecology_plant_anemone.png",
 		wield_image = "lib_ecology_plant_anemone.png",
 		paramtype = "light",
@@ -5363,9 +6498,9 @@ local S = lib_ecology.intllib
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_anemone",
-		node_placement_prediction = "lib_ecology:plant_anemone",
-		groups = {snappy = 3, sea=1, plant = 1, attached_node = 1, growing = 1,},
+		node_dig_prediction = "lib_ecology:coral_skeleton",
+		node_placement_prediction = "",
+		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
 			dug = {name = "default_grass_footstep", gain = 0.25},
@@ -5383,7 +6518,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -5404,13 +6539,13 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
 	minetest.register_node("lib_ecology:plant_kelp_01", {
 		description = S("Plant - Kelp 01"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_sand.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_plant_kelp_01.png", tileable_vertical = true}},
 		inventory_image = "lib_ecology_plant_kelp_01.png",
 		wield_image = "lib_ecology_plant_kelp_01.png",
@@ -5421,9 +6556,9 @@ local S = lib_ecology.intllib
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_kelp_01",
-		node_placement_prediction = "lib_ecology:plant_kelp_01",
-		groups = {snappy = 3, sea=1, plant = 1, attached_node = 1, growing = 1,},
+		node_dig_prediction = "lib_materials:sand",
+		node_placement_prediction = "",
+		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_sand_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
 			dug = {name = "default_grass_footstep", gain = 0.25},
@@ -5449,18 +6584,18 @@ local S = lib_ecology.intllib
 						itemstack, pointed_thing)
 				end
 			end
-
+	
 			local pos = pointed_thing.under
-			if minetest.get_node(pos).name ~= "default:sand" then
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
 				return itemstack
 			end
-
+	
 			local height = math.random(4, 6)
 			local pos_top = {x = pos.x, y = pos.y + height, z = pos.z}
 			local node_top = minetest.get_node(pos_top)
 			local def_top = minetest.registered_nodes[node_top.name]
 			local player_name = placer:get_player_name()
-
+	
 			if def_top and def_top.liquidtype == "source" and
 					minetest.get_item_group(node_top.name, "water") > 0 then
 				if not minetest.is_protected(pos, player_name) and
@@ -5476,18 +6611,19 @@ local S = lib_ecology.intllib
 					minetest.record_protection_violation(pos, player_name)
 				end
 			end
-
+	
 			return itemstack
 		end,
-
+	
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "default:sand"})
+			minetest.set_node(pos, {name = "lib_materials:sand"})
 		end
+
 	})
 	minetest.register_node("lib_ecology:plant_kelp_02_1", {
 		description = S("Plant - Kelp 02 1"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_sand.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_plant_kelp_02_1.png", tileable_vertical = true}},
 		inventory_image = "lib_ecology_plant_kelp_02_1.png",
 		wield_image = "lib_ecology_plant_kelp_02_1.png",
@@ -5498,9 +6634,9 @@ local S = lib_ecology.intllib
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_kelp_02_1",
-		node_placement_prediction = "lib_ecology:plant_kelp_02_1",
-		groups = {snappy = 3, sea=1, plant = 1, attached_node = 1, growing = 1,},
+		node_dig_prediction = "lib_materials:sand",
+		node_placement_prediction = "",
+		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_sand_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
 			dug = {name = "default_grass_footstep", gain = 0.25},
@@ -5525,7 +6661,7 @@ local S = lib_ecology.intllib
 			end
 
 			local pos = pointed_thing.under
-			if minetest.get_node(pos).name ~= "default:sand" then
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
 				return itemstack
 			end
 
@@ -5555,13 +6691,13 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "default:sand"})
+			minetest.set_node(pos, {name = "lib_materials:sand"})
 		end
 	})
 	minetest.register_node("lib_ecology:plant_kelp_02_2", {
 		description = S("Plant - Kelp 02 2"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_sand.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_plant_kelp_02_2.png", tileable_vertical = true}},
 		inventory_image = "lib_ecology_plant_kelp_02_2.png",
 		wield_image = "lib_ecology_plant_kelp_02_2.png",
@@ -5572,9 +6708,9 @@ local S = lib_ecology.intllib
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_kelp_02_2",
-		node_placement_prediction = "lib_ecology:plant_kelp_02_2",
-		groups = {snappy = 3, sea=1, plant = 1, attached_node = 1, growing = 1,},
+		node_dig_prediction = "lib_materials:sand",
+		node_placement_prediction = "",
+		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_sand_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
 			dug = {name = "default_grass_footstep", gain = 0.25},
@@ -5599,7 +6735,7 @@ local S = lib_ecology.intllib
 			end
 
 			local pos = pointed_thing.under
-			if minetest.get_node(pos).name ~= "default:sand" then
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
 				return itemstack
 			end
 
@@ -5629,28 +6765,27 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "default:sand"})
+			minetest.set_node(pos, {name = "lib_materials:sand"})
 		end
 	})
 	minetest.register_node("lib_ecology:plant_seaweed", {
 		description = S("Plant - Seaweed"),
 		drawtype = "plantlike_rooted",
-		tiles = {"default_sand.png"},
+		tiles = {"lib_materials_sand_default.png"},
 		special_tiles = {{name = "lib_ecology_plant_seaweed.png", tileable_vertical = true}},
 		inventory_image = "lib_ecology_plant_seaweed.png",
 		wield_image = "lib_ecology_plant_seaweed.png",
 		paramtype = "light",
 		paramtype2 = "leveled",
 		buildable_to = true, 
-		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		climbable = true,
 		drowning = 1,
 		post_effect_color = {a = 64, r = 100, g = 100, b = 200},
-		node_dig_prediction = "lib_ecology:plant_seaweed",
-		node_placement_prediction = "lib_ecology:plant_seaweed",
-		groups = {snappy = 3, sea=1, plant = 1, attached_node = 1, growing = 1,},
+		node_dig_prediction = "lib_materials:sand",
+		node_placement_prediction = "",
+		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_leaves_defaults(),
 		selection_box = {
 			type = "fixed",
@@ -5659,9 +6794,6 @@ local S = lib_ecology.intllib
 
 		on_use = minetest.item_eat(1),
 
-		-- after_dig_node = function(pos, node, metadata, digger)
-			-- default.dig_up(pos, node, digger)
-		-- end,
 		on_place = function(itemstack, placer, pointed_thing)
 			-- Call on_rightclick if the pointed node defines it
 			if pointed_thing.type == "node" and placer and
@@ -5675,7 +6807,7 @@ local S = lib_ecology.intllib
 			end
 
 			local pos = pointed_thing.under
-			if minetest.get_node(pos).name ~= "default:sand" then
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
 				return itemstack
 			end
 
@@ -5705,8 +6837,145 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "default:sand"})
+			minetest.set_node(pos, {name = "lib_materials:sand"})
 		end
+	})
+	minetest.register_node("lib_ecology:plant_seaweed2", {
+		description = S("Plant - Seaweed2"),
+		drawtype = "plantlike_rooted",
+		tiles = {"lib_materials_sand_default.png"},
+		special_tiles = {{name = "lib_ecology_plant_seaweed.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_plant_seaweed.png",
+		wield_image = "lib_ecology_plant_seaweed.png",
+		paramtype = "light",
+		paramtype2 = "leveled",
+		buildable_to = true, 
+		is_ground_content = false,
+		sunlight_propagates = true,
+		walkable = false,
+		climbable = true,
+		drowning = 1,
+		post_effect_color = {a = 64, r = 100, g = 100, b = 200},
+		node_dig_prediction = "lib_materials:sand",
+		node_placement_prediction = "",
+		groups = {snappy = 3, sea=1},
+		sounds = lib_ecology.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+		},
+
+		on_use = minetest.item_eat(1),
+
+		on_place = function(itemstack, placer, pointed_thing)
+			-- Call on_rightclick if the pointed node defines it
+			if pointed_thing.type == "node" and placer and
+					not placer:get_player_control().sneak then
+				local node_ptu = minetest.get_node(pointed_thing.under)
+				local def_ptu = minetest.registered_nodes[node_ptu.name]
+				if def_ptu and def_ptu.on_rightclick then
+					return def_ptu.on_rightclick(pointed_thing.under, node_ptu, placer,
+						itemstack, pointed_thing)
+				end
+			end
+
+			local pos = pointed_thing.under
+			if minetest.get_node(pos).name ~= "lib_materials:sand" then
+				return itemstack
+			end
+
+			local height = math.random(4, 6)
+			local pos_top = {x = pos.x, y = pos.y + height, z = pos.z}
+			local node_top = minetest.get_node(pos_top)
+			local def_top = minetest.registered_nodes[node_top.name]
+			local player_name = placer:get_player_name()
+
+			if def_top and def_top.liquidtype == "source" and
+					minetest.get_item_group(node_top.name, "water") > 0 then
+				if not minetest.is_protected(pos, player_name) and
+						not minetest.is_protected(pos_top, player_name) then
+					minetest.set_node(pos, {name = "lib_ecology:plant_seaweed2",
+						param2 = height * 16})
+					if not (creative and creative.is_enabled_for
+							and creative.is_enabled_for(player_name)) then
+						itemstack:take_item()
+					end
+				else
+					minetest.chat_send_player(player_name, "Node is protected")
+					minetest.record_protection_violation(pos, player_name)
+				end
+			end
+
+			return itemstack
+		end,
+
+		after_destruct  = function(pos, oldnode)
+			minetest.set_node(pos, {name = "lib_materials:sand"})
+		end,
+	})
+	minetest.register_node("lib_ecology:plant_seaweed3", {
+		description = S("Plant - Seaweed3"),
+		drawtype = "plantlike_rooted",
+		tiles = {"lib_materials_sand_default.png"},
+		special_tiles = {{name = "lib_ecology_plant_seaweed.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_plant_seaweed.png",
+		wield_image = "lib_ecology_plant_seaweed.png",
+		paramtype = "light",
+		paramtype2 = "leveled",
+		buildable_to = true, 
+		is_ground_content = false,
+		sunlight_propagates = true,
+		walkable = false,
+		climbable = true,
+		drowning = 1,
+		post_effect_color = {a = 64, r = 100, g = 100, b = 200},
+		node_dig_prediction = "lib_ecology:plant_seaweed3",
+		node_placement_prediction = "lib_ecology:plant_seaweed3",
+		groups = {snappy = 3, sea=1},
+		sounds = lib_ecology.node_sound_stone_defaults({
+			dig = {name = "default_dig_snappy", gain = 0.2},
+			dug = {name = "default_grass_footstep", gain = 0.25},
+		}),
+		selection_box = {
+			type = "fixed",
+			fixed = {
+					{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+					{-4/16, 0.5, -4/16, 4/16, 1.5, 4/16},
+			},
+		},
+
+		on_place = function(itemstack, placer, pointed_thing)
+			if pointed_thing.type ~= "node" or not placer then
+				return itemstack
+			end
+
+			local player_name = placer:get_player_name()
+			local pos_under = pointed_thing.under
+			local pos_above = pointed_thing.above
+
+			if minetest.get_node(pos_under).name ~= "lib_materials:sand" or
+					minetest.get_node(pos_above).name ~= "default:water_source" then
+				return itemstack
+			end
+
+			if minetest.is_protected(pos_under, player_name) or
+					minetest.is_protected(pos_above, player_name) then
+				minetest.chat_send_player(player_name, "Node is protected")
+				minetest.record_protection_violation(pos_under, player_name)
+				return itemstack
+			end
+
+			minetest.set_node(pos_under, {name = "lib_ecology:plant_seaweed3"})
+			if not (creative and creative.is_enabled_for(player_name)) then
+				itemstack:take_item()
+			end
+
+			return itemstack
+		end,
+
+		after_destruct  = function(pos, oldnode)
+			minetest.set_node(pos, {name = "lib_materials:sand"})
+		end,
 	})
 
 
@@ -5728,21 +6997,21 @@ local S = lib_ecology.intllib
 		end
 	end
 
-	minetest.register_node("lib_ecology:plant_coral_blue_01", {
-		description = S("Plant - Coral Blue 01"),
+	minetest.register_node("lib_ecology:coral_blue_01", {
+		description = S("Coral - Blue 01"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_blue_01.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_blue_01.png",
-		wield_image = "lib_ecology_plant_coral_blue_01.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_blue_01.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_blue_01.png",
+		wield_image = "lib_ecology_coral_blue_01.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_blue_01",
-		node_placement_prediction = "lib_ecology:plant_coral_blue_01",
+		node_dig_prediction = "lib_ecology:coral_blue_01",
+		node_placement_prediction = "lib_ecology:coral_blue_01",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -5765,7 +7034,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -5777,7 +7046,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_blue_01"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_blue_01"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -5786,24 +7055,24 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_blue_02", {
-		description = S("Plant - Coral Blue 02"),
+	minetest.register_node("lib_ecology:coral_blue_02", {
+		description = S("Coral - Blue 02"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_blue_02.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_blue_02.png",
-		wield_image = "lib_ecology_plant_coral_blue_02.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_blue_02.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_blue_02.png",
+		wield_image = "lib_ecology_coral_blue_02.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_blue_02",
-		node_placement_prediction = "lib_ecology:plant_coral_blue_02",
+		node_dig_prediction = "lib_ecology:coral_blue_02",
+		node_placement_prediction = "lib_ecology:coral_blue_02",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -5822,7 +7091,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -5834,7 +7103,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_blue_02"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_blue_02"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -5843,24 +7112,24 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_blue_03", {
-		description = S("Plant - Coral Blue 03"),
+	minetest.register_node("lib_ecology:coral_blue_03", {
+		description = S("Coral - Blue 03"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_blue_03.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_blue_03.png",
-		wield_image = "lib_ecology_plant_coral_blue_03.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_blue_03.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_blue_03.png",
+		wield_image = "lib_ecology_coral_blue_03.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_blue_03",
-		node_placement_prediction = "lib_ecology:plant_coral_blue_03",
+		node_dig_prediction = "lib_ecology:coral_blue_03",
+		node_placement_prediction = "lib_ecology:coral_blue_03",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -5879,7 +7148,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -5891,7 +7160,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_blue_03"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_blue_03"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -5900,46 +7169,46 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_brain", {
-		description = S("Plant - Coral Brain"),
-		tiles = {"lib_ecology_plant_coral_brain.png"},
+	minetest.register_node("lib_ecology:coral_brain", {
+		description = S("Coral - Brain"),
+		tiles = {"lib_ecology_coral_brain.png"},
 		light_source = 4,
-		drop = "lib_ecology:plant_coral_skeleton",
+		drop = "lib_ecology:coral_skeleton",
 		groups = {cracky = 3, stone=1, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults(),
 	})
-	minetest.register_node("lib_ecology:plant_coral_brown", {
-		description = S("Plant - Coral Brown"),
-		tiles = {"lib_ecology_plant_coral_brown.png"},
+	minetest.register_node("lib_ecology:coral_brown", {
+		description = S("Coral - Brown"),
+		tiles = {"lib_ecology_coral_brown.png"},
 		groups = {cracky = 3, stone=1, sea=1},
-		drop = "lib_ecology:plant_coral_skeleton",
+		drop = "lib_ecology:coral_skeleton",
 		sounds = lib_ecology.node_sound_stone_defaults(),
 	})
-	minetest.register_node("lib_ecology:plant_coral_dragon_eye", {
-		description = S("Plant - Coral Dragon Eye"),
-		tiles = {"lib_ecology_plant_coral_dragon_eye.png"},
+	minetest.register_node("lib_ecology:coral_dragon_eye", {
+		description = S("Coral - Dragon Eye"),
+		tiles = {"lib_ecology_coral_dragon_eye.png"},
 		light_source = 4,
-		drop = "lib_ecology:plant_coral_skeleton",
+		drop = "lib_ecology:coral_skeleton",
 		groups = {cracky = 3, stone=1, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults(),
 	})
-	minetest.register_node("lib_ecology:plant_coral_green_01", {
-		description = S("Plant - Coral Green 01"),
+	minetest.register_node("lib_ecology:coral_green_01", {
+		description = S("Coral - Green 01"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_green_01.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_green_01.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_green_01.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_green_01.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_green_01",
-		node_placement_prediction = "lib_ecology:plant_coral_green_01",
+		node_dig_prediction = "lib_ecology:coral_green_01",
+		node_placement_prediction = "lib_ecology:coral_green_01",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -5962,7 +7231,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -5974,7 +7243,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_green_01"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_green_01"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -5983,24 +7252,24 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_green_02", {
-		description = S("Plant - Coral Green 02"),
+	minetest.register_node("lib_ecology:coral_green_02", {
+		description = S("Coral - Green 02"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_green_02.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_green_02.png",
-		wield_image = "lib_ecology_plant_coral_green_02.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_green_02.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_green_02.png",
+		wield_image = "lib_ecology_coral_green_02.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_green_02",
-		node_placement_prediction = "lib_ecology:plant_coral_green_02",
+		node_dig_prediction = "lib_ecology:coral_green_02",
+		node_placement_prediction = "lib_ecology:coral_green_02",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6019,7 +7288,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6031,7 +7300,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_green_02"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_green_02"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6040,31 +7309,31 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_orange_01", {
-		description = S("Plant - Coral Orange 01"),
-		tiles = {"lib_ecology_plant_coral_orange_01.png"},
+	minetest.register_node("lib_ecology:coral_orange_01", {
+		description = S("Coral - Orange 01"),
+		tiles = {"lib_ecology_coral_orange_01.png"},
 		groups = {cracky = 3, stone=1, sea=1},
-		drop = "lib_ecology:plant_coral_skeleton",
+		drop = "lib_ecology:coral_skeleton",
 		sounds = lib_ecology.node_sound_stone_defaults(),
 	})
-	minetest.register_node("lib_ecology:plant_coral_orange_02", {
-		description = S("Plant - Coral Orange 02"),
+	minetest.register_node("lib_ecology:coral_orange_02", {
+		description = S("Coral - Orange 02"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_orange_02.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_orange_02.png",
-		wield_image = "lib_ecology_plant_coral_orange_02.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_orange_02.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_orange_02.png",
+		wield_image = "lib_ecology_coral_orange_02.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_orange_02",
-		node_placement_prediction = "lib_ecology:plant_coral_orange_02",
+		node_dig_prediction = "lib_ecology:coral_orange_02",
+		node_placement_prediction = "lib_ecology:coral_orange_02",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6083,7 +7352,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6095,7 +7364,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_orange_02"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_orange_02"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6104,24 +7373,24 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_orange_03", {
-		description = S("Plant - Coral Orange 03"),
+	minetest.register_node("lib_ecology:coral_orange_03", {
+		description = S("Coral - Orange 03"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_orange_03.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_orange_03.png",
-		wield_image = "lib_ecology_plant_coral_orange_03.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_orange_03.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_orange_03.png",
+		wield_image = "lib_ecology_coral_orange_03.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_orange_03",
-		node_placement_prediction = "lib_ecology:plant_coral_orange_03",
+		node_dig_prediction = "lib_ecology:coral_orange_03",
+		node_placement_prediction = "lib_ecology:coral_orange_03",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6140,7 +7409,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6152,7 +7421,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_orange_03"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_orange_03"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6161,16 +7430,16 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_pillar", {
-		description = S("Plant - Coral Pillar"),
+	minetest.register_node("lib_ecology:coral_pillar", {
+		description = S("Coral - Pillar"),
 		drawtype = "nodebox",
-		tiles = {"lib_ecology_plant_coral_pillar.png"},
+		tiles = {"lib_ecology_coral_pillar.png"},
 		paramtype = "light",
 		light_source = 2,
-		drop = "lib_ecology:plant_coral_skeleton",
+		drop = "lib_ecology:coral_skeleton",
 		groups = {cracky = 3, stone=1, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults(),
 		node_box = {
@@ -6182,20 +7451,20 @@ local S = lib_ecology.intllib
 			fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 		},
 	})
-	minetest.register_node("lib_ecology:plant_coral_pink_01", {
-		description = S("Plant - Coral Pink 01"),
+	minetest.register_node("lib_ecology:coral_pink_01", {
+		description = S("Coral - Pink 01"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_pink_01.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_pink_01.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_pink_01.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_pink_01.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_pink_01",
-		node_placement_prediction = "lib_ecology:plant_coral_pink_01",
+		node_dig_prediction = "lib_ecology:coral_pink_01",
+		node_placement_prediction = "lib_ecology:coral_pink_01",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6218,7 +7487,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6230,7 +7499,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_pink_01"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_pink_01"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6239,24 +7508,24 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_pink_02", {
-		description = S("Plant - Coral Pink 02"),
+	minetest.register_node("lib_ecology:coral_pink_02", {
+		description = S("Coral - Pink 02"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_pink_02.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_pink_02.png",
-		wield_image = "lib_ecology_plant_coral_pink_02.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_pink_02.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_pink_02.png",
+		wield_image = "lib_ecology_coral_pink_02.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_pink_02",
-		node_placement_prediction = "lib_ecology:plant_coral_pink_02",
+		node_dig_prediction = "lib_ecology:coral_pink_02",
+		node_placement_prediction = "lib_ecology:coral_pink_02",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6275,7 +7544,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6287,7 +7556,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_pink_02"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_pink_02"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6296,16 +7565,16 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_pink_03", {
-		description = S("Plant - Coral Pink 03"),
+	minetest.register_node("lib_ecology:coral_pink_03", {
+		description = S("Coral - Pink 03"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_pink_03.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_pink_03.png",
-		wield_image = "lib_ecology_plant_coral_pink_03.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_pink_03.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_pink_03.png",
+		wield_image = "lib_ecology_coral_pink_03.png",
 		visual_scale = 2,
 		paramtype = "light",
 		buildable_to = true, 
@@ -6313,8 +7582,8 @@ local S = lib_ecology.intllib
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_pink_03",
-		node_placement_prediction = "lib_ecology:plant_coral_pink_03",
+		node_dig_prediction = "lib_ecology:coral_pink_03",
+		node_placement_prediction = "lib_ecology:coral_pink_03",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6333,7 +7602,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6345,7 +7614,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_pink_03"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_pink_03"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6354,24 +7623,24 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_red", {
-		description = S("Plant - Coral Red"),
+	minetest.register_node("lib_ecology:coral_red", {
+		description = S("Coral - Red"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_red.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_red.png",
-		wield_image = "lib_ecology_plant_coral_red.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_red.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_red.png",
+		wield_image = "lib_ecology_coral_red.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_red",
-		node_placement_prediction = "lib_ecology:plant_coral_red",
+		node_dig_prediction = "lib_ecology:coral_red",
+		node_placement_prediction = "lib_ecology:coral_red",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6390,7 +7659,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6402,7 +7671,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_red"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_red"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6411,30 +7680,30 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
-	minetest.register_node("lib_ecology:plant_coral_skeleton", {
-		description = S("Plant - Coral Skeleton"),
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
+	minetest.register_node("lib_ecology:coral_skeleton", {
+		description = S("Coral - Skeleton"),
+		tiles = {"lib_ecology_coral_skeleton.png"},
 		groups = {cracky = 3, stone=1, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults(),
 	})
-	minetest.register_node("lib_ecology:plant_coral_staghorn", {
-		description = S("Plant - Coral Staghorn"),
+	minetest.register_node("lib_ecology:coral_staghorn", {
+		description = S("Coral - Staghorn"),
 		drawtype = "plantlike_rooted",
-		tiles = {"lib_ecology_plant_coral_skeleton.png"},
-		special_tiles = {{name = "lib_ecology_plant_coral_staghorn.png", tileable_vertical = true}},
-		inventory_image = "lib_ecology_plant_coral_staghorn.png",
-		wield_image = "lib_ecology_plant_coral_staghorn.png",
+		tiles = {"lib_ecology_coral_skeleton.png"},
+		special_tiles = {{name = "lib_ecology_coral_staghorn.png", tileable_vertical = true}},
+		inventory_image = "lib_ecology_coral_staghorn.png",
+		wield_image = "lib_ecology_coral_staghorn.png",
 		paramtype = "light",
 		buildable_to = true, 
 		is_ground_content = false,
 		sunlight_propagates = true,
 		walkable = false,
 		waving = 1,
-		node_dig_prediction = "lib_ecology:plant_coral_staghorn",
-		node_placement_prediction = "lib_ecology:plant_coral_staghorn",
+		node_dig_prediction = "lib_ecology:coral_staghorn",
+		node_placement_prediction = "lib_ecology:coral_staghorn",
 		groups = {snappy = 3, sea=1},
 		sounds = lib_ecology.node_sound_stone_defaults({
 			dig = {name = "default_dig_snappy", gain = 0.2},
@@ -6453,7 +7722,7 @@ local S = lib_ecology.intllib
 			local pos_under = pointed_thing.under
 			local pos_above = pointed_thing.above
 
-			if minetest.get_node(pos_under).name ~= "lib_ecology:plant_coral_skeleton" or
+			if minetest.get_node(pos_under).name ~= "lib_ecology:coral_skeleton" or
 					minetest.get_node(pos_above).name ~= "default:water_source" then
 				return itemstack
 			end
@@ -6465,7 +7734,7 @@ local S = lib_ecology.intllib
 				return itemstack
 			end
 
-			minetest.set_node(pos_under, {name = "lib_ecology:plant_coral_staghorn"})
+			minetest.set_node(pos_under, {name = "lib_ecology:coral_staghorn"})
 			if not (creative and creative.is_enabled_for(player_name)) then
 				itemstack:take_item()
 			end
@@ -6474,7 +7743,7 @@ local S = lib_ecology.intllib
 		end,
 
 		after_destruct  = function(pos, oldnode)
-			minetest.set_node(pos, {name = "lib_ecology:plant_coral_skeleton"})
+			minetest.set_node(pos, {name = "lib_ecology:coral_skeleton"})
 		end,
 	})
 
@@ -6486,22 +7755,22 @@ local S = lib_ecology.intllib
 	minetest.register_craft( {
 		type = "shapeless",
 		output = "dye:cyan 3",
-		recipe = {"lib_ecology:plant_coral_blue_02",},
+		recipe = {"lib_ecology:coral_blue_02",},
 	})
 	minetest.register_craft( {
 		type = "shapeless",
 		output = "dye:orange 3",
-		recipe = {"lib_ecology:plant_coral_orange_02",},
+		recipe = {"lib_ecology:coral_orange_02",},
 	})
 	minetest.register_craft( {
 		type = "shapeless",
 		output = "dye:pink 3",
-		recipe = {"lib_ecology:plant_coral_pink_02",},
+		recipe = {"lib_ecology:coral_pink_02",},
 	})
 	minetest.register_craft( {
 		type = "shapeless",
 		output = "dye:green 3",
-		recipe = {"lib_ecology:plant_coral_green_02",},
+		recipe = {"lib_ecology:coral_green_02",},
 	})
 
 
@@ -6587,97 +7856,5 @@ end -- END IF
 			{"lib_ecology:vine", "lib_ecology:vine", "lib_ecology:vine"},
 		},
 	})
-
-
-
-
-
-
-
-
-
-
-	----------------------------
-	-- HORSETAIL  (EQUISETUM) --
-	-- A true living fossil!  --
-	----------------------------
-
-	local node_names = {}
-
-	for i = 1, 4 do
-		local node_name = "lib_ecology:horsetail_" .. string.format("%02d", i)
-		local node_img = "lib_ecology_fern_horsetail_" .. string.format("%02d", i) .. ".png"
-		local node_desc
-		local node_on_use = nil
-		local node_drop = "lib_ecology:horsetail_04"
-
-		if i == 1 then
-			node_desc = "Young Horsetail (Equisetum)"
-			node_on_use = minetest.item_eat(1) -- young ones edible https://en.wikipedia.org/wiki/Equisetum
-			node_drop = node_name
-		else
-			node_desc = "Horsetail (Equisetum)"
-		end
-
-		node_names[i] = node_name
-
-		minetest.register_node(node_name, {
-			description = node_desc,
-			drawtype = "plantlike",
-			paramtype = "light",
-			tiles = { node_img },
-			inventory_image = node_img,
-			walkable = false,
-			buildable_to = true,
-			groups = {snappy=3,flammable=2,attached_node=1,horsetail=1, lib_ecology_plant = 1},
-			sounds = lib_ecology.node_sound_leaves_defaults(),
-			selection_box = {
-				type = "fixed",
-				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-			},
-			on_use = node_on_use,
-			drop = node_drop,
-		})
-
-		minetest.register_decoration({
-			deco_type = "simple",
-			decoration = node_name,
-			sidelen = 80,
-			place_on = {"default:dirt_with_grass", "default:mossycobble", "default:sand", "default:jungletree", "default:gravel",},
-			fill_ratio = 0.003,
-			biomes = {"lib_ecology_taiga", "lib_ecology_coniferous_forest", "lib_ecology_deciduous_forest", "lib_ecology_savanna", "lib_ecology_savanna_swamp", "lib_ecology_rainforest", "lib_ecology_rainforest_swamp", "lib_ecology_desertstone_grassland", },
-		})
-	end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

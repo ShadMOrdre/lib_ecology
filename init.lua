@@ -153,11 +153,11 @@ dofile(lib_ecology.path.."/valleys_c/deco_fungal_tree.lua")
 dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
 --Trees
 dofile(lib_ecology.path.."/lib_ecology_tree_utils.lua")
-dofile(lib_ecology.path.."/lib_ecology_tree_banana.lua")
-dofile(lib_ecology.path.."/lib_ecology_tree_deciduous.lua")
+--dofile(lib_ecology.path.."/lib_ecology_tree_banana.lua")
+--dofile(lib_ecology.path.."/lib_ecology_tree_deciduous.lua")
 
 --Fern Trees
-dofile(lib_ecology.path.."/lib_ecology_tree_fern.lua")
+--dofile(lib_ecology.path.."/lib_ecology_tree_fern.lua")
 
 --[[This section, from deco.lua, runs AFTER valleys_c trees are generated.
 --]]
@@ -193,7 +193,7 @@ dofile(lib_ecology.path.."/lib_ecology_extra.lua")
 dofile(lib_ecology.path .. "/lib_ecology_seedling.lua")
 
 dofile(lib_ecology.path.."/lib_ecology_decorations.lua")
-dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
+--dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
 
 minetest.log(S("[MOD]: lib_ecology:  Successfully loaded."))
 
