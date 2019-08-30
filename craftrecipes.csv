@@ -1,0 +1,3 @@
+#Recipe Output|Output Amnt|Recipe Type|Cooktime|Recipe|Replacements
+lib_ecology:logpile|1|||default:tree;default:tree,,default:tree|
+lib_ecology:candle|2|||farming:cotton;lib_ecology:palm_wax;lib_ecology:palm_wax|
