@@ -70,64 +70,70 @@ lib_ecology.intllib = S
 
 minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 
+	lib_ecology.read_csv = dofile(lib_ecology.path .. "/csv.lua")
 
-lib_ecology.read_csv = dofile(lib_ecology.path .. "/csv.lua")
+	dofile(lib_ecology.path.."/lib_ecology_schematic.lua")
 
-dofile(lib_ecology.path.."/lib_ecology_schematic.lua")
-dofile(lib_ecology.path.."/lib_ecology_sound_defaults.lua")
-dofile(lib_ecology.path.."/useful_code_samples.lua")
+	dofile(lib_ecology.path.."/lib_ecology_sound_defaults.lua")
+
+	dofile(lib_ecology.path.."/useful_code_samples.lua")
 
 
 --[[The following two code files and media from Minetest Ethereal Mod (6th December 2016)
 	Created by ChinChow 	Updated by TenPlus1
 	Integrated into lib_ecology by ShadMOrdre 2017-2019
 ]]
---dofile(lib_ecology.path .. "/lib_ecology_fishing.lua")
---dofile(lib_ecology.path .. "/lib_ecology_water_mechanics.lua")
+		--dofile(lib_ecology.path .. "/lib_ecology_fishing.lua")
 
+		--dofile(lib_ecology.path .. "/lib_ecology_water_mechanics.lua")
 
 -- Prevent rivers from flowing through (the air in) caves.
-minetest.override_item("default:river_water_source", {is_ground_content = true})
+	minetest.override_item("default:river_water_source", {is_ground_content = true})
 
---dofile(lib_ecology.path.."/lib_ecology_plant.lua")
---dofile(lib_ecology.path.."/lib_ecology_tree.lua")
+		--dofile(lib_ecology.path.."/lib_ecology_plant.lua")
+
+		--dofile(lib_ecology.path.."/lib_ecology_tree.lua")
 
 --Trees
-dofile(lib_ecology.path.."/lib_ecology_tree_utils.lua")
+	dofile(lib_ecology.path.."/lib_ecology_tree_utils.lua")
 
-dofile(lib_ecology.path.."/lib_ecology_node_registration.lua")
+	dofile(lib_ecology.path.."/lib_ecology_node_registration.lua")
 
---dofile(lib_ecology.path.."/lib_ecology_schem_models_1.lua")
-dofile(lib_ecology.path.."/lib_ecology_schematics.lua")
+		--dofile(lib_ecology.path.."/lib_ecology_schem_models_1.lua")
 
---dofile(lib_ecology.path.."/lib_ecology_biomes.lua")
+	dofile(lib_ecology.path.."/lib_ecology_schematics.lua")
 
+		--dofile(lib_ecology.path.."/lib_ecology_biomes.lua")
 
 minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading..."))
+
 -- Valleys_c Schematics
+	--Plants
 
---Plants
+		--dofile(lib_ecology.path.."/valleys_c/deco_coral.lua")
 
---dofile(lib_ecology.path.."/valleys_c/deco_coral.lua")
-dofile(lib_ecology.path.."/valleys_c/deco_rocks.lua")
-dofile(lib_ecology.path.."/valleys_c/deco_caves.lua")
---dofile(lib_ecology.path.."/valleys_c/deco_fungal_tree.lua")
-dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
+	dofile(lib_ecology.path.."/valleys_c/deco_rocks.lua")
 
+	dofile(lib_ecology.path.."/valleys_c/deco_caves.lua")
 
+		--dofile(lib_ecology.path.."/valleys_c/deco_fungal_tree.lua")
 
-dofile(lib_ecology.path.."/lib_ecology_extra.lua")
---dofile(lib_ecology.path .. "/lib_ecology_seedling.lua")
-
-dofile(lib_ecology.path .. "/lib_ecology_craftitems.lua")
-dofile(lib_ecology.path .. "/lib_ecology_craftrecipes.lua")
-
---dofile(lib_ecology.path.."/lib_ecology_decorations.lua")
-dofile(lib_ecology.path.."/lib_ecology_deco_registration.lua")
+	dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
 
 
+	dofile(lib_ecology.path.."/lib_ecology_extra.lua")
 
---dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
+		--dofile(lib_ecology.path .. "/lib_ecology_seedling.lua")
+
+	dofile(lib_ecology.path .. "/lib_ecology_craftitems.lua")
+
+	dofile(lib_ecology.path .. "/lib_ecology_craftrecipes.lua")
+
+		--dofile(lib_ecology.path.."/lib_ecology_decorations.lua")
+
+	dofile(lib_ecology.path.."/lib_ecology_deco_registration.lua")
+
+		--dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
 
 
 
