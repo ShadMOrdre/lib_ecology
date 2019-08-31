@@ -112,13 +112,13 @@ minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading.
 
 		--dofile(lib_ecology.path.."/valleys_c/deco_coral.lua")
 
-	dofile(lib_ecology.path.."/valleys_c/deco_rocks.lua")
+		--dofile(lib_ecology.path.."/valleys_c/deco_rocks.lua")
 
-	dofile(lib_ecology.path.."/valleys_c/deco_caves.lua")
+		--dofile(lib_ecology.path.."/valleys_c/deco_caves.lua")
 
 		--dofile(lib_ecology.path.."/valleys_c/deco_fungal_tree.lua")
 
-	dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
+		--dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
 
 
 	dofile(lib_ecology.path.."/lib_ecology_extra.lua")
