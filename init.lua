@@ -99,13 +99,15 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 
 	dofile(lib_ecology.path.."/lib_ecology_node_registration.lua")
 
+	dofile(lib_ecology.path.."/mushrooms.lua")
+
 		--dofile(lib_ecology.path.."/lib_ecology_schem_models_1.lua")
 
 	dofile(lib_ecology.path.."/lib_ecology_schematics.lua")
 
 		--dofile(lib_ecology.path.."/lib_ecology_biomes.lua")
 
-minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading..."))
+--minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading..."))
 
 -- Valleys_c Schematics
 	--Plants
@@ -134,6 +136,19 @@ minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading.
 	dofile(lib_ecology.path.."/lib_ecology_deco_registration.lua")
 
 		--dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
+
+
+--v6 Mapgen Aliases
+	minetest.register_alias("mapgen_tree", "lib_ecology:tree_default_trunk")
+	minetest.register_alias("mapgen_leaves", "lib_ecology:tree_default_leaves")
+	minetest.register_alias("mapgen_apple", "lib_ecology:fruit_apple")
+	minetest.register_alias("mapgen_jungletree", "lib_ecology:tree_jungle_01_trunk")
+	minetest.register_alias("mapgen_jungleleaves", "lib_ecology:tree_jungle_01_leaves")
+	minetest.register_alias("mapgen_junglegrass", "lib_ecology:shrub_jungle")
+	minetest.register_alias("mapgen_pine_tree", "lib_ecology:tree_pine_01_trunk")
+	minetest.register_alias("mapgen_pine_needles", "lib_ecology:tree_pine_01_leaves")
+
+
 
 
 

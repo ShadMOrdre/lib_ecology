@@ -253,11 +253,11 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 				new_drop_name, new_drop_rarity = unpack(new_drop1:split(" ", true))
 				if new_drop_name then
 
-					minetest.log(new_drop_name)
+					--minetest.log(new_drop_name)
 
 					if new_drop_rarity then
 
-						minetest.log(new_drop_rarity)
+						--minetest.log(new_drop_rarity)
 
 						new_node_def.drop.items[1] = {items = {new_drop_name}, rarity = tonumber(new_drop_rarity)}
 					else
@@ -274,11 +274,11 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 				new_drop_name, new_drop_rarity = unpack(new_drop2:split(" ", true))
 				if new_drop_name then
 
-					minetest.log(new_drop_name)
+					--minetest.log(new_drop_name)
 
 					if new_drop_rarity then
 
-						minetest.log(new_drop_rarity)
+						--minetest.log(new_drop_rarity)
 
 						new_node_def.drop.items[2] = {items = {new_drop_name}, rarity = tonumber(new_drop_rarity)}
 					else
@@ -295,11 +295,11 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 				new_drop_name, new_drop_rarity = unpack(new_drop3:split(" ", true))
 				if new_drop_name then
 
-					minetest.log(new_drop_name)
+					--minetest.log(new_drop_name)
 
 					if new_drop_rarity then
 
-						minetest.log(new_drop_rarity)
+						--minetest.log(new_drop_rarity)
 
 						new_node_def.drop.items[3] = {items = {new_drop_name}, rarity = tonumber(new_drop_rarity)}
 					else
@@ -316,11 +316,11 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 				new_drop_name, new_drop_rarity = unpack(new_drop4:split(" ", true))
 				if new_drop_name then
 
-					minetest.log(new_drop_name)
+					--minetest.log(new_drop_name)
 
 					if new_drop_rarity then
 
-						minetest.log(new_drop_rarity)
+						--minetest.log(new_drop_rarity)
 
 						new_node_def.drop.items[4] = {items = {new_drop_name}, rarity = tonumber(new_drop_rarity)}
 					else
@@ -337,11 +337,11 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 				new_drop_name, new_drop_rarity = unpack(new_drop5:split(" ", true))
 				if new_drop_name then
 
-					minetest.log(new_drop_name)
+					--minetest.log(new_drop_name)
 
 					if new_drop_rarity then
 
-						minetest.log(new_drop_rarity)
+						--minetest.log(new_drop_rarity)
 
 						new_node_def.drop.items[5] = {items = {new_drop_name}, rarity = tonumber(new_drop_rarity)}
 					else
@@ -358,11 +358,11 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 				new_drop_name, new_drop_rarity = unpack(new_drop6:split(" ", true))
 				if new_drop_name then
 
-					minetest.log(new_drop_name)
+					--minetest.log(new_drop_name)
 
 					if new_drop_rarity then
 
-						minetest.log(new_drop_rarity)
+						--minetest.log(new_drop_rarity)
 
 						new_node_def.drop.items[6] = {items = {new_drop_name}, rarity = tonumber(new_drop_rarity)}
 					else
@@ -756,6 +756,17 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 	minetest.register_alias(""..node_name.."", "lib_ecology:"..node_name.."")
 	--game.lib.node.register("lib_ecology:"..node_name.."", new_node_def)
 	--game.lib.node.register_alias("lib_ecology", node_name, alias_mod, alias_node)
+
+	--if ((string.find(node_name, "_allface") or string.find(node_name, "_trunk") or string.find(node_name, "_wood")) and string.find(node_name, "tree_")) and not string.find(node_name, "plant") then
+	if (string.find(node_name, "_allface") and string.find(node_name, "tree_")) and not string.find(node_name, "plant") then
+		if minetest.global_exists("lib_shapes") then
+			--lib_shapes.register_basic_set("lib_ecology:"..node_name.."")
+			--lib_shapes.register_fancy_set("lib_ecology:"..node_name.."")
+			lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
+			lib_shapes.register_furniture_set("lib_ecology:"..node_name.."")
+		end
+	end
+
 
 	if alias_mod and alias_node then
 		minetest.register_alias(""..alias_mod..":"..alias_node.."", "lib_ecology:"..node_name.."")

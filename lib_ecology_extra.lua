@@ -267,15 +267,25 @@ minetest.register_craft({
 })
 
 -- Extra recipe for hearty stew
-if farming and farming.mod and farming.mod == "redo" then
-minetest.register_craft({
-	output = "lib_ecology:hearty_stew",
-	recipe = {
-		{"lib_ecology:wild_onion_plant","lib_ecology:mushroom_plant", "farming:beans"},
-		{"","lib_ecology:mushroom_plant", ""},
-		{"","lib_ecology:bowl", ""},
-	}
-})
+--if farming and farming.mod and farming.mod == "redo" then
+if minetest.global_exists("farming") then
+	minetest.register_craft({
+		output = "lib_ecology:hearty_stew",
+		recipe = {
+			{"lib_ecology:wild_onion_plant","lib_ecology:mushroom_plant", "farming:beans"},
+			{"","lib_ecology:mushroom_plant", ""},
+			{"","lib_ecology:bowl", ""},
+		}
+	})
+else
+	minetest.register_craft({
+		output = "lib_ecology:hearty_stew",
+		recipe = {
+			{"lib_ecology:wild_onion_plant","lib_ecology:mushroom_plant", "lib_ecology:fruit_potato"},
+			{"","lib_ecology:mushroom_plant", ""},
+			{"","lib_ecology:bowl", ""},
+		}
+	})
 end
 
 -- Bucket of Cactus Pulp
