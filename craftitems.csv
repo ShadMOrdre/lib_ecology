@@ -1,2 +1,40 @@
-#Craft Item|Craft Description|Craft Image|Craft Groups
-bowl|Bowl|bowl.png|
+#Craft Item|Craft Description|Craft Image|Craft Groups|Eat
+item_candle|Candle|lib_ecology_item_candle.png||
+item_wax_palm|Palm Wax|lib_ecology_item_wax_palm.png||
+item_ointment|Ointment|lib_ecology_item_ointment.png||
+item_paper|Paper|lib_ecology_item_paper.png||
+item_legendary_paper|Legendary Paper|lib_ecology_item_legendary_paper.png||
+item_wall_paper|Paper Wall|lib_ecology_item_paper_wall.png||
+item_string_cotton|Cotton String|lib_ecology_item_string_cotton.png||
+item_light_string|Light String|lib_ecology_item_lightstring.png||
+item_cotton|Cotton Ball|lib_ecology_item_cotton.png||
+item_hay_bundle|Bundle of Hay|lib_ecology_item_hay_bundle.png||
+item_straw_bundle|Bundle of Straw|lib_ecology_item_straw_bundle.png||
+item_seed_cotton|Seed - Cotton|lib_ecology_plant_cotton_seed.png||
+item_bowl|Bowl|lib_ecology_item_bowl.png||
+food_bowl_applesauce|Bowl of Applesauce|lib_ecology_food_bowl_applesauce.png||
+food_bowl_chocolate|Bowl of Chocolate|lib_ecology_food_bowl_chocolate.png||
+food_bowl_hearty_stew|Bowl of Hearty Stew|lib_ecology_food_bowl_hearty_stew.png||
+food_bowl_mushroom_soup|Bowl of Mushroom Soup|lib_ecology_food_bowl_mushroom_soup.png||
+food_bowl_mushroom_stew|Bowl of Mushroom Stew|lib_ecology_food_bowl_stew_mushroom.png||
+food_bucket_cactus_pulp|Bucket of Cactus Pulp|lib_ecology_food_bucket_cactus_pulp.png||
+food_acorn_muffin_batter|Acorn Muffin batter|lib_ecology_food_acorn_muffin_batter.png||
+food_acorn_muffin|Acorn Muffin|lib_ecology_food_acorn_muffin.png||4
+food_banana_bread|Banana Bread|lib_ecology_food_banana_bread.png||6
+food_banana_dough|Banana Dough|lib_ecology_food_banana_dough.png||
+food_candy_ancient|Ancient Candy|lib_ecology_food_ancient_candy.png||
+food_candied_apple|Candied Apple|lib_ecology_food_apple_candied.png||
+food_chocolate_bar|Chocolate Bar|lib_ecology_food_chocolate_bar.png||
+food_cookie_chocolate_chip|Chocolate Chip Cookie|lib_ecology_food_cookie_chocolate_chip.png||
+food_coconut_milk|Coconut Milk|lib_ecology_food_coconut_milk_inv.png||1
+food_raw_coconut|Raw Coconut|lib_ecology_food_coconut_raw.png||2
+food_coconut_slice|Coconut Slice|lib_ecology_food_coconut_slice.png||4
+food_date|Date|lib_ecology_food_date.png||2
+food_date_nut_batter|Date-nut cake batter|lib_ecology_food_date_nut_batter.png||
+food_date_nut_cake|Date-nut cake|lib_ecology_food_date_nut_cake.png||32
+food_date_nut_bar|Date-nut energy bar|lib_ecology_food_date_nut_bar.png||4
+food_date_nut_snack|Date & nut snack|lib_ecology_food_date_nut_snack.png||4
+food_cedar_nuts|Roasted Cedar Cone Nuts|lib_ecology_food_cedar_nuts.png||2
+food_fir_nuts|Roasted Fir Cone Nuts|lib_ecology_food_fir_nuts.png||2
+food_spruce_nuts|Roasted Spruce Cone Nuts|lib_ecology_food_spruce_nuts.png||2
+food_flour|Flour|lib_ecology_food_flour.png||

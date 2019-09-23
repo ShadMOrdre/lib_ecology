@@ -88,7 +88,7 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 		--dofile(lib_ecology.path .. "/lib_ecology_water_mechanics.lua")
 
 -- Prevent rivers from flowing through (the air in) caves.
-	minetest.override_item("default:river_water_source", {is_ground_content = true})
+	--minetest.override_item("default:river_water_source", {is_ground_content = true})
 
 		--dofile(lib_ecology.path.."/lib_ecology_plant.lua")
 
@@ -123,7 +123,7 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 		--dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
 
 
-	dofile(lib_ecology.path.."/lib_ecology_extra.lua")
+	--dofile(lib_ecology.path.."/lib_ecology_extra.lua")
 
 		--dofile(lib_ecology.path .. "/lib_ecology_seedling.lua")
 
@@ -139,14 +139,14 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 
 
 --v6 Mapgen Aliases
-	minetest.register_alias("mapgen_tree", "lib_ecology:tree_default_trunk")
-	minetest.register_alias("mapgen_leaves", "lib_ecology:tree_default_leaves")
-	minetest.register_alias("mapgen_apple", "lib_ecology:fruit_apple")
-	minetest.register_alias("mapgen_jungletree", "lib_ecology:tree_jungle_01_trunk")
-	minetest.register_alias("mapgen_jungleleaves", "lib_ecology:tree_jungle_01_leaves")
-	minetest.register_alias("mapgen_junglegrass", "lib_ecology:shrub_jungle")
-	minetest.register_alias("mapgen_pine_tree", "lib_ecology:tree_pine_01_trunk")
-	minetest.register_alias("mapgen_pine_needles", "lib_ecology:tree_pine_01_leaves")
+	--minetest.register_alias("mapgen_tree", "lib_ecology:tree_default_trunk")
+	--minetest.register_alias("mapgen_leaves", "lib_ecology:tree_default_leaves")
+	--minetest.register_alias("mapgen_apple", "lib_ecology:fruit_apple")
+	--minetest.register_alias("mapgen_jungletree", "lib_ecology:tree_jungle_01_trunk")
+	--minetest.register_alias("mapgen_jungleleaves", "lib_ecology:tree_jungle_01_leaves")
+	--minetest.register_alias("mapgen_junglegrass", "lib_ecology:shrub_jungle")
+	--minetest.register_alias("mapgen_pine_tree", "lib_ecology:tree_pine_01_trunk")
+	--minetest.register_alias("mapgen_pine_needles", "lib_ecology:tree_pine_01_leaves")
 
 
 

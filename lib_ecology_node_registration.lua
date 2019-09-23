@@ -672,37 +672,70 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 	local RADIUS = 6
 
 	if string.find(node_name, "_leaves") then
-		new_node_def.after_place_node = function(pos, placer, itemstack, pointed_thing)
-			if placer and placer:is_player() and not placer:get_player_control().sneak then
+		if string.find(node_name, "_tree_leaves") then
+			new_node_def.after_place_node = function(pos, placer, itemstack, pointed_thing)
+				if placer and placer:is_player() and not placer:get_player_control().sneak then
+					local node = minetest.get_node(pos)
+					node.param2 = 1
+					minetest.set_node(pos, node)
+				end
+			end
+			new_node_def.on_timer = function(pos)
 				local node = minetest.get_node(pos)
-				node.param2 = 1
-				minetest.set_node(pos, node)
-			end
-		end
-		new_node_def.on_timer = function(pos)
-			if minetest.find_node_near(pos, RADIUS, "lib_ecology:tree_"..node_name.."_trunk") then
-				return false
-			end
-			local node = minetest.get_node(pos)
-			local drops = minetest.get_node_drops(node.name)
-			for _, item in ipairs(drops) do
-				local is_leaf
-				for _, v in pairs({"lib_ecology:"..node_name..""}) do
-					if v == item then
-						is_leaf = true
+				local drops = minetest.get_node_drops(node.name)
+				for _, item in ipairs(drops) do
+					local is_leaf
+					for _, v in pairs({"lib_ecology:"..node_name..""}) do
+						if v == item then
+							is_leaf = true
+						end
+					end
+					if minetest.get_item_group(item, "leafdecay_drop") ~= 0 or
+							not is_leaf then
+						minetest.add_item({
+							x = pos.x - 0.5 + math.random(),
+							y = pos.y - 0.5 + math.random(),
+							z = pos.z - 0.5 + math.random(),
+						}, item)
 					end
 				end
-				if minetest.get_item_group(item, "leafdecay_drop") ~= 0 or
-						not is_leaf then
-					minetest.add_item({
-						x = pos.x - 0.5 + math.random(),
-						y = pos.y - 0.5 + math.random(),
-						z = pos.z - 0.5 + math.random(),
-					}, item)
+				minetest.remove_node(pos)
+				minetest.check_for_falling(pos)
+			end
+
+		else
+			new_node_def.after_place_node = function(pos, placer, itemstack, pointed_thing)
+				if placer and placer:is_player() and not placer:get_player_control().sneak then
+					local node = minetest.get_node(pos)
+					node.param2 = 1
+					minetest.set_node(pos, node)
 				end
 			end
-			minetest.remove_node(pos)
-			minetest.check_for_falling(pos)
+			new_node_def.on_timer = function(pos)
+				if minetest.find_node_near(pos, RADIUS, "lib_ecology:tree_"..node_name.."_trunk") then
+					return false
+				end
+				local node = minetest.get_node(pos)
+				local drops = minetest.get_node_drops(node.name)
+				for _, item in ipairs(drops) do
+					local is_leaf
+					for _, v in pairs({"lib_ecology:"..node_name..""}) do
+						if v == item then
+							is_leaf = true
+						end
+					end
+					if minetest.get_item_group(item, "leafdecay_drop") ~= 0 or
+							not is_leaf then
+						minetest.add_item({
+							x = pos.x - 0.5 + math.random(),
+							y = pos.y - 0.5 + math.random(),
+							z = pos.z - 0.5 + math.random(),
+						}, item)
+					end
+				end
+				minetest.remove_node(pos)
+				minetest.check_for_falling(pos)
+			end
 		end
 	end
 
@@ -757,13 +790,48 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 	--game.lib.node.register("lib_ecology:"..node_name.."", new_node_def)
 	--game.lib.node.register_alias("lib_ecology", node_name, alias_mod, alias_node)
 
-	--if ((string.find(node_name, "_allface") or string.find(node_name, "_trunk") or string.find(node_name, "_wood")) and string.find(node_name, "tree_")) and not string.find(node_name, "plant") then
-	if (string.find(node_name, "_allface") and string.find(node_name, "tree_")) and not string.find(node_name, "plant") then
-		if minetest.global_exists("lib_shapes") then
-			--lib_shapes.register_basic_set("lib_ecology:"..node_name.."")
-			--lib_shapes.register_fancy_set("lib_ecology:"..node_name.."")
-			lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
-			lib_shapes.register_furniture_set("lib_ecology:"..node_name.."")
+	if minetest.global_exists("lib_shapes") then
+		if not string.find(node_name, "plant") then
+			--if ((string.find(node_name, "_allface") or string.find(node_name, "_trunk") or string.find(node_name, "_wood")) and string.find(node_name, "tree_")) and not string.find(node_name, "plant") then
+			if (string.find(node_name, "_allface") and string.find(node_name, "tree_")) then
+				if string.find(node_name, "_beech") or string.find(node_name, "_oak") or string.find(node_name, "_pine") or string.find(node_name, "_frost") or string.find(node_name, "_acacia")
+				    or string.find(node_name, "_cedar") or string.find(node_name, "_maple") or string.find(node_name, "_palm") or string.find(node_name, "_jungle") or string.find(node_name, "_cherry")
+				    or string.find(node_name, "_healing") then
+					--lib_shapes.register_basic_set("lib_ecology:"..node_name.."")
+					--lib_shapes.register_fancy_set("lib_ecology:"..node_name.."")
+					--lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
+					--lib_shapes.register_furniture_set("lib_ecology:"..node_name.."")
+					lib_shapes.register_furniture_node("lib_ecology:"..node_name.."", "bed_simple")
+					lib_shapes.register_furniture_node("lib_ecology:"..node_name.."", "chair_basic_01")
+					lib_shapes.register_furniture_node("lib_ecology:"..node_name.."", "table_basic_01")
+				end
+			end
+			if (string.find(node_name, "_wood") and string.find(node_name, "tree_")) then
+				if string.find(node_name, "_beech") or string.find(node_name, "_oak") or string.find(node_name, "_pine") or string.find(node_name, "_frost") or string.find(node_name, "_acacia")
+				    or string.find(node_name, "_cedar") or string.find(node_name, "_maple") or string.find(node_name, "_palm") or string.find(node_name, "_jungle") or string.find(node_name, "_cherry")
+				    or string.find(node_name, "_healing") or string.find(node_name, "_default") then
+					--lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_right")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_with_window")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_with_window_right")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_sliding")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_sliding_right")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "fencegate_centered")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "fencegate_centered_right")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "trapdoor_solid")
+					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "trapdoor_with_window")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_inner")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_outer")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "slab")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "ceiling")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "wall")
+					lib_shapes.register_node("lib_ecology:"..node_name.."", "wall_centered")
+					lib_shapes.register_fence_node("lib_ecology:"..node_name.."", "fence")
+					lib_shapes.register_fence_node("lib_ecology:"..node_name.."", "fence_stone_cobble_post")
+				end
+			end
 		end
 	end
 

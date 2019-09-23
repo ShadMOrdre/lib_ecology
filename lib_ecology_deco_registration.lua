@@ -151,52 +151,6 @@ local add_water_node = function(a, b, c, d, e, f, g, h, i)
 end
 
 
-
-for i, deco in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/decorations.csv")) do
-
-	--#Deco_Type, Place_On, FillRatio, Biome, Y_Min, Y_Max, Deco_Node, HeightMax, SpawnBy, NumSpawnBy
-	local decotype, placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby = unpack(deco)
-
-
-	--minetest.log(S("[MOD] lib_ecology: " .. decotype .. "; " .. placeon .. "; " .. biome .. "; " .. deconode))
-
-
-	if decotype then
-		if decotype ~= "" then
-			if decotype == "node" then
-				add_node(placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby)
-			end
-
-			if decotype == "water_node" then
-				add_node(placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby)
-			end
-
-			if decotype == "schem" then
-				if heightmax == "" then
-					add_schem(placeon, fillratio, biome, ymin, ymax, deconode)
-				else
-					add_schem(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
-				end
-			end
-
-			if decotype == "no_rot" then
-				if heightmax == "" then
-					add_schem_no_rot(placeon, fillratio, biome, ymin, ymax, deconode)
-				else
-					add_schem_no_rot(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
-				end
-
-			if decotype == "water_schem" then
-				add_schem(placeon, fillratio, biome, ymin, ymax, deconode)
-			end
-
-			end
-		end
-	end
-
-end
-
-
 -- Coral reefs
 	minetest.register_decoration({
 		name = "lib_ecology:corals_1",
@@ -476,22 +430,23 @@ end
 		deco_type = "simple",
 		place_on = {"lib_materials:dirt_mud_01"},
 		place_offset_y = -1,
-		sidelen = 4,
-		noise_params = {
-			offset = -0.004,
-			scale = 0.1,
-			spread = {x = 200, y = 200, z = 200},
-			seed = 87112,
-			octaves = 3,
-			persist = 0.7
-		},
+		sidelen = 16,
+		fill_ratio = 0.7,
+--		noise_params = {
+--			offset = -0.004,
+--			scale = 0.1,
+--			spread = {x = 200, y = 200, z = 200},
+--			seed = 87112,
+--			octaves = 3,
+--			persist = 0.7
+--		},
 		biomes = {
 			"lib_ecology_deciduous_forest_swamp",
 			"lib_materials_subtropical_rainforest_swamp",
 			"lib_materials_temperate_rainforest_swamp"
 		},
-		y_max = 0,
-		y_min = -3,
+		y_max = 1,
+		y_min = 0,
 		flags = "force_placement",
 		decoration = {"lib_ecology:plant_reedmace_water", "lib_ecology:plant_reedmace_sapling_water"},
 		param2 = 48,
@@ -504,22 +459,23 @@ end
 		deco_type = "simple",
 		place_on = {"lib_materials:dirt_silt_01"},
 		place_offset_y = -1,
-		sidelen = 4,
-		noise_params = {
-			offset = -0.004,
-			scale = 0.1,
-			spread = {x = 200, y = 200, z = 200},
-			seed = 87112,
-			octaves = 3,
-			persist = 0.7
-		},
+		sidelen = 16,
+		fill_ratio = 0.7,
+--		noise_params = {
+--			offset = -0.004,
+--			scale = 0.1,
+--			spread = {x = 200, y = 200, z = 200},
+--			seed = 87112,
+--			octaves = 3,
+--			persist = 0.7
+--		},
 		biomes = {
 			"hot_humid_beach",
 			"hot_semihumid_beach",
 			"warm_humid_beach"
 		},
-		y_max = 0,
-		y_min = -3,
+		y_max = 1,
+		y_min = 0,
 		flags = "force_placement",
 		decoration = {"lib_ecology:tree_mangrove_root"},
 		param2 = 48,
@@ -528,6 +484,49 @@ end
 
 
 
+for i, deco in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/decorations.csv")) do
+
+	--#Deco_Type, Place_On, FillRatio, Biome, Y_Min, Y_Max, Deco_Node, HeightMax, SpawnBy, NumSpawnBy
+	local decotype, placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby = unpack(deco)
+
+
+	--minetest.log(S("[MOD] lib_ecology: " .. decotype .. "; " .. placeon .. "; " .. biome .. "; " .. deconode))
+
+
+	if decotype then
+		if decotype ~= "" then
+			if decotype == "node" then
+				add_node(placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby)
+			end
+
+			if decotype == "water_node" then
+				add_node(placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby)
+			end
+
+			if decotype == "schem" then
+				if heightmax == "" then
+					add_schem(placeon, fillratio, biome, ymin, ymax, deconode)
+				else
+					add_schem(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
+				end
+			end
+
+			if decotype == "no_rot" then
+				if heightmax == "" then
+					add_schem_no_rot(placeon, fillratio, biome, ymin, ymax, deconode)
+				else
+					add_schem_no_rot(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
+				end
+
+			if decotype == "water_schem" then
+				add_schem(placeon, fillratio, biome, ymin, ymax, deconode)
+			end
+
+			end
+		end
+	end
+
+end
 
 
 
