@@ -7871,7 +7871,7 @@ lib_ecology.schematics.insert("schem_bush_rhodedendron_blooming", le_temp_schem)
 		__, __, __, __, __, __, __, __, __, __, __, __, __,
 		__, __, __, __, __, __, __, __, __, __, __, __, __,
 		__, __, __, __, __, __, __, __, __, __, __, __, __,
-		__, __, __, __, L0, F3, L0, __, __, __, __, __, __,
+		__, __, __, __, L0, F2, L0, __, __, __, __, __, __,
 		__, __, __, __, F0, L0, TN, L0, __, __, __, __, __,
 		__, __, __, __, L0, L0, L0, L0, __, __, __, __, __,
 		__, __, __, __, __, __, F2, __, __, __, __, __, __,
@@ -15076,12 +15076,16 @@ lib_ecology.schematics.insert("schem_bush_rhodedendron_blooming", le_temp_schem)
 --]]
 
 --Larch Tree
-	L0 = {name = "lib_ecology:tree_lavender_leaves",param2 = 0,prob = 254}
-	L1 = {name = "lib_ecology:tree_lavender_leaves",param2 = 0,prob = 192}
-	L2 = {name = "lib_ecology:tree_lavender_leaves",param2 = 0,prob = 128}
-	T0 = {name = "lib_ecology:tree_lavender_trunk",param2 = 0,prob = 254}
-	T3 = {name = "lib_ecology:tree_lavender_trunk",param2 = 0,prob = 128}
-	F4 = {name = "lib_ecology:fruit_lavender",param2 = 0,prob = 128}
+	L0 = {name = "lib_ecology:tree_larch_leaves",param2 = 0,prob = 254}
+	L1 = {name = "lib_ecology:tree_larch_leaves",param2 = 0,prob = 192}
+	L2 = {name = "lib_ecology:tree_larch_leaves",param2 = 0,prob = 128}
+	T0 = {name = "lib_ecology:tree_larch_trunk",param2 = 0,prob = 254}
+	T3 = {name = "lib_ecology:tree_larch_trunk",param2 = 0,prob = 128}
+	TN = {name = "lib_ecology:tree_larch_trunk",param2 = 4,prob = 254}
+	TS = {name = "lib_ecology:tree_larch_trunk",param2 = 8,prob = 254}
+	TE = {name = "lib_ecology:tree_larch_trunk",param2 = 12,prob = 254}
+	TW = {name = "lib_ecology:tree_larch_trunk",param2 = 16,prob = 254}
+	F0 = {name = "lib_ecology:tree_larch_moss",param2 = 0,prob = 128}
 	le_temp_schem =  {
 	size = {x=11, y=18, z=11},
 	data = {

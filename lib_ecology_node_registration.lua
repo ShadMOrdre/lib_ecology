@@ -845,4 +845,36 @@ end
 
 
 
+if minetest.global_exists("lib_shapes") then
+	minetest.register_alias("stairs:stair_wood", "lib_ecology:tree_default_wood_stairs")
+	minetest.register_alias("stairs:stair_inner_wood", "lib_ecology:tree_default_wood_stairs_inner")
+	minetest.register_alias("stairs:stair_outer_wood", "lib_ecology:tree_default_wood_stairs_outer")
+	minetest.register_alias("stairs:slab_wood", "lib_ecology:tree_default_wood_slab")
+
+	minetest.register_alias("stairs:stair_junglewood", "lib_ecology:tree_jungle_01_wood_stairs")
+	minetest.register_alias("stairs:stair_inner_junglewood", "lib_ecology:tree_jungle_01_wood_stairs_inner")
+	minetest.register_alias("stairs:stair_outer_junglewood", "lib_ecology:tree_jungle_01_wood_stairs_outer")
+	minetest.register_alias("stairs:slab_junglewood", "lib_ecology:tree_jungle_01_wood_slab")
+
+	minetest.register_alias("stairs:stair_acacia_wood", "lib_ecology:tree_acacia_wood_stairs")
+	minetest.register_alias("stairs:stair_inner_acacia_wood", "lib_ecology:tree_acacia_wood_stairs_inner")
+	minetest.register_alias("stairs:stair_outer_acacia_wood", "lib_ecology:tree_acacia_wood_stairs_outer")
+	minetest.register_alias("stairs:slab_acacia_wood", "lib_ecology:tree_acacia_wood_slab")
+
+	minetest.register_alias("stairs:stair_aspen_wood", "lib_ecology:tree_aspen_wood_stairs")
+	minetest.register_alias("stairs:stair_inner_aspen_wood", "lib_ecology:tree_aspen_wood_stairs_inner")
+	minetest.register_alias("stairs:stair_outer_aspen_wood", "lib_ecology:tree_aspen_wood_stairs_outer")
+	minetest.register_alias("stairs:slab_aspen_wood", "lib_ecology:tree_aspen_wood_slab")
+
+	minetest.register_alias("stairs:stair_pine_wood", "lib_ecology:tree_pine_wood_stairs")
+	minetest.register_alias("stairs:stair_inner_pine_wood", "lib_ecology:tree_pine_wood_stairs_inner")
+	minetest.register_alias("stairs:stair_outer_pine_wood", "lib_ecology:tree_pine_wood_stairs_outer")
+	minetest.register_alias("stairs:slab_pine_wood", "lib_ecology:tree_pine_wood_slab")
+end
+
+
+
+
+
+
 
