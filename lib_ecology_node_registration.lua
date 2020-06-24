@@ -25,8 +25,8 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 	-- Parse node names: transform empty strings into nil and separate node and count
 	node_name = read_node_str(node_name)
 	--descript = read_node_str(descript)
-	alias_mod = read_node_str(alias_mod)
-	alias_node = read_node_str(alias_node)
+	--alias_mod = read_node_str(alias_mod)
+	--alias_node = read_node_str(alias_node)
 
 	local new_node_def = {}
 	local new_node_type = 1
@@ -787,74 +787,121 @@ for i, stone in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/nodes.csv
 
 	minetest.register_node("lib_ecology:"..node_name.."", new_node_def)
 	minetest.register_alias(""..node_name.."", "lib_ecology:"..node_name.."")
-	--game.lib.node.register("lib_ecology:"..node_name.."", new_node_def)
-	--game.lib.node.register_alias("lib_ecology", node_name, alias_mod, alias_node)
 
-	if minetest.global_exists("lib_shapes") then
+	--if minetest.global_exists("lib_shapes")
+	if lib_materials.enable_lib_shapes == true then
 		if not string.find(node_name, "plant") then
-			--if ((string.find(node_name, "_allface") or string.find(node_name, "_trunk") or string.find(node_name, "_wood")) and string.find(node_name, "tree_")) and not string.find(node_name, "plant") then
-			if (string.find(node_name, "_allface") and string.find(node_name, "tree_")) then
-				if string.find(node_name, "_beech") or string.find(node_name, "_oak") or string.find(node_name, "_pine") or string.find(node_name, "_frost") or string.find(node_name, "_acacia")
-				    or string.find(node_name, "_cedar") or string.find(node_name, "_maple") or string.find(node_name, "_palm") or string.find(node_name, "_jungle") or string.find(node_name, "_cherry")
-				    or string.find(node_name, "_healing") then
+--
+			if string.find(node_name, "tree_acacia") or string.find(node_name, "tree_aspen") or string.find(node_name, "tree_default")
+			    or string.find(node_name, "tree_jungle") or string.find(node_name, "tree_pine") then
+
+				if (string.find(node_name, "_allface") or string.find(node_name, "_plank") or string.find(node_name, "_wood") or string.find(node_name, "_trunk")) then
+
 					--lib_shapes.register_basic_set("lib_ecology:"..node_name.."")
-					--lib_shapes.register_fancy_set("lib_ecology:"..node_name.."")
-					--lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
-					--lib_shapes.register_furniture_set("lib_ecology:"..node_name.."")
-					lib_shapes.register_furniture_node("lib_ecology:"..node_name.."", "bed_simple")
-					lib_shapes.register_furniture_node("lib_ecology:"..node_name.."", "chair_basic_01")
-					lib_shapes.register_furniture_node("lib_ecology:"..node_name.."", "table_basic_01")
-				end
-			end
-			if (string.find(node_name, "_wood") and string.find(node_name, "tree_")) then
-				if string.find(node_name, "_beech") or string.find(node_name, "_oak") or string.find(node_name, "_pine") or string.find(node_name, "_frost") or string.find(node_name, "_acacia")
-				    or string.find(node_name, "_cedar") or string.find(node_name, "_maple") or string.find(node_name, "_palm") or string.find(node_name, "_jungle") or string.find(node_name, "_cherry")
-				    or string.find(node_name, "_healing") or string.find(node_name, "_default") then
-					--lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_right")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_with_window")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_with_window_right")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_sliding")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_sliding_right")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "fencegate_centered")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "fencegate_centered_right")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "trapdoor_solid")
-					lib_shapes.register_door_node("lib_ecology:"..node_name.."", "trapdoor_with_window")
 					lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs")
 					lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_inner")
 					lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_outer")
 					lib_shapes.register_node("lib_ecology:"..node_name.."", "slab")
-					lib_shapes.register_node("lib_ecology:"..node_name.."", "ceiling")
-					lib_shapes.register_node("lib_ecology:"..node_name.."", "wall")
-					lib_shapes.register_node("lib_ecology:"..node_name.."", "wall_centered")
-					lib_shapes.register_fence_node("lib_ecology:"..node_name.."", "fence")
-					lib_shapes.register_fence_node("lib_ecology:"..node_name.."", "fence_stone_cobble_post")
+
 				end
+
+				if (string.find(node_name, "_plank") or string.find(node_name, "_wood") or string.find(node_name, "_trunk")) then
+
+					lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
+
+				end
+
+				if (string.find(node_name, "_allface") or string.find(node_name, "_trunk")) then
+
+					--lib_shapes.register_furniture_set("lib_ecology:"..node_name.."")
+
+				end
+
+				if string.find(node_name, "_wood") then
+
+					lib_shapes.register_fence_set("lib_ecology:"..node_name.."")
+
+				end
+			end
+
+			if string.find(node_name, "_cherry") or string.find(node_name, "_ebony") or string.find(node_name, "_frost") or string.find(node_name, "_healing") or string.find(node_name, "_maple")
+			    or string.find(node_name, "_oak_southern") or string.find(node_name, "_oak_red") or string.find(node_name, "_scorched") then
+
+				--if string.find(node_name, "tree_") and (string.find(node_name, "_allface") or string.find(node_name, "_plank") or string.find(node_name, "_wood") or string.find(node_name, "_trunk")) then
+
+					----lib_shapes.register_basic_set("lib_ecology:"..node_name.."")
+					--lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs")
+					--lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_inner")
+					--lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_outer")
+					--lib_shapes.register_node("lib_ecology:"..node_name.."", "slab")
+
+				--end
+
+				--if string.find(node_name, "tree_") and (string.find(node_name, "_plank") or string.find(node_name, "_wood") or string.find(node_name, "_trunk")) then
+
+					--lib_shapes.register_doors_set("lib_ecology:"..node_name.."")
+
+				--end
+
+				if string.find(node_name, "tree_") and (string.find(node_name, "_allface") or string.find(node_name, "_trunk")) then
+
+					lib_shapes.register_furniture_set("lib_ecology:"..node_name.."")
+
+				end
+
+				--if string.find(node_name, "tree_") and string.find(node_name, "_wood") then
+
+					--lib_shapes.register_fence_set("lib_ecology:"..node_name.."")
+
+				--end
+			end
+		end
+
+		if (string.find(node_name, "item_")) and (not (string.find(node_name, "_bale") or string.find(node_name, "_mat"))) then
+			if string.find(node_name, "reed") or string.find(node_name, "reet") or string.find(node_name, "hay") or string.find(node_name, "straw") then
+
+				lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered")
+				lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_right")
+				lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_with_window")
+				lib_shapes.register_door_node("lib_ecology:"..node_name.."", "door_centered_with_window_right")
+				lib_shapes.register_door_node("lib_ecology:"..node_name.."", "trapdoor_solid")
+				lib_shapes.register_door_node("lib_ecology:"..node_name.."", "trapdoor_with_window")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "roof")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_inner")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "stairs_outer")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "slab")
+				--lib_shapes.register_node("lib_ecology:"..node_name.."", "step")
+				--lib_shapes.register_node("lib_ecology:"..node_name.."", "ceiling")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "pane")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "pane_centered")
+				lib_shapes.register_node("lib_ecology:"..node_name.."", "wall")
+				--lib_shapes.register_node("lib_ecology:"..node_name.."", "wall_centered")
+
 			end
 		end
 	end
 
+--	if alias_mod ~= "" and alias_node ~= "" then
+--		minetest.register_alias(""..alias_mod..":"..alias_node.."", "lib_ecology:"..node_name.."")
+--		minetest.register_alias(""..alias_node.."", "lib_ecology:"..node_name.."")
+--	end
 
-	if alias_mod and alias_node then
-		minetest.register_alias(""..alias_mod..":"..alias_node.."", "lib_ecology:"..node_name.."")
-		minetest.register_alias(""..alias_node.."", "lib_ecology:"..node_name.."")
-	end
 
 end
 
 
-
-if minetest.global_exists("lib_shapes") then
+--[[
+if lib_materials.enable_lib_shapes == true then
 	minetest.register_alias("stairs:stair_wood", "lib_ecology:tree_default_wood_stairs")
 	minetest.register_alias("stairs:stair_inner_wood", "lib_ecology:tree_default_wood_stairs_inner")
 	minetest.register_alias("stairs:stair_outer_wood", "lib_ecology:tree_default_wood_stairs_outer")
 	minetest.register_alias("stairs:slab_wood", "lib_ecology:tree_default_wood_slab")
 
-	minetest.register_alias("stairs:stair_junglewood", "lib_ecology:tree_jungle_01_wood_stairs")
-	minetest.register_alias("stairs:stair_inner_junglewood", "lib_ecology:tree_jungle_01_wood_stairs_inner")
-	minetest.register_alias("stairs:stair_outer_junglewood", "lib_ecology:tree_jungle_01_wood_stairs_outer")
-	minetest.register_alias("stairs:slab_junglewood", "lib_ecology:tree_jungle_01_wood_slab")
+	minetest.register_alias("stairs:stair_junglewood", "lib_ecology:tree_jungle_wood_stairs")
+	minetest.register_alias("stairs:stair_inner_junglewood", "lib_ecology:tree_jungle_wood_stairs_inner")
+	minetest.register_alias("stairs:stair_outer_junglewood", "lib_ecology:tree_jungle_wood_stairs_outer")
+	minetest.register_alias("stairs:slab_junglewood", "lib_ecology:tree_jungle_wood_slab")
 
 	minetest.register_alias("stairs:stair_acacia_wood", "lib_ecology:tree_acacia_wood_stairs")
 	minetest.register_alias("stairs:stair_inner_acacia_wood", "lib_ecology:tree_acacia_wood_stairs_inner")
@@ -871,7 +918,7 @@ if minetest.global_exists("lib_shapes") then
 	minetest.register_alias("stairs:stair_outer_pine_wood", "lib_ecology:tree_pine_wood_stairs_outer")
 	minetest.register_alias("stairs:slab_pine_wood", "lib_ecology:tree_pine_wood_slab")
 end
-
+--]]
 
 
 

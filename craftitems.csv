@@ -10,7 +10,11 @@ item_light_string|Light String|lib_ecology_item_lightstring.png||
 item_cotton|Cotton Ball|lib_ecology_item_cotton.png||
 item_hay_bundle|Bundle of Hay|lib_ecology_item_hay_bundle.png||
 item_straw_bundle|Bundle of Straw|lib_ecology_item_straw_bundle.png||
+item_beans_cocoa|Cocoa Beans|lib_ecology_plant_cocoa_beans.png||
+item_beans_coffee|Coffee Beans|lib_ecology_plant_coffee_beans.png||
+item_seed_barley|Seed - Barley|lib_ecology_plant_barley_seed.png||
 item_seed_cotton|Seed - Cotton|lib_ecology_plant_cotton_seed.png||
+item_seed_wheat|Seed - Wheat|lib_ecology_plant_wheat_seed.png||
 item_bowl|Bowl|lib_ecology_item_bowl.png||
 food_bowl_applesauce|Bowl of Applesauce|lib_ecology_food_bowl_applesauce.png||
 food_bowl_chocolate|Bowl of Chocolate|lib_ecology_food_bowl_chocolate.png||
@@ -22,6 +26,7 @@ food_acorn_muffin_batter|Acorn Muffin batter|lib_ecology_food_acorn_muffin_batte
 food_acorn_muffin|Acorn Muffin|lib_ecology_food_acorn_muffin.png||4
 food_banana_bread|Banana Bread|lib_ecology_food_banana_bread.png||6
 food_banana_dough|Banana Dough|lib_ecology_food_banana_dough.png||
+food_bread|Bread|lib_ecology_food_bread.png||6
 food_candy_ancient|Ancient Candy|lib_ecology_food_ancient_candy.png||
 food_candied_apple|Candied Apple|lib_ecology_food_apple_candied.png||
 food_chocolate_bar|Chocolate Bar|lib_ecology_food_chocolate_bar.png||

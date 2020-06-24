@@ -388,12 +388,12 @@ lib_ecology.schematics.insert("schem_tree_fern_giant", le_temp_schem)
 	}
 lib_ecology.schematics.insert("schem_tree_fern", le_temp_schem)
 
-	cr = {name = "lib_ecology:fern_giant_tree_crown2", param2 = 0, prob = 254}
-	lp = {name = "lib_ecology:fern_giant_tree_leaves_2", param2 = 0, prob = 254}
-	ln = {name = "lib_ecology:fern_giant_tree_leaves_end_2", param2 = 0, prob = 254}
-	le = {name = "lib_ecology:fern_giant_tree_leaves_end_2", param2 = 1, prob = 254}
-	ls = {name = "lib_ecology:fern_giant_tree_leaves_end_2", param2 = 2, prob = 254}
-	lw = {name = "lib_ecology:fern_giant_tree_leaves_end_2", param2 = 3, prob = 254}
+	cr = {name = "lib_ecology:tree_fern_giant2_crown", param2 = 0, prob = 254}
+	lp = {name = "lib_ecology:tree_fern_giant2_leaves", param2 = 0, prob = 254}
+	ln = {name = "lib_ecology:tree_fern_giant2_leaves_end", param2 = 0, prob = 254}
+	le = {name = "lib_ecology:tree_fern_giant2_leaves_end", param2 = 1, prob = 254}
+	ls = {name = "lib_ecology:tree_fern_giant2_leaves_end", param2 = 2, prob = 254}
+	lw = {name = "lib_ecology:tree_fern_giant2_leaves_end", param2 = 3, prob = 254}
 	le_temp_schem = {
 		size = {x = 7, y = 7, z = 7},
 		data = {

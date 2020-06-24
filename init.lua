@@ -31,7 +31,7 @@ lib_ecology.maxheight_highland = lib_ecology.maxheight_shelf + lib_ecology.biome
 lib_ecology.maxheight_mountain = lib_ecology.maxheight_highland + lib_ecology.biome_altitude_range
 lib_ecology.minheight_snow = lib_ecology.maxheight_mountain + lib_ecology.biome_altitude_range
 lib_ecology.maxheight_snow = lib_ecology.minheight_snow  + (lib_ecology.biome_altitude_range * 2)
-lib_ecology.maxheight_strato = lib_ecology.maxheight_snow  + (lib_ecology.biome_altitude_range * (lib_ecology.mgv7_mapgen_scale_factor / 2))
+lib_ecology.maxheight_strato = lib_ecology.maxheight_mountain  + (lib_ecology.biome_altitude_range * (lib_ecology.mgv7_mapgen_scale_factor / 2))
 
 lib_ecology.temperature_hot = lib_materials.temperature_hot or 90
 lib_ecology.temperature_warm = lib_materials.temperature_warm or 75
@@ -44,7 +44,7 @@ lib_ecology.humidity_temperate = lib_materials.humidity_temperate or 50
 lib_ecology.humidity_semiarid = lib_materials.humidity_semiarid or 25
 lib_ecology.humidity_arid = lib_materials.humidity_arid or 10
 
-lib_ecology.biome_vertical_blend = lib_materials.biome_vertical_blend or (lib_ecology.biome_altitude_range / 5)
+lib_ecology.biome_vertical_blend = lib_ecology.biome_altitude_range / 5
 
 minetest.set_gen_notify("alternative_cave")
 
@@ -71,7 +71,9 @@ lib_ecology.intllib = S
 minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 
 	lib_ecology.read_csv = dofile(lib_ecology.path .. "/csv.lua")
-
+	
+	lib_ecology.N = {}
+	lib_ecology.schem = dofile(lib_ecology.path.."/lib_ecology_schem.lua")
 	dofile(lib_ecology.path.."/lib_ecology_schematic.lua")
 
 	dofile(lib_ecology.path.."/lib_ecology_sound_defaults.lua")

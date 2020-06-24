@@ -55,6 +55,84 @@ local add_schem = function(a, b, c, d, e, f, g)
 	})
 end
 
+local new_add_schem = function(a, b, c, d, e, f, g)
+
+	--if h ~= 1 then return end
+
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = a,
+		sidelen = 16,
+		fill_ratio = tonumber(b),
+		biomes = c,
+		y_min = tonumber(d) or (heights[d] - lib_ecology.biome_vertical_blend),
+		y_max = tonumber(e) or (heights[e] + lib_ecology.biome_vertical_blend),
+		schematic = lib_ecology.schem(f),
+		flags = g or "place_center_x, place_center_z",
+		rotation = "random",
+	})
+end
+
+local add_tree = function(a, b, c, d, e, f, g)
+
+	for t_idx,tree in pairs(f:split(";", true)) do
+
+		local t_tree
+		local t_replace
+
+		if string.find(tree, "-") then
+			t_tree, t_replace = unpack(tree:split("-", true))
+		else
+			t_tree = tree
+		end
+
+		minetest.register_decoration({
+			deco_type = "schematic",
+			place_on = a,
+			sidelen = 16,
+			fill_ratio = tonumber(b),
+			biomes = c,
+			y_min = tonumber(d) or (heights[d] - lib_ecology.biome_vertical_blend),
+			y_max = tonumber(e) or (heights[e] + lib_ecology.biome_vertical_blend),
+			schematic = lib_ecology.schem(t_tree, t_replace),
+			flags = g or "place_center_x, place_center_z",
+			rotation = "random",
+		})
+
+	end
+end
+
+local add_plant = function(a, b, c, d, e, f, g, h, i)
+
+	local decos
+
+	if string.find(f, ";") then
+		decos = {}
+		for p_idx,plant in pairs(f:split(";", true)) do
+			decos[p_idx] = "lib_ecology:" .. plant .. ""
+		end
+	else
+		decos = f
+	end
+
+	--minetest.log("[MOD] lib_ecology:  PLACE_ON: " .. a .. ";     DECO: " .. f .. ";")
+
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = a,
+		sidelen = 16,
+		fill_ratio = tonumber(b),
+		biomes = c,
+		y_min = tonumber(d) or (heights[d] - lib_ecology.biome_vertical_blend),
+		y_max = tonumber(e) or (heights[e] + lib_ecology.biome_vertical_blend),
+		--decoration = f,
+		decoration = decos,						--f:split(";", true),
+		height_max = tonumber(g),
+		spawn_by = h,
+		num_spawn_by = tonumber(i),
+	})
+end
+
 local add_schem_no_rot = function(a, b, c, d, e, f, g)
 
 	--if h ~= 1 then return end
@@ -216,7 +294,7 @@ end
 
 -- Kelp
 	minetest.register_decoration({
-		name = "lib_ecology:kelp",
+		name = "lib_ecology:kelp_1",
 		deco_type = "simple",
 		place_on = {"lib_materials:sand"},
 		place_offset_y = -1,
@@ -240,12 +318,12 @@ end
 		y_max = -5,
 		y_min = -10,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_kelp_01"},
+		decoration = {"lib_ecology:plant_kelp_1"},
 		param2 = 48,
 		param2_max = 96,
 	})
 	minetest.register_decoration({
-		name = "lib_ecology:kelp_02_1",
+		name = "lib_ecology:kelp_2",
 		deco_type = "simple",
 		place_on = {"lib_materials:sand"},
 		place_offset_y = -1,
@@ -269,12 +347,12 @@ end
 		y_max = -5,
 		y_min = -10,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_kelp_02_1"},
+		decoration = {"lib_ecology:plant_kelp_2"},
 		param2 = 48,
 		param2_max = 96,
 	})
 	minetest.register_decoration({
-		name = "lib_ecology:kelp_02_2",
+		name = "lib_ecology:kelp_giant_brown",
 		deco_type = "simple",
 		place_on = {"lib_materials:sand"},
 		place_offset_y = -1,
@@ -298,12 +376,12 @@ end
 		y_max = -5,
 		y_min = -10,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_kelp_02_2"},
+		decoration = {"lib_ecology:plant_kelp_giant_brown"},
 		param2 = 48,
 		param2_max = 96,
 	})
 	minetest.register_decoration({
-		name = "lib_ecology:seaweed",
+		name = "lib_ecology:seaweed_temperate",
 		deco_type = "simple",
 		place_on = {"lib_materials:sand"},
 		place_offset_y = -1,
@@ -327,12 +405,12 @@ end
 		y_max = -5,
 		y_min = -10,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_seaweed"},
+		decoration = {"lib_ecology:plant_seaweed_temperate"},
 		param2 = 48,
 		param2_max = 96,
 	})
 	minetest.register_decoration({
-		name = "lib_ecology:seaweed2",
+		name = "lib_ecology:seaweed_tropical",
 		deco_type = "simple",
 		place_on = {"lib_materials:sand"},
 		place_offset_y = -1,
@@ -356,12 +434,12 @@ end
 		y_max = -5,
 		y_min = -10,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_seaweed2"},
+		decoration = {"lib_ecology:plant_seaweed_tropical"},
 		param2 = 48,
 		param2_max = 96,
 	})
 	minetest.register_decoration({
-		name = "lib_ecology:seaweed3",
+		name = "lib_ecology:sea_pickle",
 		deco_type = "simple",
 		place_on = {"lib_materials:sand"},
 		place_offset_y = -1,
@@ -385,7 +463,7 @@ end
 		y_max = -5,
 		y_min = -10,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_seaweed3"},
+		decoration = {"lib_ecology:plant_sea_pickle"},
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -407,8 +485,11 @@ end
 		},
 		biomes = {
 			"hot_semiarid_ocean",
+			"warm_temperate_ocean",
 			"warm_semiarid_ocean",
+			"temperate_temperate_ocean",
 			"temperate_semiarid_ocean",
+			"cool_temperate_ocean",
 			"cool_semiarid_ocean",
 		},
 		y_max = -5,
@@ -416,13 +497,43 @@ end
 		flags = "force_placement",
 		decoration = {
 			"lib_ecology:grass_sea_1", "lib_ecology:grass_sea_2",
-			"lib_ecology:grass_sea_3",
+			"lib_ecology:grass_sea_3", "lib_ecology:grass_sea_subtropical",
+			"lib_ecology:grass_sea_temperate", "lib_ecology:grass_sea_tropical",
 		},
 		param2 = 48,
 		param2_max = 96,
 	})
 
 
+
+
+	minetest.register_decoration({
+		name = "lib_ecology:plant_waterlily",
+		deco_type = "simple",
+		place_on = {"lib_materials:liquid_water_source"},
+		place_offset_y = 0,
+		sidelen = 16,
+		fill_ratio = 0.7,
+--		noise_params = {
+--			offset = -0.004,
+--			scale = 0.1,
+--			spread = {x = 200, y = 200, z = 200},
+--			seed = 87112,
+--			octaves = 3,
+--			persist = 0.7
+--		},
+		biomes = {
+			"deciduous_forest_swamp",
+			"subtropical_rainforest_swamp",
+			"temperate_rainforest_swamp"
+		},
+		y_max = 1,
+		y_min = 0,
+		flags = "force_placement",
+		decoration = {"lib_ecology:plant_waterlily_pink", "lib_ecology:plant_waterlily_yellow"},
+		param2 = 48,
+		param2_max = 96,
+	})
 
 
 	minetest.register_decoration({
@@ -441,9 +552,9 @@ end
 --			persist = 0.7
 --		},
 		biomes = {
-			"lib_ecology_deciduous_forest_swamp",
-			"lib_materials_subtropical_rainforest_swamp",
-			"lib_materials_temperate_rainforest_swamp"
+			"deciduous_forest_swamp",
+			"subtropical_rainforest_swamp",
+			"temperate_rainforest_swamp"
 		},
 		y_max = 1,
 		y_min = 0,
@@ -508,6 +619,30 @@ for i, deco in ipairs(lib_ecology.read_csv("|", lib_ecology.path .. "/decoration
 					add_schem(placeon, fillratio, biome, ymin, ymax, deconode)
 				else
 					add_schem(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
+				end
+			end
+
+			if decotype == "newschem" then
+				if heightmax == "" then
+					new_add_schem(placeon, fillratio, biome, ymin, ymax, deconode)
+				else
+					new_add_schem(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
+				end
+			end
+
+			if decotype == "trees" then
+				if heightmax == "" then
+					add_tree(placeon, fillratio, biome, ymin, ymax, deconode)
+				else
+					add_tree(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
+				end
+			end
+
+			if decotype == "plants" then
+				if heightmax == "" then
+					add_plant(placeon, fillratio, biome, ymin, ymax, deconode, heightmax, spawnby, numspawnby)
+				else
+					add_plant(placeon, fillratio, biome, ymin, ymax, deconode, heightmax)
 				end
 			end
 
