@@ -8,9 +8,33 @@ lib_ecology.name = "lib_ecology"
 lib_ecology.ver_max = 5
 lib_ecology.ver_min = 0
 lib_ecology.ver_rev = 2
+lib_ecology.ver_str = lib_ecology.ver_max .. "." .. lib_ecology.ver_min .. "." .. lib_ecology.ver_rev
+lib_ecology.authorship = "ShadMOrdre.  Additional credits to Tenplus1, Gail de Sailly, VannessaE, runs, and numerous others."
+lib_ecology.license = "LGLv2.1"
+lib_ecology.copyright = "2019"
 lib_ecology.path_mod = minetest.get_modpath(minetest.get_current_modname())
 lib_ecology.path_world = minetest.get_worldpath()
 lib_ecology.path = lib_ecology.path_mod
+
+
+-- Intllib
+--local MP
+local S
+local NS
+if minetest.get_modpath("intllib") then
+	S = intllib.Getter()
+else
+	--S = function(s) return s end
+	-- internationalization boilerplate
+	S, NS = dofile(lib_ecology.path_mod.."/intllib.lua")
+end
+lib_ecology.intllib = S
+
+
+minetest.log(S("[MOD] lib_ecology:  Loading..."))
+minetest.log(S("[MOD] lib_ecology:  Version:") .. S(lib_ecology.ver_str))
+minetest.log(S("[MOD] lib_ecology:  Legal Info: Copyright ") .. S(lib_ecology.copyright) .. " " .. S(lib_ecology.authorship) .. "")
+minetest.log(S("[MOD] lib_ecology:  License: ") .. S(lib_ecology.license) .. "")
 
 
 lib_ecology.time_factor = 10
@@ -53,23 +77,6 @@ minetest.set_gen_notify("alternative_cave")
 --minetest.clear_registered_decorations()
 --minetest.clear_registered_ores()
 
--- Intllib
---local MP
-local S
-local NS
-if minetest.get_modpath("intllib") then
-	S = intllib.Getter()
-else
-	--S = function(s) return s end
-	-- internationalization boilerplate
-	--MP = minetest.get_modpath(minetest.get_current_modname())
-	S, NS = dofile(lib_ecology.path.."/intllib.lua")
-end
-lib_ecology.intllib = S
-
-
-minetest.log(S("[MOD]: lib_ecology:  Loading..."))
-
 	lib_ecology.read_csv = dofile(lib_ecology.path .. "/csv.lua")
 	
 	lib_ecology.N = {}
@@ -81,21 +88,6 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 	dofile(lib_ecology.path.."/useful_code_samples.lua")
 
 
---[[The following two code files and media from Minetest Ethereal Mod (6th December 2016)
-	Created by ChinChow 	Updated by TenPlus1
-	Integrated into lib_ecology by ShadMOrdre 2017-2019
-]]
-		--dofile(lib_ecology.path .. "/lib_ecology_fishing.lua")
-
-		--dofile(lib_ecology.path .. "/lib_ecology_water_mechanics.lua")
-
--- Prevent rivers from flowing through (the air in) caves.
-	--minetest.override_item("default:river_water_source", {is_ground_content = true})
-
-		--dofile(lib_ecology.path.."/lib_ecology_plant.lua")
-
-		--dofile(lib_ecology.path.."/lib_ecology_tree.lua")
-
 --Trees
 	dofile(lib_ecology.path.."/lib_ecology_tree_utils.lua")
 
@@ -103,46 +95,18 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 
 	dofile(lib_ecology.path.."/mushrooms.lua")
 
-		--dofile(lib_ecology.path.."/lib_ecology_schem_models_1.lua")
-
 	dofile(lib_ecology.path.."/lib_ecology_schematics.lua")
 
-		--dofile(lib_ecology.path.."/lib_ecology_biomes.lua")
-
---minetest.log(S("[MOD]: lib_ecology:  Section: Remaining valleys_c code  loading..."))
-
--- Valleys_c Schematics
-	--Plants
-
-		--dofile(lib_ecology.path.."/valleys_c/deco_coral.lua")
-
-		--dofile(lib_ecology.path.."/valleys_c/deco_rocks.lua")
-
-		--dofile(lib_ecology.path.."/valleys_c/deco_caves.lua")
-
-		--dofile(lib_ecology.path.."/valleys_c/deco_fungal_tree.lua")
-
-		--dofile(lib_ecology.path.."/valleys_c/deco_water.lua")
-
-
-	--dofile(lib_ecology.path.."/lib_ecology_extra.lua")
-
-		--dofile(lib_ecology.path .. "/lib_ecology_seedling.lua")
+--Plants
 
 	dofile(lib_ecology.path .. "/lib_ecology_craftitems.lua")
 
 	dofile(lib_ecology.path .. "/lib_ecology_craftrecipes.lua")
 
-		--dofile(lib_ecology.path.."/lib_ecology_decorations.lua")
-
 	dofile(lib_ecology.path.."/lib_ecology_deco_registration.lua")
 
-	--dofile(lib_ecology.path.."/rnd_tree_init.lua")
 
-
-		--dofile(lib_ecology.path.."/lib_ecology_chatcommands.lua")
-
-
+--[[
 --v6 Mapgen Aliases
 	minetest.register_alias("mapgen_tree", "lib_ecology:tree_default_trunk")
 	minetest.register_alias("mapgen_leaves", "lib_ecology:tree_default_leaves")
@@ -152,7 +116,7 @@ minetest.log(S("[MOD]: lib_ecology:  Loading..."))
 	minetest.register_alias("mapgen_junglegrass", "lib_ecology:shrub_jungle")
 	minetest.register_alias("mapgen_pine_tree", "lib_ecology:tree_pine_01_trunk")
 	minetest.register_alias("mapgen_pine_needles", "lib_ecology:tree_pine_01_leaves")
-
+--]]
 
 
 

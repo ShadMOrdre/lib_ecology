@@ -95,7 +95,7 @@ local add_tree = function(a, b, c, d, e, f, g)
 			y_min = tonumber(d) or (heights[d] - lib_ecology.biome_vertical_blend),
 			y_max = tonumber(e) or (heights[e] + lib_ecology.biome_vertical_blend),
 			schematic = lib_ecology.schem(t_tree, t_replace),
-			flags = g or "place_center_x, place_center_z",
+			flags = g or "place_center_x, place_center_z, force_placement",
 			rotation = "random",
 		})
 
@@ -164,7 +164,7 @@ local add_schem_water = function(a, b, c, d, e, f, g, h)
 		y_min = tonumber(d) or heights[d],
 		y_max = tonumber(e) or heights[e],
 		schematic = lib_ecology.schematics.select(f),
-		flags = g or "place_center_x, place_center_z",
+		flags = g or "place_center_x, place_center_z, force_placement",
 		rotation = "0",
 	})
 end
@@ -510,7 +510,7 @@ end
 	minetest.register_decoration({
 		name = "lib_ecology:plant_waterlily",
 		deco_type = "simple",
-		place_on = {"lib_materials:liquid_water_source"},
+		place_on = {"lib_materials:liquid_water_source", },
 		place_offset_y = 0,
 		sidelen = 16,
 		fill_ratio = 0.7,
@@ -530,7 +530,7 @@ end
 		y_max = 1,
 		y_min = 0,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_waterlily_pink", "lib_ecology:plant_waterlily_yellow"},
+		decoration = {"lib_ecology:plant_waterlily_pink", "lib_ecology:plant_waterlily_yellow", },
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -539,7 +539,7 @@ end
 	minetest.register_decoration({
 		name = "lib_ecology:reedmace_water",
 		deco_type = "simple",
-		place_on = {"lib_materials:dirt_mud_01"},
+		place_on = {"lib_materials:dirt_mud_01", },
 		place_offset_y = -1,
 		sidelen = 16,
 		fill_ratio = 0.7,
@@ -559,7 +559,7 @@ end
 		y_max = 1,
 		y_min = 0,
 		flags = "force_placement",
-		decoration = {"lib_ecology:plant_reedmace_water", "lib_ecology:plant_reedmace_sapling_water"},
+		decoration = {"lib_ecology:plant_reedmace_water", "lib_ecology:plant_reedmace_sapling_water", },
 		param2 = 48,
 		param2_max = 96,
 	})
@@ -589,6 +589,25 @@ end
 		y_min = 0,
 		flags = "force_placement",
 		decoration = {"lib_ecology:tree_mangrove_root"},
+		param2 = 48,
+		param2_max = 96,
+	})
+	minetest.register_decoration({
+		name = "lib_ecology:mangroves",
+		deco_type = "simple",
+		place_on = {"lib_ecology:tree_mangrove_root"},
+		place_offset_y = -1,
+		sidelen = 16,
+		fill_ratio = 0.7,
+		biomes = {
+			"hot_humid_beach",
+			"hot_semihumid_beach",
+			"warm_humid_beach"
+		},
+		y_max = 1,
+		y_min = 0,
+		flags = "force_placement",
+		decoration = {"lib_ecology:tree_mangrove_sapling"},
 		param2 = 48,
 		param2_max = 96,
 	})
